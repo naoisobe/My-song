@@ -33,5 +33,3 @@ Metrics/AbcSize:
 Lint/SuppressedException:
   Enabled: false
 
-Lint/SuppressedException:
-  Enabled: false
