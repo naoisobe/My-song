@@ -68,4 +68,3 @@ workflows:
     jobs:
       - rubocop
       - rspec:
-
