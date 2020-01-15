@@ -1,0 +1,15 @@
+<%= form_for @song do |f|%>
+<%= f.label :title, "タイトル" %>
+<%= f.text_field :title %>
+
+<%= f.label :description, "説明文" %>
+<%= f.text_area :description %>
+
+<%= f.label :voice, "音声ファイル" %>
+<%= f.file_field :voice %>
+
+<%= f.label :thumbnail, "サムネイル画像" %>
+<%= f.file_field :thumbnail %>
+
+<%= f.submit %>
+<% end %>
