@@ -14,5 +14,9 @@ class User < ApplicationRecord
   has_many :songs, dependent: :destroy
   has_many :users, dependent: :destroy
   has_many :likes
-  has_many :liked_song, through: :likes, source: :song
+  has_many :liked_songs, through: :likes, source: :song
+
+  def already_liked?(song)
+    self.likes.exists?(song_id: song.id)
+  end
 end

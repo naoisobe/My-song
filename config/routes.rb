@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'likes/create'
-  get 'likes/destroy'
   root 'home#index'
   get 'home/about'
   devise_for :users
