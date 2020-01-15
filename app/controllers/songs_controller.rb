@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
   def index
+    @song = Song.all
   end
 
   def show
@@ -10,21 +11,27 @@ class SongsController < ApplicationController
   def edit
   end
 
-  def new 
+  def my_list
+    @song = Song.where(user_id: params[:id])
+    @user = User.find(params[:id])
+  end
+
+  def new
     @song = Song.new
-  end 
+  end
 
   def create
     @song = Song.new(song_params)
     @song.user_id = current_user.id
     if @song.save
       redirect_to song_path(@song)
-    else 
+    else
       render new_song_path
     end
   end
 
   private
+
   def song_params
     params.require(:song).permit(:title, :description, :thumbnail, :voice)
   end

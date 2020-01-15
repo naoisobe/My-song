@@ -12,6 +12,12 @@ AllCops:
     - "node_modules/**/*"
     - "db/migrate/*.rb"
     - "bin/*"
+    - config/spring.rb
+    - config/unicorn.rb
+    - config/deploy.rb
+    - config/deploy/production.rb
+    - config/application.rb
+    - config/environments/development.rb
 
 Rails:
   Enabled: true
