@@ -1,2 +1,6 @@
-<h1>Songs#show</h1>
-<p>Find me in app/views/songs/show.html.erb</p>
+<%= audio_tag(@song.voice) %>
+<%= @song.title %>
+<%= @song.description %>
+<%= link_to user_path(@user) do %>
+<%= @user.name %>
+<% end %>

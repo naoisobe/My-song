@@ -14,7 +14,8 @@
 !/tmp/.keep
 
 # Ignore docker db
-/docker/db
+docker/db/data/ibdata1
+
 
 # Ignore uploaded files in development
 /storage/*

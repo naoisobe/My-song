@@ -17,3 +17,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require audiojs
+
+audiojs.events.ready(function () {
+  var as = audiojs.createAll();
+});
