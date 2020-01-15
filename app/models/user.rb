@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+    mount_uploader :profile_image, ProfileImageUploader
+
     enum member_status: { general_member: 0, paid_member: 1 }
 
     validates :name, presence: true, uniqueness: true, length: { minimum: 6 }

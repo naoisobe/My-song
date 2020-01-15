@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2020_01_15_055728) do
 
   create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.text "description"
     t.string "user_id"
     t.string "thumbnail"
-    t.string "voice"
+    t.string "voice", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_01_15_055728) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "profile_image_id"
+    t.string "profile_image"
     t.integer "member_status", default: 0, null: false
     t.string "description"
     t.string "name", null: false

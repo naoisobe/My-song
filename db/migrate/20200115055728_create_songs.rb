@@ -5,7 +5,7 @@ class CreateSongs < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :user_id
       t.string :thumbnail
-      t.string :voice null: false
+      t.string :voice, null: false
 
       t.timestamps
     end
