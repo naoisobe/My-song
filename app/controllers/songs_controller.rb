@@ -13,6 +13,14 @@ class SongsController < ApplicationController
   end 
 
   def create
+    binding.pry
+    @song = Song.new(song_params)
+    @song.user_id = current_user.id
+    if @song.save
+      redirect_to song_path(@song)
+    else 
+      render new_song_path
+    end
   end
 
   private
