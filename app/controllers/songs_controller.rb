@@ -13,7 +13,6 @@ class SongsController < ApplicationController
   end 
 
   def create
-    binding.pry
     @song = Song.new(song_params)
     @song.user_id = current_user.id
     if @song.save
@@ -25,6 +24,6 @@ class SongsController < ApplicationController
 
   private
   def song_params
-    params.require.(:song).permit(:title, :description, :thumbnail, :voice)
+    params.require(:song).permit(:title, :description, :thumbnail, :voice)
   end
 end

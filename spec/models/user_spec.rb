@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
       user.create(:user, name: 'testtaro')
       other_user = build(:user, name: 'testtaro')
       other_user.valid?
-      expect(other_user.errors[:name]).to include('すでに存在しています7)
+      expect(other_user.errors[:name]).to include('すでに存在しています7')
     end
 
     it '名前が６文字以上なら有効' do
@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
     end
 
-    it 7名前が５文字以下なら無効' do
+    it '7名前が５文字以下なら無効' do
       user = create(:user, name: 'a'*5)
       user.valid?
       expect(user.errors[:name]).to include('６文字以上で入力してください')

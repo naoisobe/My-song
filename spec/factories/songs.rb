@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :song do
-    title { "MyString" }
+    title { "MySong" }
     description { "MyText" }
-    user_id { "MyString" }
-    thumbnail { "MyString" }
-    voice { "MyString" }
+    user_id { 1 }
+    thumbnail { "Mythumbnail" }
+    voice { "Myvoice" }
   end
 end
