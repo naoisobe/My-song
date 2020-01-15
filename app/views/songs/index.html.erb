@@ -1,2 +1,16 @@
-<h1>Songs#index</h1>
-<p>Find me in app/views/songs/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-1">
+    </div>
+    <div class="col-11">
+      <% @song.each do |song| %>
+        <div class="col-3">
+        <%= image_tag song.thumbnail.to_s, size:'300x200'  %>
+        <%= song.title %>
+        <%= image_tag song.user.profile_image.to_s, size:'30x30'  %>
+        <%= song.user.name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

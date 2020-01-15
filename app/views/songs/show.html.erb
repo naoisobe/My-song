@@ -1,2 +1,7 @@
-<h1>Songs#show</h1>
-<p>Find me in app/views/songs/show.html.erb</p>
+<%= image_tag @song.thumbnail.to_s, :size =>"500x300"%>
+<%= audio_tag(@song.voice) %>
+<%= @song.title %>
+<%= @song.description %>
+<%= link_to user_path(@user) do %>
+<%= @user.name %>
+<% end %>

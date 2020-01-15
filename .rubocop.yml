@@ -8,10 +8,17 @@ AllCops:
     - "config/puma.rb"
     - "vendor/**/*"
     - spec/**/*
+    - app/uploaders/*
     - "db/schema.rb"
     - "node_modules/**/*"
     - "db/migrate/*.rb"
     - "bin/*"
+    - config/spring.rb
+    - config/unicorn.rb
+    - config/deploy.rb
+    - config/deploy/production.rb
+    - config/application.rb
+    - config/environments/*
 
 Rails:
   Enabled: true
@@ -32,6 +39,9 @@ Metrics/LineLength:
   Enabled: false
 
 Metrics/AbcSize:
+  Enabled: false
+
+Style/EmptyMethod:
   Enabled: false
 
 Lint/SuppressedException:

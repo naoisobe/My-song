@@ -15,4 +15,14 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap";
-@import "home"
+@import "home";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  margin: 0;
+  padding: 0;
+}

@@ -3,9 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-    enum member_status: { general_member: 0, paid_member: 1 }
 
-    validates :name, presence: true, uniqueness: true, length: { minimum: 6 }
-    validates :description, length: { maximum: 100 }
-    
+  mount_uploader :profile_image, ProfileImageUploader
+
+  enum member_status: { general_member: 0, paid_member: 1 }
+
+  validates :name, presence: true, uniqueness: true, length: { minimum: 6 }
+  validates :description, length: { maximum: 100 }
+
+  has_many :songs, dependent: :destroy
 end
