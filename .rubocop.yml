@@ -41,6 +41,9 @@ Metrics/LineLength:
 Metrics/AbcSize:
   Enabled: false
 
+Style/EmptyMethod:
+  Enabled: false
+
 Lint/SuppressedException:
   Enabled: false
 
