@@ -8,6 +8,7 @@ AllCops:
     - "config/puma.rb"
     - "vendor/**/*"
     - spec/**/*
+    - app/uploaders/*
     - "db/schema.rb"
     - "node_modules/**/*"
     - "db/migrate/*.rb"
@@ -17,7 +18,7 @@ AllCops:
     - config/deploy.rb
     - config/deploy/production.rb
     - config/application.rb
-    - config/environments/development.rb
+    - config/environments/*
 
 Rails:
   Enabled: true

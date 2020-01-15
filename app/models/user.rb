@@ -11,6 +11,6 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: { minimum: 6 }
   validates :description, length: { maximum: 100 }
 
-  has_many :songs
-    
+  has_many :songs, dependent: :destroy
+
 end
