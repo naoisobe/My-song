@@ -1,7 +1,7 @@
 class ThumbnailUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -14,13 +14,14 @@ class ThumbnailUploader < CarrierWave::Uploader::Base
   end
 
 version :thumb do
-     process :resize_to_fit => [300, 300]
-   end
+    process :resize_to_limit => [30, 30]
+  end
 
-   def default_url
-       ActionController::Base.helpers.asset_path("fallback/" + [version_name, "not-thumbnail.jpg"].compact.join('_'))
-   end
-
+  def default_url(*args)
+  #   # For Rails 3.1+ asset pipeline compatibility:
+  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+    "not-thumbnail.jpg"
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
