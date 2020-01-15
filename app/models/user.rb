@@ -12,4 +12,7 @@ class User < ApplicationRecord
   validates :description, length: { maximum: 100 }
 
   has_many :songs, dependent: :destroy
+  has_many :users, dependent: :destroy
+  has_many :likes
+  has_many :liked_song, through: :likes, source: :song
 end
