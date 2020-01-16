@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_back(fallback_location: root_path)
     else 
-      redirect_back(fallback_location: root_path)
+      render "songs/show"
     end
   end
 
