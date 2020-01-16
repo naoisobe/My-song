@@ -6,6 +6,7 @@ class SongsController < ApplicationController
   def show
     @song = Song.find(params[:id])
     @user = @song.user
+    @like = Like.new
   end
 
   def edit
