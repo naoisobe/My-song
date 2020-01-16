@@ -17,6 +17,10 @@ class User < ApplicationRecord
   has_many :likes
   has_many :liked_songs, through: :likes, source: :song
 
+  def my_comment?(comment)
+    self.comments.exists?(id: comment.id)
+  end
+
   def already_liked?(song)
     self.likes.exists?(song_id: song.id)
   end

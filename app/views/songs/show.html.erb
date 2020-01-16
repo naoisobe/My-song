@@ -1,21 +1,37 @@
+<!--投稿された歌 -->
 <%= image_tag @song.thumbnail.to_s, :size =>"500x300"%>
 <%= audio_tag(@song.voice) %>
 <%= @song.title %>
 <%= @song.description %>
+<!--いいね機能 -->
 <% if current_user.already_liked?(@song) %>
   <%= button_to like_path(@song), method: :delete, style: "border-style: none;" do %>
-  <%= icon("fas", "heart") %>
+    <%= icon("fas", "heart") %>
   <% end %>
-  <%= @song.likes.count %>
 <% else %>
   <%= form_for @like, url:likes_path do |f| %>
-  <%= f.hidden_field :song_id, :value => @song.id %>
-  <%= f.button :type => "submit", style: "border-style: none;" do %>
-  <%= icon("far", "heart") %>
+    <%= f.hidden_field :song_id, :value => @song.id %>
+    <%= f.button :type => "submit", style: "border-style: none;" do %>
+      <%= icon("far", "heart") %>
+    <% end %>
   <% end %>
-  <% end %>
-  <%= @song.likes.count %>
 <% end %>
+<%= @song.likes.count %>
+<!--投稿したユーザー-->
 <%= link_to user_path(@user) do %>
 <%= @user.name %>
 <% end %>
+<!--コメント欄-->
+<%= form_for @comment, url: comments_path do |f| %>
+<%= f.hidden_field :song_id, :value => @song.id %>
+<%= f.text_field :content %>
+<%= f.submit "送信" %>
+<% end %>
+<% @comments.each do |comment| %>
+  <%= comment.content %>
+  <% if current_user.my_comment?(comment) %>
+    <%= button_to "削除", comment_path(comment), method: :delete %>
+  <% end %>
+<% end %>
+
+
