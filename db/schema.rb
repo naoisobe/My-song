@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_163817) do
+ActiveRecord::Schema.define(version: 2020_01_17_125935) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2020_01_16_163817) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "practices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "voice"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_practices_on_user_id"
+  end
+
   create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
@@ -77,4 +87,5 @@ ActiveRecord::Schema.define(version: 2020_01_16_163817) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "songs"
   add_foreign_key "likes", "users"
+  add_foreign_key "practices", "users"
 end

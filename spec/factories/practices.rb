@@ -3,7 +3,6 @@ FactoryBot.define do
     title { "MyString" }
     description { "MyText" }
     voice { 1 }
-    user_id { "MyString" }
-    instructor_id { "MyString" }
+    user_id { nil }
   end
 end
