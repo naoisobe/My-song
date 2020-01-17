@@ -1,7 +1,16 @@
-<h2>Sign up</h2>
+<h2>インストラクター専用アカウント作成ページ</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name, "名前" %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+    <%= f.label :instructor_id, "インストラクターID" %><br />
+    <%= f.text_field :instructor_id, autofocus: true, autocomplete: "instructor_id" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
