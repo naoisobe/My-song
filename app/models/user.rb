@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   enum member_status: { general_member: 0, paid_member: 1 }
 
-  validates :name, presence: true, uniqueness: true, length: { minimum: 6 }
+  validates :name, presence: true
   validates :description, length: { maximum: 100 }
 
   has_many :songs, dependent: :destroy
