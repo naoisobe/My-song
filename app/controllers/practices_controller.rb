@@ -21,12 +21,17 @@ class PracticesController < ApplicationController
   end
 
   def create
-    @practice = Practice.new(song_params)
+    @practice = Practice.new(practice_params)
     @practice.user_id = current_user.id
     if @practice.save
       redirect_to practice_path(@practice)
     else
       render new_song_path
     end
+  end
+
+  private
+  def practice_params
+    params.require(:practice).permit(:title,:description,:video)
   end
 end

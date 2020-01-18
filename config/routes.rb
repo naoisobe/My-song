@@ -6,7 +6,7 @@ devise_for :instructors, controllers: {
   passwords:     'instructors/passwords',
   registrations: 'instructors/registrations'
 }
-  resources :instructors, only: %i[show edit update destroy]
+  resources :instructor, only: %i[show edit update destroy]
   resources :practices
   get 'training/my_list'
 devise_for :users

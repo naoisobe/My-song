@@ -1,9 +1,10 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
-    <%= f.label :log_id, "ログインID" %><br />
-    <%= f.text_field :login_id, autofocus: true, autocomplete: "email" %>
+    <%= f.label :login_id, "ログインID" %><br />
+    <%= f.text_field :login_id, autofocus: true, autocomplete: "login_id" %>
   </div>
 
   <div class="field">

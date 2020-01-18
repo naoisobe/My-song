@@ -5,8 +5,8 @@
     <div class="col-11">
       <% @practice.each do |practice| %>
         <div class="col-3">
-          <%= link_to practices_path(practice) do %>
-            <%= image_tag practice.thumbnail.to_s, size:'300x200'  %>
+          <%= link_to practice_path(practice) do %>
+          <%= video_tag practice.video_url.to_s, controls: true, width: 550 %>
             <%= practice.title %>
           <% end %>
           <%= link_to user_path(practice.user) do %>

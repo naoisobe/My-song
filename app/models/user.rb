@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   mount_uploader :profile_image, ProfileImageUploader
 
-  enum member_status: { general_member: 0, paid_member: 1 }
+  enum member_status: { 一般会員: 0, 有料会員: 1 }
 
   validates :name, presence: true
   validates :description, length: { maximum: 100 }

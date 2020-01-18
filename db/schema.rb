@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 2020_01_17_125935) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.string "instructor_id"
+    t.string "login_id"
     t.string "description"
+    t.string "profile_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_instructors_on_email", unique: true
@@ -49,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_01_17_125935) do
   create_table "practices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "voice"
+    t.integer "video"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
