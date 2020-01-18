@@ -35,6 +35,7 @@ class DeviseCreateInstructors < ActiveRecord::Migration[5.2]
       t.string :name, null: :false
       t.string :login_id, null: :false 
       t.string :description
+      t.string :profile_image
       t.timestamps null: false
     end
 
