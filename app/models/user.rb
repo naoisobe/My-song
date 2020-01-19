@@ -14,8 +14,8 @@ class User < ApplicationRecord
   has_many :songs, dependent: :destroy
   has_many :users, dependent: :destroy
   has_many :practices, dependent: :destroy
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :liked_songs, through: :likes, source: :song
 
   def my_comment?(comment)

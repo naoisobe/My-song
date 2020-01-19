@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'home/about'
-devise_for :instructors, controllers: {
-  sessions:      'instructors/sessions',
-  passwords:     'instructors/passwords',
-  registrations: 'instructors/registrations'
-}
+  devise_for :instructors, controllers: {
+    sessions:      'instructors/sessions',
+    passwords:     'instructors/passwords',
+    registrations: 'instructors/registrations'
+  }
   resources :instructor, only: %i[show edit update destroy]
   resources :practices
   get 'training/my_list'
-devise_for :users
+  devise_for :users
   resources :users, only: %i[index show edit update]
   resources :comments, only: %i[create destroy]
   resources :likes, only: %i[create destroy]
