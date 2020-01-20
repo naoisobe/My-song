@@ -14,4 +14,5 @@ class ApplicationController < ActionController::Base
   def search
     @q = Song.ransack(params[:q])
     @songs = @q.result(distinct: true)
+  end
 end
