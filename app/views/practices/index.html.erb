@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-1">
+    </div>
+    <div class="col-11">
+      <% @practice.each do |practice| %>
+        <div class="col-3">
+          <%= link_to practice_path(practice) do %>
+          <%= video_tag practice.video.to_s, controls: true, width: 550 %>
+            <%= practice.title %>
+          <% end %>
+          <%= link_to user_path(practice.user) do %>
+            <%= image_tag practice.user.profile_image.to_s, size:'30x30'  %>
+            <%= practice.user.name %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

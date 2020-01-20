@@ -5,10 +5,14 @@
     <div class="col-11">
       <% @song.each do |song| %>
         <div class="col-3">
-        <%= image_tag song.thumbnail.to_s, size:'300x200'  %>
-        <%= song.title %>
-        <%= image_tag song.user.profile_image.to_s, size:'30x30'  %>
-        <%= song.user.name %>
+          <%= link_to song_path(song) do %>
+            <%= image_tag song.thumbnail.to_s, size:'300x200'  %>
+            <%= song.title %>
+          <% end %>
+          <%= link_to user_path(song.user) do %>
+            <%= image_tag song.user.profile_image.to_s, size:'30x30'  %>
+            <%= song.user.name %>
+          <% end %>
         </div>
       <% end %>
     </div>

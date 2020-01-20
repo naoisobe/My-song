@@ -16,11 +16,27 @@ services:
     build: .
     command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/myapp
+      - .:/my_song
     ports:
       - "3000:3000"
     links:
       - db
+
+  server:
+    build:
+      context: containers/nginx
+    volumes:
+      - ./nginx/log:/var/log/nginx
+      - public-data:/my_song/public
+    ports:
+      - 80:80 
+    depends_on:
+      - web
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:
 
 
 

@@ -7,8 +7,12 @@
     <p>プロフィール編集</p>
   <% end %>
 
-  <%= link_to my_list_path(user),class:"list-group-item list-group-item-action list-color" do %>
+  <%= link_to song_my_list_path(user),class:"list-group-item list-group-item-action list-color" do %>
     <p>投稿一覧</p>
+  <% end %>
+
+  <%= link_to practice_my_list_path(user),class:"list-group-item list-group-item-action list-color" do %>
+    <p>トレーニング投稿一覧</p>
   <% end %>
 
   <%= link_to destroy_user_session_path, method: :delete, class:"list-group-item list-group-item-action list-color" do %>

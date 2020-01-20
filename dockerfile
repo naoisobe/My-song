@@ -5,13 +5,12 @@ RUN apt-get update -qq && \
     libsox-fmt-mp3 \ 
     libpq-dev \        
     nodejs  
-RUN mkdir /myapp
 
-ENV APP_ROOT /myapp
-WORKDIR $APP_ROOT
+RUN mkdir /my_song
+WORKDIR /my_song
 
-ADD ./Gemfile $APP_ROOT/Gemfile
-ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
+ADD ./Gemfile /my_song/Gemfile
+ADD ./Gemfile.lock /my_song/Gemfile.lock
 
 RUN bundle install
-ADD . $APP_ROOT
+ADD . /my_song

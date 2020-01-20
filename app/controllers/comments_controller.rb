@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       redirect_back(fallback_location: root_path)
-    else 
-      redirect_back(fallback_location: root_path)
+    else
+      render 'songs/show'
     end
   end
 

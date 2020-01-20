@@ -4,30 +4,48 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="Navber">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in?%>
-      <li class = "nav-item">
-       <%= link_to "使い方","", class:"nav-link"%>
-       </li>
-      <li class = "nav-item">
-       <%= link_to "ヘルプ","", class:"nav-link"%>
-       </li>
-      <li class = "nav-item">
-       <%= link_to "マイページ", user_path(current_user), class:"nav-link"%>
-       </li>
-      <li class = "nav-item">
-       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link"%>
-       </li>
+    <ul class="navbar-nav ">
+      <% if user_signed_in? %>
+        <li class = "nav-item">
+          <%= link_to "使い方","", class:"nav-link"%>
+        </li>
+        <li class = "nav-item">
+          <%= link_to "歌を投稿する", new_song_path, class:"nav-link"%>
+        </li>
+        <li class = "nav-item">
+          <%= link_to "トレーニングする", new_practice_path, class:"nav-link"%>
+        </li>
+         <li class = "nav-item ">
+          <%= link_to user_path(current_user), class:"nav-link" do %>
+            <%= current_user.name %>
+            <%= image_tag current_user.profile_image.to_s, size:"30x30" %>
+          <% end %>
+        </li>
+      <% elsif instructor_signed_in? %>
+        <li class = "nav-item">
+          <%= link_to "マイページ", instructor_path(current_instructor), class:"nav-link" %>
+        </li>
+        <li class = "nav-item">
+          <%= link_to "ログアウト", destroy_instructor_session_path, method: :delete, class:"nav-link" %>
+        </li>
       <% else %>
-      <li class="nav-item">
-        <%= link_to "My songとは", home_about_path, class:"nav-link" %>
-      <li class = "nav-item">
-       <%= link_to "新規登録", new_user_registration_path, class:"nav-link"%>
-       </li>
-      <li class = "nav-item">
-       <%= link_to "ログイン", new_user_session_path ,class:"nav-link"%>
-       </li>
-    <% end %>
+        <li class="nav-item">
+          <%= link_to "My songとは", home_about_path, class:"nav-link" %>
+        <li class = "nav-item">
+          <%= link_to "新規登録", new_user_registration_path, class:"nav-link"%>
+        </li>
+        <li class = "nav-item">
+          <%= link_to "ログイン", new_user_session_path ,class:"nav-link"%>
+        </li>
+      <% end %> 
+        <li>
+          <%= search_form_for @q, url:songs_search_path do |f| %>
+          <%= f.search_field :title_cont%>
+          <%= f.submit "検索" %>
+          <% end %>
+        </li>
+
+<!-- 省略 -->
 
     </ul>
   </div><!-- /.navbar-collapse -->
