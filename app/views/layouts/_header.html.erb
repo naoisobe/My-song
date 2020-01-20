@@ -26,6 +26,9 @@
           <%= link_to "マイページ", instructor_path(current_instructor), class:"nav-link" %>
         </li>
         <li class = "nav-item">
+          <%= link_to "トレーニング投稿", practices_path, class:"nav-link"%>
+        </li>
+        <li class = "nav-item">
           <%= link_to "ログアウト", destroy_instructor_session_path, method: :delete, class:"nav-link" %>
         </li>
       <% else %>

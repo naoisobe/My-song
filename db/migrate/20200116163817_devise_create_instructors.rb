@@ -33,7 +33,6 @@ class DeviseCreateInstructors < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       t.string :name, null: :false
-      t.string :login_id, null: :false 
       t.string :description
       t.string :profile_image
       t.timestamps null: false

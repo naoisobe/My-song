@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <%= render 'users/sidebar' %>
+    </div>
+    <div class="col-8 text-center align-items-center">
+        <%= form_for @instructor do |f| %>
+        <%= image_tag @instructor.profile_image.to_s, size:'200x200' %>
+        <div class="form-group">
+        <%= f.file_field :profile_image %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, "ユーザー名" %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description, "自己紹介文" %>
+        <%= f.text_area :description %>
+      </div>
+        <%= f.submit %>
+        <% end %>
+    </div>
+  </div>
+</div>
