@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
   resources :instructor, only: %i[show edit update destroy]
   resources :practices
-  get 'practices/my_list/:id' => 'practices#my_list', as:'practice_my_list'
+  get 'practices/my_list/:id' => 'practices#my_list', as: 'practice_my_list'
   devise_for :users
   resources :users, only: %i[index show edit update]
   resources :comments, only: %i[create destroy]

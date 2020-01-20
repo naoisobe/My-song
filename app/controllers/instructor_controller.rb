@@ -3,6 +3,5 @@ class InstructorController < ApplicationController
   end
 
   def show
-
   end
 end
