@@ -12,7 +12,7 @@ class PracticesController < ApplicationController
   end
 
   def my_list
-    @practice = Practice.where(user_id: params[:id])
+    @practices = Practice.where(user_id: params[:id])
     @user = User.find(params[:id])
   end
 

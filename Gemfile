@@ -69,6 +69,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'bootstrap'
 gem 'carrierwave'
+gem 'fog'
 gem 'carrierwave-audio'
 gem 'audiojs-rails'
 gem 'devise'

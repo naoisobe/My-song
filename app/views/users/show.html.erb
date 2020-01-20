@@ -6,7 +6,11 @@
     <div class="col-8 text-center">
       <%= image_tag @user.profile_image.to_s, size: "200x200" %>
       <p>ユーザー名:<%= @user.name %></p>
-      <p>会員ステータス:<%= @user.member_status %></p>
+      <% if @user = current_user%>
+        <p>会員ステータス:<%= @user.member_status %></p>
+      <% end %>
+      <p>自己紹介</p>
+      <%= @user.description %>
     </div>
   </div>
 </div>
