@@ -32,6 +32,9 @@ Documentation:
 ClassAndModuleChildren:
   Enabled: false
 
+Style/AlignHash:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -42,9 +45,6 @@ Metrics/AbcSize:
   Enabled: false
 
 Style/EmptyMethod:
-  Enabled: false
-
-Style/AlignHash:
   Enabled: false
 
 Lint/SuppressedException:
