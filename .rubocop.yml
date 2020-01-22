@@ -32,8 +32,6 @@ Documentation:
 ClassAndModuleChildren:
   Enabled: false
 
-Style/AlignHash:
-  Enabled: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
