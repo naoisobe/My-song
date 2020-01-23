@@ -47,6 +47,10 @@ Style/EmptyMethod:
 Style/AlignHash:
   Enabled: false
 
+Layout/Tab:
+  Enabled: false
+  
+
 Lint/SuppressedException:
   Enabled: false
 
