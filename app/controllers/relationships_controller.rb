@@ -3,9 +3,9 @@ class RelationshipsController < ApplicationController
   def follows
     @user = User.find(params[:id])
     @follow_user = @user.followings
-@follow_user.each do |user|
-    @relation = Relationship.where(user_id: current_user, follow_id: user.id)
-	end
+    @follow_user.each do |user|
+@relation = Relationship.where(user_id: current_user, follow_id: user.id)
+	  end
 	@new_follow = Relationship.new
   end
 
@@ -13,7 +13,7 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:id])
     @follower_user = @user.followers
     @follower_user.each do |user|
-		  @relation = Relationship.where(user_id: current_user, follow_id: user.id)
+    @relation = Relationship.where(user_id: current_user, follow_id: user.id)
     end
 		@new_follow = Relationship.new
   end
@@ -26,9 +26,7 @@ class RelationshipsController < ApplicationController
 
   def destroy
     following = current_user.unfollow(user)
-    if following.destroy
-      redirect_back(fallback_location: root_path)
-    else
+    following.destroy
       redirect_back(fallback_location: root_path)
     end
   end
