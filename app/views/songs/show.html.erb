@@ -4,19 +4,10 @@
 <%= @song.title %>
 <%= @song.description %>
 <!--いいね機能 -->
-<% if current_user.already_liked?(@song) %>
-  <%= button_to like_path(@song), method: :delete, style: "border-style: none;" do %>
-    <%= icon("fas", "heart") %>
-  <% end %>
-<% else %>
-  <%= form_for @like, url:likes_path do |f| %>
-    <%= f.hidden_field :song_id, :value => @song.id %>
-    <%= f.button :type => "submit", style: "border-style: none;" do %>
-      <%= icon("far", "heart") %>
-    <% end %>
-  <% end %>
-<% end %>
-<%= @song.likes.count %>
+<div id="like_form">
+  <%= render 'likes/likes_form', song: @song %>
+</div>
+
 <!--投稿したユーザー-->
 <%= link_to user_path(@user) do %>
 <%= @user.name %>

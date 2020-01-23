@@ -67,12 +67,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'audiojs-rails'
 gem 'bootstrap'
 gem 'carrierwave'
-gem 'audiojs-rails'
 gem 'carrierwave-audio'
-gem 'fog'
 gem 'devise'
+gem 'fog'
 gem 'font-awesome-sass', '5.3.1'
 gem 'jquery-rails'
 gem 'mini_magick'

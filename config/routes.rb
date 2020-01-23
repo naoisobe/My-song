@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/about'
   devise_for :instructors, controllers: {
-    sessions:      'instructors/sessions',
-    passwords:     'instructors/passwords',
+    sessions: 'instructors/sessions',
+    passwords: 'instructors/passwords',
     registrations: 'instructors/registrations'
   }
   resources :instructor, only: %i[show edit update destroy]
@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show edit update]
   resources :comments, only: %i[create destroy]
   resources :likes, only: %i[create destroy]
+  resources :relationships, %i[:create destroy]
+  get 'follows/:id' => 'relationships#follows', as: :follows
+  get 'followers/:id' => 'relationships#followers', as: :followers
   get 'songs/my_list/:id' => 'songs#my_list', as: 'song_my_list'
   get 'songs/search' => 'songs#search', as: 'songs_search'
   resources :songs
