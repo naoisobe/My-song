@@ -50,6 +50,10 @@ Style/GuardClause:
 Rails/InverseOf:
   Enabled: false
 
+Layout/Tab:
+  Enabled: false
+  
+
 Lint/SuppressedException:
   Enabled: false
 
