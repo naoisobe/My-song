@@ -3,8 +3,8 @@ class RelationshipsController < ApplicationController
   def follows
     @user = User.find(params[:id])
     @follow_user = @user.followings
-	@follow_user.each do |user|
-	@relation = Relationship.where(user_id: current_user, follow_id: user.id)
+@follow_user.each do |user|
+    @relation = Relationship.where(user_id: current_user, follow_id: user.id)
 	end
 	@new_follow = Relationship.new
   end
