@@ -1,11 +1,14 @@
 <div class="nav list-gruop text-center">
-  <%= link_to user_path(current_user),class:"list-group-item list-group-item-action list-color" do %>
-    <p>ユーザー情報</p>
-  <% end %>
 
-  <%= link_to edit_user_path(current_user),class:"list-group-item list-group-item-action list-color" do %>
-    <p>プロフィール編集</p>
-  <% end %>
+    <%= link_to user_path(user),class:"list-group-item list-group-item-action list-color" do %>
+      <p>ユーザー情報</p>
+    <% end %>
+    
+    <% if user == current_user %>
+      <%= link_to edit_user_path(current_user),class:"list-group-item list-group-item-action list-color" do %>
+        <p>プロフィール編集</p>
+      <% end %>
+    <% end %>
 
   <%= link_to song_my_list_path(user),class:"list-group-item list-group-item-action list-color" do %>
     <p>投稿一覧</p>
@@ -15,7 +18,9 @@
     <p>トレーニング投稿一覧</p>
   <% end %>
 
-  <%= link_to destroy_user_session_path, method: :delete, class:"list-group-item list-group-item-action list-color" do %>
-    <p>ログアウト</p>
+  <% if user == current_user %>
+    <%= link_to destroy_user_session_path, method: :delete, class:"list-group-item list-group-item-action list-color" do %>
+      <p>ログアウト</p>
+    <% end %>
   <% end %>
 </div>
