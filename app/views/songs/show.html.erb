@@ -4,7 +4,7 @@
 <%= @song.title %>
 <%= @song.description %>
 <!--いいね機能 -->
-<div id="like_form">
+<div id="like_buttons_<%= @song.id %>">
   <%= render 'likes/likes_form', song: @song %>
 </div>
 

@@ -1,1 +1,1 @@
-$('#like_form').html("<%= j(render 'likes/like_form', song: @song) %>");
+$('#likes_buttons_<%= @song.id %>').html("<%= j(render partial: 'likes/likes_form', locals: {song: @song}) %>");

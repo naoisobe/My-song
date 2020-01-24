@@ -1,14 +1,18 @@
 class LikesController < ApplicationController
   def create
-    @like = Like.create(song_id: params[:id], user_id: current_user.id)
-    @song = Song.find(params[:id])
-    @like = Like.new
+    @song = Song.find(params[:song_id])
+    @like = Like.create(song_id: params[:song_id], user_id: current_user.id)
   end
 
   def destroy
-    @like = Like.find_by(song_id: params[:id], user_id: current_user.id)
+    @song = Song.find(params[:song_id])
+    @like = Like.find_by(song_id: params[:song_id], user_id: current_user.id)
     @like.destroy
-    @song = Song.find(params[:id])
-    @like = Like.new
   end
+
+  def my_list
+    @user = User.find(params[:id])
+    @song = @user.liked_songs
+  end
+
 end
