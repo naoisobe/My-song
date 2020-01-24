@@ -44,9 +44,6 @@ Metrics/AbcSize:
 Style/EmptyMethod:
   Enabled: false
 
-Style/AlignHash:
-  Enabled: false
-
 Layout/Tab:
   Enabled: false
   
