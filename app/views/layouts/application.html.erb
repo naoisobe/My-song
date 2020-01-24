@@ -10,9 +10,11 @@
   </head>
 
   <body>
-    <header>
+    <div class="<%= "full-back" if current_page?(new_user_registration_path) or current_page?(new_user_session_path)  %>">
+      <header>
       <%= render "/layouts/header"%>
-    </header>
-    <%= yield %>
+      </header>
+      <%= yield %>
+    </div>
   </body>
 </html>
