@@ -8,11 +8,10 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <div class="<%= "full-back" if current_page?(new_user_registration_path) or current_page?(new_user_session_path)  %>">
+    <div class="<%= "background-image" if devise_controller? or current_page?(root_path) %>">
       <header>
-      <%= render "/layouts/header"%>
+        <%= render "/layouts/header"%>
       </header>
       <%= yield %>
     </div>

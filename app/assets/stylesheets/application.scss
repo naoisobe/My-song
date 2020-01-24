@@ -17,11 +17,21 @@
 @import "bootstrap";
 @import "home";
 @import "users";
+@import "songs";
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: #ffffff;
+}
+body{
+    background: #161616;
+}
+.background-image{
+  background-image: image-url('home.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .container{
   margin: 0;
@@ -30,9 +40,11 @@
 input{
   color: #000000;
 }
+textarea{
+  color: #000000;
+}
 .search-bar{
   height: 50px;
-  background: #000000;
   width: 600px;
 }
 .search_form{
@@ -46,3 +58,40 @@ input{
   vertical-align: top;
   background: dimgray;
 }
+.user-btn{
+  position:relative;
+  top: 40%;
+  left: 20%;
+    & > .btn{
+      display: block;
+      margin-top: 20px;
+      max-width: 250px;
+      text-align: center;
+      border: 2px solid #ffffff;
+      font-size: 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: .4s;
+    }
+    & > .btn:hover{
+      background-color: #D89040;
+      color: #FFF;
+    }
+}
+a:hover{
+  text-decoration: none;
+}
+.list-gruop{
+  border: 1px solid #242424;
+  height: 100%;
+}
+.list-group-item{
+  background: #161616;
+    &:hover{
+      background: dimgray;
+    }
+}
+
