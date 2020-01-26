@@ -14,6 +14,10 @@
     <p>投稿一覧</p>
   <% end %>
 
+  <%= link_to like_my_list_path(user), class:"list-group-item list-group-item-action list-color" do %>
+    <p>いいねした投稿</p>
+  <% end %>
+
   <%= link_to practice_my_list_path(user),class:"list-group-item list-group-item-action list-color" do %>
     <p>トレーニング投稿一覧</p>
   <% end %>

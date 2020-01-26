@@ -6,7 +6,7 @@
       <% @practice.each do |practice| %>
         <div class="col-3">
           <%= link_to practice_path(practice) do %>
-          <%= video_tag practice.video.to_s, :size => "360x200" %>
+          <%= video_tag practice.video.to_s, style: "width:100%;"%>
             <%= practice.title %>
           <% end %>
           <%= link_to user_path(practice.user) do %>
