@@ -44,10 +44,15 @@ Metrics/AbcSize:
 Style/EmptyMethod:
   Enabled: false
 
+Style/GuardClause:
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
 Layout/Tab:
   Enabled: false
   
-
 Lint/SuppressedException:
   Enabled: false
 
