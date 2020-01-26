@@ -6,8 +6,7 @@
       <% @practice.each do |practice| %>
         <div class="col-3">
           <%= link_to practice_path(practice) do %>
-          <%= video_tag practice.video.to_s, controls: true, width: 550 %>
-          <%= video_tag "/assets/video/video.mp3", controls: true, width: 550 %>
+          <%= video_tag practice.video.to_s, style: "width:100%;"%>
             <%= practice.title %>
           <% end %>
           <%= link_to user_path(practice.user) do %>
@@ -17,6 +16,5 @@
         </div>
       <% end %>
     </div>
-      <%= video_tag "/assets/videos/video.mp4", :controls => true, :loop => true, :size => 20*20%>
   </div>
 </div>

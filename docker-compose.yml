@@ -37,7 +37,3 @@ volumes:
   tmp-data:
   log-data:
   db-data:
-
-
-
-
