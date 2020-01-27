@@ -21,7 +21,6 @@ class PracticesController < ApplicationController
   end
 
   def create
-    binding.pry
     @practice = Practice.new(practice_params)
     @practice.user_id = current_user.id
     if @practice.save
