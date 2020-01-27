@@ -10,7 +10,7 @@
             <%= practice.title %>
           <% end %>
           <%= link_to user_path(practice.user) do %>
-            <%= image_tag practice.user.profile_image.to_s, size:'30x30'  %>
+            <%= image_tag practice.user.profile_image.to_s, size:'30x30', class:"profile-image" %>
             <%= practice.user.name %>
           <% end %>
         </div>

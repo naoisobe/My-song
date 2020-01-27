@@ -5,7 +5,7 @@
     </div>
     <div class="col-8 text-center align-items-center">
         <%= form_for @user do |f| %>
-        <%= image_tag @user.profile_image.to_s, size:'200x200' %>
+        <%= image_tag @user.profile_image.to_s, size:'200x200', class:"profile-image"  %>
         <div class="form-group">
         <%= f.file_field :profile_image %>
       </div>

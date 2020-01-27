@@ -5,7 +5,7 @@
 <%= @song.description %>
 <!--いいね機能 -->
 <div id="like_buttons_<%= @song.id %>">
-  <%= render 'likes/likes_form', song: @song %>
+  <%= render 'likes/likes', song: @song %>
 </div>
 
 <!--投稿したユーザー-->

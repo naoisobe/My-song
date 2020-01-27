@@ -4,7 +4,7 @@
       <%= render "sidebar", user: @user %>
     </div>
     <div class="col-8 text-center">
-      <%= image_tag @user.profile_image.to_s, size: "200x200" %>
+      <%= image_tag @user.profile_image.to_s, size: "200x200", class:"profile-image" %>
       <p>ユーザー名:<%= @user.name %></p>
       <% if @user = current_user%>
         <p>会員ステータス:<%= @user.member_status %></p>

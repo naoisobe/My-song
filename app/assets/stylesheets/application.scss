@@ -18,6 +18,8 @@
 @import "home";
 @import "users";
 @import "songs";
+
+// 共通レイアウト
 *{
   margin: 0;
   padding: 0;
@@ -43,6 +45,11 @@ input{
 textarea{
   color: #000000;
 }
+.profile-image{
+  border-radius: 50%;
+}
+
+// 検索バー
 .search-bar{
   height: 50px;
   width: 600px;
@@ -58,6 +65,8 @@ textarea{
   vertical-align: top;
   background: dimgray;
 }
+
+// 登録・ログインボタン
 .user-btn{
   position:relative;
   top: 40%;
@@ -81,6 +90,7 @@ textarea{
       color: #FFF;
     }
 }
+// マイページ(サイドバー)
 a:hover{
   text-decoration: none;
 }
@@ -94,8 +104,23 @@ a:hover{
       background: dimgray;
     }
 }
-.form{
+
+// フォーム関連
+.form-control{
   width: 400px;
   margin: 0 auto;
+}
+.form{
+  height: 200px !important;
+}
+.form-btn{
+  background: dimgray;
+    & > p{
+      line-height: 40px;
+      margin: 0;
+    }
+}
+#file_upload{
+  display:none
 }
 
