@@ -1,25 +1,30 @@
 <div class="container">
   <div class="row">
-    <div class="offset-1">
+    <div class="offset-2">
       <!--投稿された歌 -->
-      <div class="main">
-        <%= image_tag @song.thumbnail.to_s, :size =>"500x300"%>
-        <%= audio_tag(@song.voice) style:"width:100%;" %>
+      <div class="blur-back" style="background-image: url('<%= @song.thumbnail.url %>');">
+        <div class="main">
+          <%= @song.title %>
+          <%= image_tag @song.thumbnail.to_s, style:"width:100%;"%>
+          <%= audio_tag @song.voice, class:"audio-bar" %>
+          <!--いいね機能 -->
+          <div id="like_buttons_<%= @song.id %>">
+          <%= render 'likes/likes', song: @song %>
       </div>
-      <%= @song.title %>
-      <%= @song.description %>
-      <!--いいね機能 -->
-      <div id="like_buttons_<%= @song.id %>">
-        <%= render 'likes/likes', song: @song %>
+        </div>
       </div>
-
+      <hr>
       <!--投稿したユーザー-->
       <%= link_to user_path(@user) do %>
       <div class="channel">
       <%= image_tag @user.profile_image.to_s, size:"60x60", class:"user-profile profile-image" %>
       <%= @user.name %>
+      <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
       </div>
       <% end %>
+      <hr>
+      <div class="description"> <%= @song.description %></div>
+      <hr>
       <!--コメント欄-->
       <%= render 'comments/comments', song: @song, comment: @comment, comments: @comments%>
     </div>

@@ -1,12 +1,11 @@
 class RelationshipsController < ApplicationController
-  before_action :set_user, only: %i[create destroy]
   def follows
     @user = User.find(params[:id])
     @follow_user = @user.followings
     @follow_user.each do |user|
-@relation = Relationship.where(user_id: current_user, follow_id: user.id)
+      @relation = Relationship.where(user_id: current_user, follow_id: user.id)
 	  end
-	@new_follow = Relationship.new
+	  @new_follow = Relationship.new
   end
 
   def followers
@@ -19,21 +18,16 @@ class RelationshipsController < ApplicationController
   end
 
   def create
+    user = User.find(params[:relationship][:follow_id])
     following = current_user.follow(user)
     following.save
     redirect_back(fallback_location: root_path)
   end
 
   def destroy
+    user = User.find(params[:relationship][:follow_id])
     following = current_user.unfollow(user)
     following.destroy
-      redirect_back(fallback_location: root_path)
-    end
-  end
-
-  private
-
-  def set_user
-    user = User.find(params[:relationship][:follow_id])
+    redirect_back(fallback_location: root_path)
   end
 end

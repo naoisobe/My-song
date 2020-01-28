@@ -9,6 +9,8 @@ class SongsController < ApplicationController
     @like = Like.new
     @comment = Comment.new
     @comments = Comment.where(song_id: params[:id])
+		@relation = Relationship.find_by(user_id: current_user,follow_id: @user.id)
+		@new_follow = Relationship.new
   end
 
   def edit

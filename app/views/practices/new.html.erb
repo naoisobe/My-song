@@ -9,9 +9,9 @@
           <%= f.text_area :description, placeholder:"改善したいところ・実現したいことなど", class:"form-control form" %>
         </div>
         <div class="form-group">
-          <label for="file_upload" class="btn form-btn" >
+          <label for="file_pra_upload" class="btn form-btn" >
             <p class="form-p">ファイルを選択(mp4)</p>
-            <%= f.file_field :video, id:"file_upload" %>
+            <%= f.file_field :video, class:"file_pra_upload" %>
           </label>
         </div>
         <%= f.submit "アップロード", class:"btn btn-primary" %>
