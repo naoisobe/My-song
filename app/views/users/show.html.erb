@@ -6,6 +6,9 @@
     <div class="col-8 text-center">
       <%= image_tag @user.profile_image.to_s, size: "200x200", class:"profile-image" %>
       <p>ユーザー名:<%= @user.name %></p>
+      フォロー数:<%= link_to "#{@user.relationships.count}", follows_path(@user) %>
+      フォロワー数:<%= link_to "#{@user.followers.count}", followers_path(@user) %>
+      <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow%>
       <% if @user = current_user%>
         <p>会員ステータス:<%= @user.member_status %></p>
       <% end %>

@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: %i[index show edit update]
   resources :comments, only: %i[create destroy]
+  resources :likes, only: %i[create destroy]
+  resources :relationships, only: %i[:create destroy]
+  get 'follows/:id' => 'relationships#follows', as: 'follows'
+  get 'followers/:id' => 'relationships#followers', as: 'followers'
   get 'songs/search' => 'songs#search', as: 'songs_search'
   resources :songs do
     resource :likes, only: %i[create destroy]
