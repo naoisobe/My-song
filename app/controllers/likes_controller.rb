@@ -14,5 +14,4 @@ class LikesController < ApplicationController
     @user = User.find(params[:id])
     @song = @user.liked_songs
   end
-
 end

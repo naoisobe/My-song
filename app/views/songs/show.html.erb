@@ -1,30 +1,29 @@
-<!--投稿された歌 -->
-<%= image_tag @song.thumbnail.to_s, :size =>"500x300"%>
-<%= audio_tag(@song.voice) %>
-<%= @song.title %>
-<%= @song.description %>
-<!--いいね機能 -->
-<div id="like_buttons_<%= @song.id %>">
-  <%= render 'likes/likes_form', song: @song %>
+<div class="container">
+  <div class="row">
+    <div class="offset-1">
+      <!--投稿された歌 -->
+      <div class="main">
+        <%= image_tag @song.thumbnail.to_s, :size =>"500x300"%>
+        <%= audio_tag(@song.voice) style:"width:100%;" %>
+      </div>
+      <%= @song.title %>
+      <%= @song.description %>
+      <!--いいね機能 -->
+      <div id="like_buttons_<%= @song.id %>">
+        <%= render 'likes/likes', song: @song %>
+      </div>
+
+      <!--投稿したユーザー-->
+      <%= link_to user_path(@user) do %>
+      <div class="channel">
+      <%= image_tag @user.profile_image.to_s, size:"60x60", class:"user-profile profile-image" %>
+      <%= @user.name %>
+      </div>
+      <% end %>
+      <!--コメント欄-->
+      <%= render 'comments/comments', song: @song, comment: @comment, comments: @comments%>
+    </div>
+  </div>
 </div>
-
-<!--投稿したユーザー-->
-<%= link_to user_path(@user) do %>
-<%= @user.name %>
-<% end %>
-<!--コメント欄-->
-<%= form_for @comment, url: comments_path do |f| %>
-<%= f.hidden_field :song_id, :value => @song.id %>
-<%= f.text_field :content %>
-<%= f.submit "送信" %>
-<% end %>
-<% @comments.each do |comment| %>
-  <%= comment.content %>
-  <% if current_user.my_comment?(comment) %>
-    <%= button_to "削除", comment_path(comment), method: :delete %>
-  <% end %>
-<% end %>
-
-
 
 

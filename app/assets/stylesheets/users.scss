@@ -5,16 +5,29 @@
   background: rgba(0,0,0,0.8);
   padding-top: 20px;
   margin: 5%;
-    input[type="text"] {
-          width: 300px;
-          height: 35px;
-      }
-  input[type="password"] {
-          width: 300px;
-          height: 35px;
-      }
-  input[type="email"] {
-          width: 300px;
-          height: 35px;
-      }
+   input[type="text"] {
+    width: 300px;
+    height: 35px;
+   }
+   input[type="password"] {
+     width: 300px;
+    height: 35px;
+   }
+   input[type="email"] {
+    width: 300px;
+    height: 35px;
+   }
+}
+.user-edit-btn{ 
+  margin: 0 auto;
+  height: 30px;
+    & > p{
+      line-height: 16px;
+      margin: 0;
+    }
+}
+.user-des-form{
+  height: 100px;
+  width: 30%;
+  vertical-align: top;
 }

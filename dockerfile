@@ -2,6 +2,7 @@ FROM ruby:2.6.3
 RUN apt-get update -qq && \
     apt-get install -y build-essential \ 
     sox \ 
+    vim \ 
     libsox-fmt-mp3 \ 
     libpq-dev \        
     nodejs  

@@ -3,17 +3,17 @@
     <div class="col-1">
     </div>
     <div class="col-11">
-      <div class="row justify-content-between">
+      <div class="row">
         <% @song.each do |song| %>
           <%= link_to song_path(song) do %>
             <div class="col-lg-3 col-md-3 col-sm-4">
               <div class="song-card">
-                <%= image_tag song.thumbnail.to_s, style:"width:100%;height:120px;" %>
+                <%= image_tag song.thumbnail.to_s, class:"thumbnail" %>
                 <div class="card-body">
                   <h5><%= song.title %></h5>
                   <div class="user-card">
                     <%= link_to user_path(song.user) do %>
-                      <%= image_tag song.user.profile_image.to_s, size:"35x35", class:"user-profile", style:"border-radius:50%;" %>
+                      <%= image_tag song.user.profile_image.to_s, size:"35x35", class:"user-profile profile-image" %>
                       <p class="user-name"><%= song.user.name %></p>
                     <% end %>
                   </div>
