@@ -128,25 +128,7 @@ a:hover{
    height:150px;
 }
 
-.slideshow {
-  overflow: hidden;
-  position: relative;
-  min-width: 500px;
-  height: 850px;
+.channel{
+  border: 1px solid #242424;
 }
 
-.slideshow img {
-  display: none;
-  position: absolute;
-  width: 300px;
-  margin-left: -1000px;
-}
-
-.no-js .slideshow img:first-child {
-  display: inline;
-}
-
-.wrapper{
-    min-height: 100vh;
-    position: relative;
-}
