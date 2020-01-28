@@ -6,7 +6,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: root
     volumes:
-      -./tmp/db:/var/lib/mysql/data
+      - ./docker/db/data:/var/lib/mysql
     ports:
       - "3306:3306"
 

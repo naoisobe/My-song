@@ -10,12 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
 //= require rails-ujs
-//= require_tree .
 //= require activestorage
+//= require_tree .
+//= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require jquery  
+//= require jquery_ujs
 //= require audiojs
 
 // < !--audiojsの初期化 -->
@@ -23,4 +25,12 @@ audiojs.events.ready(function () {
   var as = audiojs.createAll();
 });
 
-
+$(document).on('ready', function () {
+  $(".full-screen-o").slick({
+    dots: true, // ドットインジケーターの表示
+    autoplay: true, // 自動再生を設定
+    autoplaySpeed: 2000, // 自動再生のスピード（ミリ秒単位）
+    speed: 1000, // スライド/フェードアニメーションの速度を設定
+    infinite: true // スライドのループを有効にするか
+  });
+});
