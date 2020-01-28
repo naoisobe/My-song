@@ -122,6 +122,25 @@ a:hover{
       margin: 0;
     }
 }
+
+.comment-form{
+  background: rgba(0,0,0,0);
+  border: none;
+  border-bottom: 1px solid #252525;
+  margin-top: 30px;
+  height: 50px;
+  width: 100%;
+  color: #ffffff;
+    &:focus{
+      outline: none;
+    }
+}
+.comment-btn{
+  background: #D89040;
+  margin-left: 80%;
+  margin-top: 13px;
+  width: 20%;
+}
  
 .thumbnail{
    width:100%;

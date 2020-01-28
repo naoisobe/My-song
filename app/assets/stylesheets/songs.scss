@@ -56,8 +56,26 @@
       z-index: -1;
   }
 }
-
 .main{
   width:40%;
   margin: 0 auto;
+}
+
+.channel{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  height: 80px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.fb{
+  width: 130px;
+}
+.name{
+  display: inline-block;
+}
+.comment-text{
+  display: flex;
+  justify-content: space-between;
 }

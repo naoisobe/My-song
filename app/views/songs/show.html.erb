@@ -15,18 +15,19 @@
       </div>
       <hr>
       <!--投稿したユーザー-->
-      <%= link_to user_path(@user) do %>
       <div class="channel">
+      <div>
+      <%= link_to user_path(@user) do %>
       <%= image_tag @user.profile_image.to_s, size:"60x60", class:"user-profile profile-image" %>
       <%= @user.name %>
-      <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
-      </div>
       <% end %>
-      <hr>
+      </div>
+      <div class="follow-btn"><%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %></div>
+      </div>
       <div class="description"> <%= @song.description %></div>
       <hr>
       <!--コメント欄-->
-      <%= render 'comments/comments', song: @song, comment: @comment, comments: @comments%>
+      <%= render 'comments/comments', song: @song, comment: @comment, comments: @comments, user: @user %>
     </div>
   </div>
 </div>
