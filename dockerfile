@@ -1,7 +1,10 @@
 FROM ruby:2.6.3
-RUN apt-get update -qq && \
+RUN add-apt-repository ppa:mc3man/trusty-media && \
+    apt-get update -qq && \
     apt-get install -y build-essential \ 
     sox \ 
+    vim \ 
+    ffmpe \ 
     libsox-fmt-mp3 \ 
     libpq-dev \        
     nodejs  
@@ -14,3 +17,5 @@ ADD ./Gemfile.lock /my_song/Gemfile.lock
 
 RUN bundle install
 ADD . /my_song
+
+RUN mkdir -p tmp/sockets
