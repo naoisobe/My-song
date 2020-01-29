@@ -15,3 +15,5 @@ ADD ./Gemfile.lock /my_song/Gemfile.lock
 
 RUN bundle install
 ADD . /my_song
+
+RUN mkdir -p tmp/sockets
