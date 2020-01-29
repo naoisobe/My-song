@@ -1,17 +1,25 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-4">
+    <div class="offset-1 col-4">
       <%= render "users/sidebar", user: @user %>
     </div>
-    <div class="col-8">
+    <div class="col-7">
+      <%= render 'users/top-profile', user: @user %>
+      <div class="row">
       <% @song.each do |song| %>
+        <div class="col-4">
         <%= link_to song_path(song) do %>
-          <%= image_tag song.thumbnail.to_s, size: '200x100' %>
-          <%= song.title %>
-          <%= song.user.name%>
+          <div class="song-card">
+              <%= image_tag song.thumbnail.to_s, class:"thumbnail" %>
+              <div class="card-body">
+                <%= song.title %>
+              </div>
+          </div>
         <% end %>
+        </div>
       <% end %>
+    </div>
     </div>
   </div>
 </div>
- a
+ 

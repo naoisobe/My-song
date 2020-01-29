@@ -51,6 +51,12 @@ textarea{
 hr{
   border-top: 1px solid #252525;
 }
+a{
+  color: #ffffff;
+    &:hover{
+      color: #fafafafa;
+    }
+}
 
 // 検索バー
 .search-bar{
@@ -99,12 +105,26 @@ a:hover{
 }
 .list-gruop{
   border: 1px solid #242424;
+      & a{
+      width: 100%;
+    }
 }
 .list-group-item{
   background: #161616;
+  border: none;
+  height: 80px;
+  border-radius: 0 !important;
     &:hover{
-      background: dimgray;
+      background: #50505050;
     }
+    & p{
+      margin: 0;
+      line-height: 56px;
+      font-size: 18px;
+    }
+}
+.visit-page{
+  background: dimgray !important;
 }
 
 // フォーム関連
@@ -147,3 +167,22 @@ a:hover{
    height:150px;
 }
 
+// プロフィールヘッダー(マイページ)
+.top-profile{
+  display: flex;
+  margin: 20px;
+  align-items: center;
+    & > div{
+      margin-left: 30px;
+    }
+}
+.fl{
+  display: flex;
+  justify-content: flex-start;
+}
+.fl > p:last-child{
+  margin-left: 10px;
+}
+.fl-btn{
+  margin-left: auto !important;
+}

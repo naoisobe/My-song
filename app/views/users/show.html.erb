@@ -1,13 +1,15 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-4">
+    <div class="offset-1 col-4">
       <%= render "sidebar", user: @user %>
     </div>
-    <div class="col-8 text-center">
+    <div class="col-7 text-center profile">
       <%= image_tag @user.profile_image.to_s, size: "200x200", class:"profile-image" %>
-      <p>ユーザー名:<%= @user.name %></p>
-      フォロー数:<%= link_to "#{@user.relationships.count}", follows_path(@user) %>
-      フォロワー数:<%= link_to "#{@user.followers.count}", followers_path(@user) %>
+      <h3><%= @user.name %></h3>
+      <div>
+        フォロー:<%= link_to "#{@user.relationships.count}", follows_path(@user) %>
+        フォロワー:<%= link_to "#{@user.followers.count}", followers_path(@user) %>
+      </div>
       <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
       <% if @user = current_user%>
         <p>会員ステータス:<%= @user.member_status %></p>
