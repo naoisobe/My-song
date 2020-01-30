@@ -3,19 +3,28 @@
     <div class="col-1">
     </div>
     <div class="col-11">
-      <% @practice.each do |practice| %>
-        <div class="col-3">
-          <%= link_to practice_path(practice) do %>
-          <div class="practice-card">
-          <%= video_tag practice.video.to_s, style: "width:100%;"%>
-            <%= practice.title %>
-          <% end %>
-          <%= link_to user_path(practice.user) do %>
-            <%= image_tag practice.user.profile_image.to_s, size:'30x30', class:"profile-image" %>
-            <%= practice.user.name %>
-          <% end %>
-        </div>
-      <% end %>
+      <div class="row">
+        <% @practice.each do |practice| %>
+          <div class="col-lg-6 col-md-6">
+            <%= link_to practice_path(practice) do %>
+              <div class="song-card">
+                <%= video_tag practice.video.to_s, class:"video" %>
+            <% end %>
+                <%= link_to user_path(practice.user) do %>
+                  <div class="card-body">
+                    <%= practice.title %>
+                    <div class="user-card">
+                      <%= link_to user_path(practice.user) do %>
+                        <%= image_tag practice.user.profile_image.to_s, size:"35x35", class:"user-profile profile-image" %>
+                        <p class="user-name"><%= practice.user.name %></p>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
