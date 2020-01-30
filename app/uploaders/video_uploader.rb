@@ -46,8 +46,7 @@ class VideoUploader < CarrierWave::Uploader::Base
     File.rename(current_path, tmpfile) #「scrrenshot・・」というファイル名を「tmpfile」に変える
  
     movie = FFMPEG::Movie.new(tmpfile) #スクショ作成　
-    movie.screenshot(current_path + ".jpg", {resolution: '512x312' }, preserve_aspect_ratio: :width) #アップロードファイル名を唯一にする
-preserve_aspect_ratio: :width)
+  movie.screenshot(current_path + ".jpg", {resolution: '512x312' }, preserve_aspect_ratio: :width) #アップロードファイル名を唯一にする  
     File.rename(current_path + ".jpg", current_path)
  
     File.delete(tmpfile)
@@ -58,9 +57,9 @@ preserve_aspect_ratio: :width)
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_whitelist
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_white_list
+    %w(MOV wmv mp4)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

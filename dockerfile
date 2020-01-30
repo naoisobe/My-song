@@ -1,13 +1,11 @@
 FROM ruby:2.6.3
-RUN add-apt-repository ppa:mc3man/trusty-media && \
-    apt-get update -qq && \
+RUN apt-get update -qq && \
     apt-get install -y build-essential \ 
     sox \ 
     vim \ 
-    ffmpe \ 
     libsox-fmt-mp3 \ 
     libpq-dev \        
-    nodejs  
+    nodejs 
 
 RUN mkdir /my_song
 WORKDIR /my_song
@@ -19,3 +17,11 @@ RUN bundle install
 ADD . /my_song
 
 RUN mkdir -p tmp/sockets
+
+RUN apt-get update && apt-get install -y \
+  wget \
+  xz-utils
+
+RUN wget https://www.ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz \
+  && tar Jxvf ./ffmpeg-4.2.2.tar.xz \
+  && cp ./ffmpeg*64bit-static/ffmpeg /usr/local/bin/
