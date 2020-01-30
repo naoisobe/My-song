@@ -187,6 +187,7 @@ a:hover{
   margin-left: auto !important;
 }
 
+// 投稿一覧
 .song-card{
   background: #000000;
   margin-bottom: 30px;
@@ -200,4 +201,10 @@ a:hover{
 }
 .user-card{
   text-align: right;
+}
+
+// icon
+.fa-heart{
+  color: rgb(224, 36, 94);
+  font-size: 25px;
 }
