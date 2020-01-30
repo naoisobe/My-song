@@ -18,7 +18,7 @@
 @import "home";
 @import "users";
 @import "songs";
-
+@import "practices";
 // 共通レイアウト
 *{
   margin: 0;
@@ -47,6 +47,15 @@ textarea{
 }
 .profile-image{
   border-radius: 50%;
+}
+hr{
+  border-top: 1px solid #252525;
+}
+a{
+  color: #ffffff;
+    &:hover{
+      color: #fafafafa;
+    }
 }
 
 // 検索バー
@@ -96,12 +105,26 @@ a:hover{
 }
 .list-gruop{
   border: 1px solid #242424;
+      & a{
+      width: 100%;
+    }
 }
 .list-group-item{
   background: #161616;
+  border: none;
+  height: 80px;
+  border-radius: 0 !important;
     &:hover{
-      background: dimgray;
+      background: #50505050;
     }
+    & p{
+      margin: 0;
+      line-height: 56px;
+      font-size: 18px;
+    }
+}
+.visit-page{
+  background: dimgray !important;
 }
 
 // フォーム関連
@@ -119,8 +142,24 @@ a:hover{
       margin: 0;
     }
 }
-#file_upload{
-  display:none
+
+.comment-form{
+  background: rgba(0,0,0,0);
+  border: none;
+  border-bottom: 1px solid #252525;
+  margin-top: 30px;
+  height: 50px;
+  width: 100%;
+  color: #ffffff;
+    &:focus{
+      outline: none;
+    }
+}
+.comment-btn{
+  background: #D89040;
+  margin-left: 80%;
+  margin-top: 13px;
+  width: 20%;
 }
  
 .thumbnail{
@@ -128,7 +167,37 @@ a:hover{
    height:150px;
 }
 
-.channel{
-  border: 1px solid #242424;
+// プロフィールヘッダー(マイページ)
+.top-profile{
+  display: flex;
+  margin: 20px;
+  align-items: center;
+    & > div{
+      margin-left: 30px;
+    }
+}
+.fl{
+  display: flex;
+  justify-content: flex-start;
+}
+.fl > p:last-child{
+  margin-left: 10px;
+}
+.fl-btn{
+  margin-left: auto !important;
 }
 
+.song-card{
+  background: #000000;
+  margin-bottom: 30px;
+}
+.card-body{
+  width: 100%;
+}
+.user-name{
+  display: inline-block;
+  color: dimgray;
+}
+.user-card{
+  text-align: right;
+}

@@ -1,27 +1,52 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="offset-1">
+    <div class="col-9">
       <!--投稿された歌 -->
-      <div class="main">
-        <%= image_tag @song.thumbnail.to_s, :size =>"500x300"%>
-        <%= audio_tag(@song.voice) style:"width:100%;" %>
+      <div class="blur-back" style="background-image: url('<%= @song.thumbnail.url %>');">
+        <div class="main">
+          <h3 class="title"><%= @song.title %></h3>
+          <%= image_tag @song.thumbnail.to_s, style:"width:100%;"%>
+        </div>
+          <%= audio_tag @song.voice, class:"audio-bar" %>
+          <!--いいね機能 -->
+          <div id="like_buttons_<%= @song.id %>">
+          <%= render 'likes/likes', song: @song %>
       </div>
-      <%= @song.title %>
-      <%= @song.description %>
-      <!--いいね機能 -->
-      <div id="like_buttons_<%= @song.id %>">
-        <%= render 'likes/likes', song: @song %>
       </div>
-
+      <hr>
       <!--投稿したユーザー-->
-      <%= link_to user_path(@user) do %>
       <div class="channel">
+      <div>
+      <%= link_to user_path(@user) do %>
       <%= image_tag @user.profile_image.to_s, size:"60x60", class:"user-profile profile-image" %>
       <%= @user.name %>
-      </div>
       <% end %>
+      </div>
+      <div class="follow-btn"><%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %></div>
+      </div>
+      <div class="description"> <%= @song.description %></div>
+      <hr>
       <!--コメント欄-->
-      <%= render 'comments/comments', song: @song, comment: @comment, comments: @comments%>
+      <%= render 'comments/comments', song: @song, comment: @comment, comments: @comments, user: @user %>
+    </div>
+    <div class="col-3">
+    <h3>他の投稿</h3>
+      <% @songs.each do |song| %>
+        <%= link_to song_path(song) do %>
+          <div class="song-card">
+            <%= image_tag song.thumbnail.to_s, class:"thumbnail" %>
+            <div class="card-body">
+              <h5><%= song.title %></h5>
+              <div class="user-card">
+                <%= link_to user_path(song.user) do %>
+                  <%= image_tag song.user.profile_image.to_s, size:"35x35", class:"user-profile profile-image" %>
+                  <p class="user-name"><%= song.user.name %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
