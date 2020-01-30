@@ -6,12 +6,12 @@
       <% @practice.each do |practice| %>
         <div class="col-3">
           <%= link_to practice_path(practice) do %>
+          <div class="practice-card">
           <%= video_tag practice.video.to_s, style: "width:100%;"%>
             <%= practice.title %>
           <% end %>
           <%= link_to user_path(practice.user) do %>
             <%= image_tag practice.user.profile_image.to_s, size:'30x30', class:"profile-image" %>
-            <%= video_tag practice.video.to_s, controls: true, width: 550 %>
             <%= practice.user.name %>
           <% end %>
         </div>
