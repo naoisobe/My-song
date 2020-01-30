@@ -3,5 +3,5 @@ class Instructor < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:login_id]
- 
+  validates :login_id, presence: true
 end
