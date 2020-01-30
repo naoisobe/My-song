@@ -33,24 +33,6 @@ class VideoUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :screenshot do
-    process :screenshot
-    def full_filename (for_file = model.logo.file)
-      "screenshot.jpg"
-    end
-  end
- 
-  def screenshot
-    tmpfile = File.join(File.dirname(current_path), "tmpfile")
- 
-    File.rename(current_path, tmpfile) #「scrrenshot・・」というファイル名を「tmpfile」に変える
- 
-    movie = FFMPEG::Movie.new(tmpfile) #スクショ作成　
-  movie.screenshot(current_path + ".jpg", {resolution: '512x312' }, preserve_aspect_ratio: :width) #アップロードファイル名を唯一にする  
-    File.rename(current_path + ".jpg", current_path)
- 
-    File.delete(tmpfile)
-  end
   # version :thumb do
   #   process resize_to_fit: [50, 50]
   # end
