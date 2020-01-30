@@ -1,0 +1,15 @@
+<%= form_for comment, url: comments_path do |f| %>
+<%= f.hidden_field :song_id, :value => song.id %>
+<%= f.text_field :content, placeholder:"コメントを入力", class:"comment-form" %>
+<%= f.submit "コメント", class:"btn comment-btn"  %>
+<% end %>
+<% comments.each do |comment| %>
+  <%= image_tag user.profile_image.to_s, size: "30x30", class:"user-profile profile-image" %>
+  <p class="name"><%= user.name %></p>
+  <div class="comment-text">
+    <p class=><%= comment.content %></p>
+    <% if current_user.my_comment?(comment) %>
+      <%= button_to "削除", comment_path(comment), method: :delete, class:"btn btn-danger" %>
+    <% end %>
+  </div>
+<% end %>

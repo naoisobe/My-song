@@ -4,15 +4,16 @@
     <title>Myapp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <header>
-      <%= render "/layouts/header"%>
-    </header>
-    <%= yield %>
+    <div class="<%= "background-image" if devise_controller? or current_page?(root_path) %>">
+      <header>
+        <%= render "/layouts/header"%>
+      </header>
+      <%= yield %>
+    </div>
+</div>
   </body>
 </html>

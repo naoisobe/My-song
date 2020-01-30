@@ -4,7 +4,6 @@ RUN apt-get update -qq && \
     apt-get install -y build-essential \ 
     sox \ 
     vim \ 
-    ffmpe \ 
     libsox-fmt-mp3 \ 
     libpq-dev \        
     nodejs 

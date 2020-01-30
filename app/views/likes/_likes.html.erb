@@ -1,0 +1,10 @@
+<% if current_user.already_liked?(song) %>
+  <%= link_to song_likes_path(song), method: :delete, style: "border-style: none;", remote: true do %>
+    <%= icon("fas", "heart") %>
+  <% end %>
+<% else %>
+      <%= link_to song_likes_path(song), method: :post, remote: true do %>
+    <%= icon("far", "heart") %>
+  <% end %>
+<% end %>
+<%= song.likes.count %>

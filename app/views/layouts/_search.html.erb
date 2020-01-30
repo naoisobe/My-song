@@ -1,0 +1,6 @@
+<%= search_form_for @q, url:songs_search_path, class:"search_form" do |f| %>
+  <%= f.search_field :title_cont, placeholder:"検索", style:"width: 80%;height:35px;" %>
+  <%= f.button :type => "submit", class:"btn search-btn", style: "border-style: none;" do %>
+    <%= icon("fas","search") %>
+  <% end %>
+<% end %>

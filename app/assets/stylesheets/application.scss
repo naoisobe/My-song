@@ -16,13 +16,188 @@
 @import "font-awesome";
 @import "bootstrap";
 @import "home";
-
+@import "users";
+@import "songs";
+@import "practices";
+// 共通レイアウト
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #ffffff;
+}
+body{
+    background: #161616;
+}
+.background-image{
+  background-image: image-url('home.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .container{
   margin: 0;
   padding: 0;
+}
+input{
+  color: #000000;
+}
+textarea{
+  color: #000000;
+}
+.profile-image{
+  border-radius: 50%;
+}
+hr{
+  border-top: 1px solid #252525;
+}
+a{
+  color: #ffffff;
+    &:hover{
+      color: #fafafafa;
+    }
+}
+
+// 検索バー
+.search-bar{
+  height: 50px;
+  width: 600px;
+}
+.search_form{
+  width: 75%;
+  margin: 0 auto;
+}
+.search-btn{
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  vertical-align: top;
+  background: dimgray;
+}
+
+// 登録・ログインボタン
+.user-btn{
+  position:relative;
+  top: 40%;
+  left: 20%;
+    & > .btn{
+      display: block;
+      margin-top: 20px;
+      max-width: 250px;
+      text-align: center;
+      border: 2px solid #ffffff;
+      font-size: 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: .4s;
+    }
+    & > .btn:hover{
+      background-color: #D89040;
+      color: #FFF;
+    }
+}
+// マイページ(サイドバー)
+a:hover{
+  text-decoration: none;
+}
+.list-gruop{
+  border: 1px solid #242424;
+      & a{
+      width: 100%;
+    }
+}
+.list-group-item{
+  background: #161616;
+  border: none;
+  height: 80px;
+  border-radius: 0 !important;
+    &:hover{
+      background: #50505050;
+    }
+    & p{
+      margin: 0;
+      line-height: 56px;
+      font-size: 18px;
+    }
+}
+.visit-page{
+  background: dimgray !important;
+}
+
+// フォーム関連
+.form-control{
+  width: 400px;
+  margin: 0 auto;
+}
+.form{
+  height: 200px !important;
+}
+.form-btn{
+  background: dimgray;
+    & > p{
+      line-height: 40px;
+      margin: 0;
+    }
+}
+
+.comment-form{
+  background: rgba(0,0,0,0);
+  border: none;
+  border-bottom: 1px solid #252525;
+  margin-top: 30px;
+  height: 50px;
+  width: 100%;
+  color: #ffffff;
+    &:focus{
+      outline: none;
+    }
+}
+.comment-btn{
+  background: #D89040;
+  margin-left: 80%;
+  margin-top: 13px;
+  width: 20%;
+}
+ 
+.thumbnail{
+   width:100%;
+   height:150px;
+}
+
+// プロフィールヘッダー(マイページ)
+.top-profile{
+  display: flex;
+  margin: 20px;
+  align-items: center;
+    & > div{
+      margin-left: 30px;
+    }
+}
+.fl{
+  display: flex;
+  justify-content: flex-start;
+}
+.fl > p:last-child{
+  margin-left: 10px;
+}
+.fl-btn{
+  margin-left: auto !important;
+}
+
+.song-card{
+  background: #000000;
+  margin-bottom: 30px;
+}
+.card-body{
+  width: 100%;
+}
+.user-name{
+  display: inline-block;
+  color: dimgray;
+}
+.user-card{
+  text-align: right;
 }
