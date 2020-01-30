@@ -3,6 +3,11 @@
     <div class="col-9">
       <!--投稿された歌 -->
       <div class="blur-back" style="background-image: url('<%= @song.thumbnail.url %>');">
+      <% if @song.user == current_user %>
+        <%= link_to edit_song_path(@song) do %>
+          <p class="icon-edit"><%= icon("fas", "edit") %></p>
+        <% end %>
+      <% end %>
         <div class="main">
           <h3 class="title"><%= @song.title %></h3>
           <%= image_tag @song.thumbnail.to_s, style:"width:100%;"%>
