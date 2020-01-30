@@ -3,7 +3,7 @@
     <%= icon("fas", "heart") %>
   <% end %>
 <% else %>
-      <%= link_to song_likes_path(song), method: :post, remote: true do %>
+  <%= link_to song_likes_path(song), method: :post, remote: true do %>
     <%= icon("far", "heart") %>
   <% end %>
 <% end %>

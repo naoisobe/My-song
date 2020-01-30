@@ -53,6 +53,10 @@ class SongsController < ApplicationController
     end
   end
 
+  def rank
+    @all_ranks = Song.find(Like.group(:song_id).order('count(song_id) desc').limit(10).pluck(:song_id))
+  end
+
   private
 
   def song_params

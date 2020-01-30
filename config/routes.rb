@@ -16,11 +16,11 @@ Rails.application.routes.draw do
   get 'follows/:id' => 'relationships#follows', as: 'follows'
   get 'followers/:id' => 'relationships#followers', as: 'followers'
   get 'songs/search' => 'songs#search', as: 'songs_search'
+  get 'songs/my_list/:id' => 'songs#my_list', as: 'song_my_list'
+  get 'songs/rank' => 'songs#rank'
   resources :songs do
     resource :likes, only: %i[create destroy]
   end
   get 'likes/my_list/:id' => 'likes#my_list', as: 'like_my_list'
-  get 'songs/my_list/:id' => 'songs#my_list', as: 'song_my_list'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
