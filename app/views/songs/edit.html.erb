@@ -1,46 +1,47 @@
 <div class="container">
   <div class="row">
-    <div class="offset-1 text-center song-form">
+    <div class="offset-1 song-form">
       <%= form_for @song do |f| %>
       <div class="blur-back ml-0" style="background-image: url('<%= @song.thumbnail.url %>');">
           <div class="main">
             <%= image_tag @song.thumbnail.to_s, style:"width:100%;" %>
-            <div class="form-group thumb-change">
-              <label for="edit_song_image_upload" class="btn form-btn">
-                <p>サムネイル画像選択</p>
-                <%= f.file_field :thumbnail, id:"edit_song_image_upload" %>
+          </div>
+          <div class="change">
+            <label for="edit_song_image_upload" class="btn form-btn">
+              <p>サムネイル画像変更</p>
+              <%= f.file_field :thumbnail, id:"edit_song_image_upload" %>
+            </label>
+            <label for="edit_song_file_upload" class="btn form-btn" >
+              <p>ファイル選択(mp3)</p>
+              <%= f.file_field :voice, id:"edit_song_file_upload" %>
               </label>
-            </div>
           </div>
       </div>
         <div class="form-group">
-          <%= f.text_field :title, placeholder:"タイトル", class:"form-control" %>
-        </div>
-        <hr>
-        <div class="form-group">
-          <%= f.text_area :description, placeholder: "説明文", class:"form-control form" %>
+          <p>タイトル</p>
+          <%= f.text_field :title, class:"form-control", autocomplete: 'off'%>
         </div>
         <div class="form-group">
-          <label for="edit_song_file_upload" class="btn form-btn" >
-            <p>ファイル選択(mp3)</p>
-            <%= f.file_field :voice, id:"edit_song_file_upload" %>
-          </label>
+          <p>説明文</p>
+          <%= f.text_area :description, class:"form-control form" %>
         </div>
-        <%= f.submit "更新", class:"btn btn-primary"%>
-        <button type="button" class="btn btn-danger" id="modal-open-btn">削除</button>
+        <div class="btn-group">
+          <%= f.submit "更新", class:"btn btn-primary mr-3"%>
+          <button type="button" class="btn btn-danger ml-3" id="modal-open-btn">削除</button>
           <%= link_to "", song_path(@song), method: :delete,id: "song-delete-btn" %> 
-            <div id="overlay">
-              <div id="modalWindow">
-                <div class="modal-message-box">
-                  <p>確認</p>
-                  <p>本当に削除しますか？</p>
-                  <div class="choice-box">
-                    <button type="button" id="delete-comformation-btn" class="btn btn-danger">削除する</button>
-                    <button type="button" id="modal-close-btn" class="btn cancel-btn">キャンセル</button>
-                  </div>
+          <div id="overlay">
+            <div id="modalWindow">
+              <div class="modal-message-box">
+                <p>確認</p>
+                <p>本当に削除しますか？</p>
+                <div class="choice-box">
+                  <button type="button" id="delete-comformation-btn" class="btn btn-danger">削除する</button>
+                  <button type="button" id="modal-close-btn" class="btn cancel-btn">キャンセル</button>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

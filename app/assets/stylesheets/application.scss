@@ -130,8 +130,23 @@ a:hover{
 
 // フォーム関連
 .form-control{
-  width: 400px;
-  margin: 0 auto;
+  width: 100%;
+  background: #252525;
+  border: none;
+  margin-top: 5px;
+  height: 50px;
+  width: 100%;
+  color: #ffffff;
+  border-bottom: none;;
+    &:focus{
+      background: #252525;
+      box-shadow: none;
+      border-color: rgba(0,0,0,0);
+      color: #ffffff;
+    }
+    & input{
+      background: #252525;
+    }
 }
 .form{
   height: 200px !important;
@@ -142,6 +157,10 @@ a:hover{
       line-height: 40px;
       margin: 0;
     }
+}
+.btn-group{
+  margin-bottom: 100px;
+  width: 100%;
 }
 
 .comment-form{
