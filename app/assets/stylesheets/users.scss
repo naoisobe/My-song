@@ -26,11 +26,14 @@
       margin: 0;
     }
 }
-.user-des-form{
-  height: 100px;
-  width: 30%;
-  vertical-align: top;
-}
 .profile > p{
   margin: 20px auto;
+}
+.user-edit-box{
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+    & p{
+      text-align: left;
+    }
 }

@@ -67,6 +67,7 @@ a{
 .search_form{
   width: 75%;
   margin: 0 auto;
+  border-radius: 10px;
 }
 .search-btn{
   height: 35px;
@@ -131,21 +132,17 @@ a:hover{
 // フォーム関連
 .form-control{
   width: 100%;
-  background: #252525;
+  background: #252525 !important;
   border: none;
+  border-bottom: 1px solid gray !important;
   margin-top: 5px;
   height: 50px;
   width: 100%;
-  color: #ffffff;
-  border-bottom: none;;
+  color: #ffffff !important;
+  resize: none;
     &:focus{
-      background: #252525;
       box-shadow: none;
       border-color: rgba(0,0,0,0);
-      color: #ffffff;
-    }
-    & input{
-      background: #252525;
     }
 }
 .form{
@@ -304,3 +301,4 @@ a:hover{
   padding: 0;
   border: 0;
 }
+

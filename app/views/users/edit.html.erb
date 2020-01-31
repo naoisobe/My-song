@@ -3,7 +3,8 @@
     <div class="offset-1 col-4">
       <%= render "sidebar", user: @user %>
     </div>
-    <div class="col-7 text-center align-items-center">
+    <div class="col-7">
+      <div class="user-edit-box">
         <%= form_for @user do |f| %>
         <%= image_tag @user.profile_image.to_s, size:'200x200', class:"profile-image form-group" %>
         <div class="form-group">
@@ -11,17 +12,19 @@
           <p>プロフィール画像</p>
           <%= f.file_field :profile_image, id:"file_upload" %>
           </label>
+        </div>
+        <div class="form-group">
+          <p>ユーザー名</p>
+          <%= f.text_field :name, autocomplete:"off", class:"form-control" %>
+        </div>
+        <div class="form-group">
+          <p>自己紹介文</p>
+          <%= f.text_area :description, class:"form-control", style:"height:150px;" %>
+        </div>
+          <%= f.submit "プロフィール保存", class:"btn btn-primary"%>
+          <% end %>
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.label :name, "ユーザー名" %>
-        <%= f.text_field :name %>
-      </div>
-      <div class="form-group">
-        <%= f.label :description, "自己紹介文" %>
-        <%= f.text_area :description, class:"user-des-form" %>
-      </div>
-        <%= f.submit "プロフィール保存", class:"btn btn-primary"%>
-        <% end %>
     </div>
   </div>
 </div>
