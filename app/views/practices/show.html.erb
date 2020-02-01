@@ -1,1 +1,12 @@
-<%= video_tag @practice.video.to_s, controls: true, style: "20x30", id:"video" %>
+<div class="container">
+  <div class="row">
+    <div class="offset-2">
+      <%= video_tag @practice.video.to_s, controls: true, style: "20x30", id:"video" %>
+      <h3><%= @practice.title %></h3>
+      <%= render 'users/channel', user: @user %>
+      <p><%= @practice.description %></p>
+      <hr>
+      <%= link_to "投稿を編集する", edit_practice_path(@practice), class:"btn btn-primary btn-block" %>
+    </div>
+  </div>
+</div>

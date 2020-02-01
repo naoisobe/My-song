@@ -7,23 +7,15 @@
           <h3 class="title"><%= @song.title %></h3>
           <%= image_tag @song.thumbnail.to_s, style:"width:100%;"%>
         </div>
-          <%= audio_tag @song.voice, class:"audio-bar" %>
-          <!--いいね機能 -->
-          <div id="like_buttons_<%= @song.id %>">
+        <%= audio_tag @song.voice, class:"audio-bar" %>
+        <!--いいね機能 -->
+        <div id="like_buttons_<%= @song.id %>">
           <%= render 'likes/likes', song: @song %>
-      </div>
+        </div>
       </div>
       <hr>
       <!--投稿したユーザー-->
-      <div class="channel">
-      <div>
-      <%= link_to user_path(@user) do %>
-      <%= image_tag @user.profile_image.to_s, size:"60x60", class:"user-profile profile-image" %>
-      <%= @user.name %>
-      <% end %>
-      </div>
-      <div class="follow-btn"><%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %></div>
-      </div>
+      <%= render 'users/channel', user: @user %>
       <div class="description"> <%= @song.description %></div>
       <hr>
       <!--コメント欄-->

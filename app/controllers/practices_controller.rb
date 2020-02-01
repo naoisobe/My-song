@@ -6,6 +6,11 @@ class PracticesController < ApplicationController
   def show
     @practice = Practice.find(params[:id])
     @user = @practice.user
+    @like = Like.new
+    @comment = Comment.new
+    @comments = Comment.where(song_id: params[:id])
+		@relation = Relationship.find_by(user_id: current_user,follow_id: @user.id)
+		@new_follow = Relationship.new
   end
 
   def edit
