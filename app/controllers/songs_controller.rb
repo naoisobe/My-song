@@ -41,6 +41,7 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
+    redirect_to songs_path
   end
 
   def create
@@ -51,6 +52,10 @@ class SongsController < ApplicationController
     else
       render new_song_path
     end
+  end
+
+  def rank
+    @all_ranks = Song.find(Like.group(:song_id).order('count(song_id) desc').limit(10).pluck(:song_id))
   end
 
   private
