@@ -1,0 +1,11 @@
+<h1>DM</h1>
+
+<h2>comments</h2>
+
+<div id="dm">
+    <% @dm.each do |dm| %>
+        <%= render 'direct_messages/direct_messages', dm: dm %>
+    <% end %>
+</div>
+
+<%= render 'direct_messages/new', room: @room, message: @message %>

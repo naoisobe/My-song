@@ -6,9 +6,15 @@ class PracticesController < ApplicationController
   def show
     @practice = Practice.find(params[:id])
     @user = @practice.user
+    @like = Like.new
+    @comment = Comment.new
+    @comments = Comment.where(song_id: params[:id])
+		@relation = Relationship.find_by(user_id: current_user,follow_id: @user.id)
+		@new_follow = Relationship.new
   end
 
   def edit
+    @practice = Practice.find(params[:id])
   end
 
   def my_list
@@ -30,6 +36,18 @@ class PracticesController < ApplicationController
     else
       render new_song_path
     end
+  end
+
+  def destroy
+    @practice = Practice.find(params[:id])
+    @practice.destroy
+    redirect_to songs_path
+  end
+
+  def update
+    @practice = Practice.find(params[:id])
+    @practice.update(practice_params)
+    redirect_to practice_path(@practice)
   end
 
   private
