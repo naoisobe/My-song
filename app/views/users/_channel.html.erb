@@ -1,0 +1,9 @@
+      <div class="channel">
+      <div>
+      <%= link_to user_path(user) do %>
+      <%= image_tag user.profile_image.to_s, size:"60x60", class:"user-profile profile-image" %>
+      <%= user.name %>
+      <% end %>
+      </div>
+      <div class="follow-btn"><%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %></div>
+      </div>

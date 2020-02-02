@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-1 song-form">
+      <%= form_for @practice do |f| %>
+        <%= video_tag @practice.video.to_s %>
+        <div class="form-group">
+          <label for="file_pra_upload" class="btn form-btn" >
+            <p class="form-p">ファイルを選択(mp4)</p>
+            <%= f.file_field :video, id:"file_pra_upload" %>
+          </label>
+        </div>
+        <div class="form-group">
+          <p>タイトル</p>
+          <%= f.text_field :title, class:"form-control", autocomplete: 'off'%>
+        </div>
+        <div class="form-group">
+          <p>説明文</p>
+          <%= f.text_area :description, class:"form-control form" %>
+        </div>
+        <div class="btn-group">
+          <%= f.submit "更新", class:"btn btn-primary mr-3"%>
+          <button type="button" class="btn btn-danger ml-3" id="modal-open-btn">削除</button>
+          <%= link_to "", practice_path(@practice), method: :delete,id: "song-delete-btn" %> 
+          <div id="overlay">
+            <div id="modalWindow">
+              <div class="modal-message-box">
+                <p>確認</p>
+                <p>本当に削除しますか？</p>
+                <div class="choice-box">
+                  <button type="button" id="delete-comformation-btn" class="btn btn-danger">削除する</button>
+                  <button type="button" id="modal-close-btn" class="btn cancel-btn">キャンセル</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
