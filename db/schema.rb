@@ -34,18 +34,6 @@ ActiveRecord::Schema.define(version: 2020_02_02_002642) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "direct_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "room_id"
-    t.string "message"
-    t.bigint "user_id"
-    t.bigint "instructor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["instructor_id"], name: "index_direct_messages_on_instructor_id"
-    t.index ["room_id"], name: "index_direct_messages_on_room_id"
-    t.index ["user_id"], name: "index_direct_messages_on_user_id"
-  end
-
   create_table "instructors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -91,17 +79,6 @@ ActiveRecord::Schema.define(version: 2020_02_02_002642) do
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
-  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "practice_id"
-    t.bigint "user_id"
-    t.bigint "instructor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["instructor_id"], name: "index_rooms_on_instructor_id"
-    t.index ["practice_id"], name: "index_rooms_on_practice_id"
-    t.index ["user_id"], name: "index_rooms_on_user_id"
-  end
-
   create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
@@ -134,15 +111,9 @@ ActiveRecord::Schema.define(version: 2020_02_02_002642) do
   add_foreign_key "advise_chats", "users"
   add_foreign_key "comments", "songs"
   add_foreign_key "comments", "users"
-  add_foreign_key "direct_messages", "instructors"
-  add_foreign_key "direct_messages", "rooms"
-  add_foreign_key "direct_messages", "users"
   add_foreign_key "likes", "songs"
   add_foreign_key "likes", "users"
   add_foreign_key "practices", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
-  add_foreign_key "rooms", "instructors"
-  add_foreign_key "rooms", "practices"
-  add_foreign_key "rooms", "users"
 end
