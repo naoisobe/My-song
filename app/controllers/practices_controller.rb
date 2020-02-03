@@ -10,7 +10,9 @@ class PracticesController < ApplicationController
     @comment = Comment.new
     @comments = Comment.where(song_id: params[:id])
 		@relation = Relationship.find_by(user_id: current_user,follow_id: @user.id)
-		@new_follow = Relationship.new
+    @new_follow = Relationship.new
+    @message = AdviseChat.new
+    @messages = AdviseChat.where(practice_id: params[:id])
   end
 
   def edit

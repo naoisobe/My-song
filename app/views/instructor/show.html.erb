@@ -1,10 +1,13 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-4">
+    <div class="offset-1 col-4">
+      <%= render "sidebar", instructor: @instructor %>
     </div>
-    <div class="col-8 text-center">
-      <%= image_tag @instructor.profile_image.to_s, size: "200x200", class:"profile-image"  %>
-      <p>ユーザー名:<%= @instructor.name %></p>
+    <div class="col-7 text-center profile">
+      <%= image_tag @instructor.profile_image.to_s, size: "200x200", class:"profile-image" %>
+      <h3><%= @instructor.name %></h3>
+      <p>自己紹介</p>
+      <%= @instructor.description %>
     </div>
   </div>
 </div>

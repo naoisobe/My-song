@@ -4,10 +4,10 @@
 <%= f.submit "コメント", class:"btn comment-btn"  %>
 <% end %>
 <% comments.each do |comment| %>
-  <%= image_tag user.profile_image.to_s, size: "30x30", class:"user-profile profile-image" %>
-  <p class="name"><%= user.name %></p>
+  <%= image_tag comment.user.profile_image.to_s, size: "30x30", class:"user-profile profile-image" %>
+  <p class="name"><%= comment.user.name %></p>
   <div class="comment-text">
-    <p class=><%= comment.content %></p>
+    <p><%= comment.content %></p>
     <% if current_user.my_comment?(comment) %>
       <%= button_to "削除", comment_path(comment), method: :delete, class:"btn btn-danger" %>
     <% end %>

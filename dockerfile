@@ -18,3 +18,6 @@ RUN bundle install
 ADD . /my_song
 
 RUN mkdir -p tmp/sockets
+
+RUN mkdir -p /tmp/public && \
+  cp -rf /my_song/public/* /tmp/public

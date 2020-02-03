@@ -1,0 +1,29 @@
+<div class="nav list-gruop text-center">
+  <%= link_to instructor_path(instructor) do %>
+    <div class="list-group-item list-group-item-action list-color <%= "visit-page" if current_page?(instructor_path) %> ">
+      <p>ユーザー情報</p>
+    </div>
+  <% end %>
+
+  <% if instructor == current_instructor %>
+    <%= link_to edit_instructor_path(current_instructor) do %>
+      <div class="list-group-item list-group-item-action list-color <%= "visit-page" if current_page?(edit_instructor_path) %>">
+        <p>プロフィール編集</p>
+      </div>
+    <% end %>
+  <% end %>
+
+    <%= link_to ms_list_path(instructor) do %>
+      <div class="list-group-item list-group-item-action list-color <%= "visit-page" if current_page?(practice_my_list_path) %>">
+        <p>コメントした投稿一覧</p>
+      </div>
+    <% end %>
+
+  <% if instructor == current_instructor %>
+    <%= link_to destroy_instructor_session_path, method: :delete do %>
+      <div class="list-group-item list-group-item-action list-color">
+        <p>ログアウト</p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'home/about'
+  get 'likes/my_list/:id' => 'likes#my_list', as: 'like_my_list'
+  get 'instructor/ms_list/:id' => 'instructor#ms_list', as: 'ms_list'
   devise_for :instructors, controllers: {
     sessions: 'instructors/sessions',
     passwords: 'instructors/passwords',
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   }
   resources :instructor, only: %i[show edit update destroy]
   resources :practices
+  resources :advise_chat, only: %i[create destroy]
   get 'practices/my_list/:id' => 'practices#my_list', as: 'practice_my_list'
   devise_for :users
   resources :users, only: %i[index show edit update]
@@ -21,6 +24,5 @@ Rails.application.routes.draw do
   resources :songs do
     resource :likes, only: %i[create destroy]
   end
-  get 'likes/my_list/:id' => 'likes#my_list', as: 'like_my_list'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

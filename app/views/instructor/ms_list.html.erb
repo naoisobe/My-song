@@ -1,0 +1,27 @@
+  <div class="container-fluid">
+  <div class="row">
+    <div class="offset-1 col-4">
+      <%= render "sidebar", instructor: @instructor %>
+    </div>
+    <div class="col-7">
+      <div class="row">
+      <% @practice.each do |pra| %>
+        <% if current_instructor.already_message?(pra) %>
+        <div class="col-6">
+          <%= link_to practice_path(pra) do %>
+          <div class="song-card">
+            <%= video_tag pra.video_url.to_s, style:"width:100%;" %>
+            <div class="card-body">
+              <%= pra.title %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
