@@ -5,14 +5,6 @@
     </div>
   <% end %>
 
-  <% if user == current_user %>
-    <%= link_to edit_user_path(current_user) do %>
-      <div class="list-group-item list-group-item-action list-color <%= "visit-page" if current_page?(edit_user_path) %>">
-        <p>プロフィール編集</p>
-      </div>
-    <% end %>
-  <% end %>
-
     <%= link_to song_my_list_path(user) do %>
       <div class="list-group-item list-group-item-action list-color <%= "visit-page" if current_page?(song_my_list_path) %>">
         <p>投稿一覧</p>
@@ -27,7 +19,7 @@
 
     <%= link_to practice_my_list_path(user) do %>
       <div class="list-group-item list-group-item-action list-color <%= "visit-page" if current_page?(practice_my_list_path) %>">
-        <p>トレーニング投稿一覧</p>
+        <p>トレーニング投稿</p>
       </div>
     <% end %>
 

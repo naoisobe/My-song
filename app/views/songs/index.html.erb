@@ -17,7 +17,7 @@
                   <h5><%= song.title %></h5>
                   <div class="user-card">
                     <%= link_to user_path(song.user) do %>
-                      <%= image_tag song.user.profile_image.to_s, size:"35x35", class:"user-profile profile-image" %>
+                      <%= image_tag song.user.profile_image.to_s, class:"post-profile" %>
                       <p class="user-name"><%= song.user.name %></p>
                     <% end %>
                   </div>

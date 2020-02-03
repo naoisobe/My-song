@@ -19,9 +19,9 @@
         </ul>
         <ul class="navbar-nav">
           <li class = "nav-item">
-            <%= link_to user_path(current_user), class:"nav-link" do %>
+            <%= link_to song_my_list_path(current_user), class:"nav-link" do %>
               <%= current_user.name %>
-              <%= image_tag current_user.profile_image.to_s, size:"30x30", class:"profile-image" %>
+              <%= image_tag current_user.profile_image.to_s, class:"header-profile" %>
             <% end %>
           </li>
         </ul>

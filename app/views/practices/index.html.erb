@@ -15,7 +15,7 @@
                     <%= practice.title %>
                     <div class="user-card">
                       <%= link_to user_path(practice.user) do %>
-                        <%= image_tag practice.user.profile_image.to_s, size:"35x35", class:"user-profile profile-image" %>
+                        <%= image_tag practice.user.profile_image.to_s, class:"post-profile" %>
                         <p class="user-name"><%= practice.user.name %></p>
                       <% end %>
                     </div>

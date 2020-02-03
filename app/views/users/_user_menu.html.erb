@@ -1,0 +1,7 @@
+<div class="user-menu">
+  <p class="<%= "current-menu" if current_page?(user_path) %>"><%= link_to "ユーザー情報", user_path(user) %></p>
+  <p class="<%= "current-menu" if current_page?(like_my_list_path) %>"><%= link_to "いいね", like_my_list_path(user) %></p>
+  <p class="<%= "current-menu" if current_page?(song_my_list_path) %>"><%= link_to "投稿", song_my_list_path(user) %></p>
+  <p class="<%= "current-menu" if current_page?(practice_my_list_path) %>"><%= link_to "トレーニング", practice_my_list_path(user) %></p>
+</div>
+
