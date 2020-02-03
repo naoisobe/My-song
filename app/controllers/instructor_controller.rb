@@ -3,5 +3,6 @@ class InstructorController < ApplicationController
   end
 
   def show
+    @instructor = Instructor.find(params[:id])
   end
 end

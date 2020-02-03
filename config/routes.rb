@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   }
   resources :instructor, only: %i[show edit update destroy]
   resources :practices
+  resources :advise_chat, only: %i[create destroy]
   get 'practices/my_list/:id' => 'practices#my_list', as: 'practice_my_list'
   devise_for :users
   resources :users, only: %i[index show edit update]
