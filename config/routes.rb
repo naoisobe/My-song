@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'home/about'
+  get 'likes/my_list/:id' => 'likes#my_list', as: 'like_my_list'
+  get 'instructor/ms_list/:id' => 'instructor#ms_list', as: 'ms_list'
   devise_for :instructors, controllers: {
     sessions: 'instructors/sessions',
     passwords: 'instructors/passwords',
@@ -22,6 +24,5 @@ Rails.application.routes.draw do
   resources :songs do
     resource :likes, only: %i[create destroy]
   end
-  get 'likes/my_list/:id' => 'likes#my_list', as: 'like_my_list'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
