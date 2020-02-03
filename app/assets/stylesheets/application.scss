@@ -47,6 +47,18 @@ input{
 textarea{
   color: #000000;
 }
+hr{
+  border-top: 1px solid #252525;
+}
+a{
+  color: #ffffff;
+    &:hover{
+      color: #fafafafa;
+    }
+}
+header{
+  padding: 20px;
+}
 // プロフィール画像
 .profile-image{
   border-radius: 50%;
@@ -67,18 +79,6 @@ textarea{
 .top-profile-image{
   border-radius: 50%;
   width: 100px;
-}
-hr{
-  border-top: 1px solid #252525;
-}
-a{
-  color: #ffffff;
-    &:hover{
-      color: #fafafafa;
-    }
-}
-header{
-  padding: 20px;
 }
 // 検索バー
 .search{
@@ -327,6 +327,16 @@ a:hover{
 }
 .back-btn{
   margin-left: 100px;
+}
+.column-select-box{
+  margin-bottom: 10px;
+  display: flex;
+    & h4{
+      margin: 5px;
+    }
+}
+.column-type{
+  border-bottom: 3px solid dimgray;
 }
 
 .user-menu{

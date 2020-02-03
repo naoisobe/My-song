@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   def index
-    @song = Song.all
+    @song = Song.all.order(created_at: :desc)
   end
 
   def show
