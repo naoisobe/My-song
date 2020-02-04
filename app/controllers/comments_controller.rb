@@ -2,17 +2,17 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    if @comment.save
-      redirect_back(fallback_location: root_path)
-    else
-      render 'songs/show'
-    end
+    @comment.save
+    @comments = Comment.where(song_id: params[:comment][:song_id])
+    @song = Song.find(params[:comment][:song_id])
+    @new_comment = Comment.new
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_back(fallback_location: root_path)
+    @comments = Comment.where(song_id: params[:comment][:song_id])
+    @song = Song.find(params[:comment][:song_id])
   end
 
   private
