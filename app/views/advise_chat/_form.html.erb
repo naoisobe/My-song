@@ -1,0 +1,5 @@
+<%= form_for message, url: advise_chat_index_path, remote: true do |f| %>
+  <%= f.hidden_field :practice_id, :value => practice.id %>
+  <%= f.text_field :message, placeholder:"メッセージを入力", class:"comment-form", id:"message-content" %>
+  <%= f.submit "送信", class:"btn comment-btn" %>
+<% end %>

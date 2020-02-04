@@ -1,9 +1,9 @@
-      <div class="channel">
-      <div>
-      <%= link_to user_path(user) do %>
+<div class="channel">
+  <div>
+    <%= link_to song_my_list_path(user) do %>
       <%= image_tag user.profile_image.to_s, class:"user-profile" %>
       <%= user.name %>
-      <% end %>
-      </div>
-      <div class="follow-btn"><%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %></div>
-      </div>
+    <% end %>
+  </div>
+  <div class="follow-btn"><%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %></div>
+</div>

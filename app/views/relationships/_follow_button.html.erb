@@ -1,13 +1,15 @@
-<% unless current_user == user or instructor_signed_in?  %>
-  <% if current_user.following?(user) %>
-    <%= form_for follow, url:relationship_path(relation), method: :delete do |f| %>
-      <%= f.hidden_field :follow_id, value: user.id %>
-      <%= f.submit "Unfollow", class:"btn btn-danger fb" %>
-    <% end %>
-  <% else %>
-    <%= form_for follow, url:relationships_path do |f| %>
-      <%= f.hidden_field :follow_id, :value => user.id %>
-      <%= f.submit "Follow", class: "btn btn-primary fb" %>
+<div id="follow-status">
+  <% unless current_user == user or instructor_signed_in?  %>
+    <% if current_user.following?(user) %>
+      <%= form_for follow, url:relationship_path(relation), method: :delete, remote: :true do |f| %>
+        <%= f.hidden_field :follow_id, value: user.id %>
+        <%= f.submit "Unfollow", class:"btn btn-danger fb" %>
+      <% end %>
+    <% else %>
+      <%= form_for follow, url:relationships_path, remote: :true do |f| %>
+        <%= f.hidden_field :follow_id, :value => user.id %>
+        <%= f.submit "Follow", class: "btn btn-primary fb" %>
       <% end %>
     <% end %>
-    <% end %>
+  <% end %>
+</div>
