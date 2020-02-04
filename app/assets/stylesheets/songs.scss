@@ -76,14 +76,6 @@
 .name{
   display: inline-block;
 }
-.comment-text{
-  display: flex;
-  justify-content: space-between;
-    & p{
-      word-break: break-all;
-      padding: 0 10px;
-    }
-}
 .title{
   padding-bottom: 20px;
   text-align: center;

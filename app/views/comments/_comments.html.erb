@@ -1,13 +1,15 @@
 <% comments.each do |comment| %>
-<%= image_tag comment.user.profile_image.to_s, class:"header-profile" %>
-<p class="name"><%= comment.user.name %></p>
-<div class="comment-text">
-  <p><%= comment.content %></p>
-  <% if current_user.my_comment?(comment) %>
-    <%= form_for comment, url: comment_path(comment), method: :delete, remote: true do |f| %>
-    <%= f.hidden_field :song_id, :value => song.id%>
-    <%= f.submit "削除", class:"btn btn-danger" %>
-    <% end %>
+  <%= link_to user_path(comment.user) do %>
+    <%= image_tag comment.user.profile_image.to_s, class:"header-profile" %>
+    <p class="name"><%= comment.user.name %></p>
   <% end %>
-</div>
+  <div class="comment-text">
+    <p><%= comment.content %></p>
+    <% if current_user.my_comment?(comment) %>
+      <%= form_for comment, url: comment_path(comment), method: :delete, remote: true do |f| %>
+        <%= f.hidden_field :song_id, :value => song.id %>
+        <%= f.submit "削除", class:"btn btn-danger" %>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>

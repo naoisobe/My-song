@@ -227,6 +227,18 @@ a:hover{
 .fl-btn{
   margin-left: auto !important;
 }
+.comment-text{
+  display: flex;
+  justify-content: space-between;
+    & p{
+      word-break: break-all;
+      padding: 0 5px;
+    }
+}
+.post-description{
+  padding: 8px;
+  word-break: break-all;
+}
 
 // 投稿一覧
 .song-card{
@@ -235,6 +247,7 @@ a:hover{
 }
 .card-body{
   width: 100%;
+  height: 120px;
 }
 .user-name{
   display: inline-block;
@@ -373,5 +386,8 @@ a:hover{
   }
   .current-menu{
     border-bottom: 5px solid dimgray;
+  }
+  .user-profile{
+    width: 40px;
   }
 }

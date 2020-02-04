@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     @comments = Comment.where(song_id: params[:comment][:song_id])
+    @song = Song.find(params[:comment][:song_id])
   end
 
   private
