@@ -5,7 +5,7 @@
       <%= user.name %>
     <% end %>
   </div>
-  <div id="follow-status">
-    <div class="follow-btn"><%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %></div>
-  </div>
+    <div id="follow_list_<%= user.id %>">
+      <div class="follow-btn"><%= render 'follow_button', user: user, relation: @relation, follow: @new_follow %></div>
+    </div>
 </div>
