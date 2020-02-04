@@ -17,7 +17,7 @@
         </div>
         <%= audio_tag @song.voice, class:"audio-bar" %>
         <!--いいね機能 -->
-        <div id="like_buttons_<%= @song.id %>">
+        <div id="like_buttons">
           <%= render 'likes/likes', song: @song %>
         </div>
       </div>
@@ -27,7 +27,12 @@
       <div class="description"> <%= @song.description %></div>
       <hr>
       <!--コメント欄-->
-      <%= render 'comments/comments', song: @song, comment: @comment, comments: @comments, user: @user %>
+      <div id="comment_form">
+      <%= render 'comments/form', song: @song, comment: @new_comment %>
+      </div>
+      <div id="comment_index">
+        <%= render 'comments/comments', comments: @comments, song: @song %>
+      </div>
     </div>
     <div class="col-3">
     <h3>他の投稿</h3>

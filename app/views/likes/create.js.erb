@@ -1,1 +1,1 @@
-$('#likes_buttons_<%= @song.id %>').html("<%= escape_javascript(render partial: 'likes/likes', locals: {song: @song}) %>");
+$("#like_buttons").html("<%= j(render 'likes/likes',  song: @song ) %>")

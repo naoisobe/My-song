@@ -8,7 +8,7 @@ class SongsController < ApplicationController
     @songs = Song.all
     @user = @song.user
     @like = Like.new
-    @comment = Comment.new
+    @new_comment = Comment.new
     @comments = Comment.where(song_id: params[:id])
 		@relation = Relationship.find_by(user_id: current_user,follow_id: @user.id)
 		@new_follow = Relationship.new
