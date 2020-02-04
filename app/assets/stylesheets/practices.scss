@@ -21,3 +21,15 @@
   width: 60%;
   margin: 0 auto;
 }
+
+@media screen and (min-width: 501px) and (max-width: 1000px) {
+  .video-box{
+    width: 75%;
+  }
+}
+@media screen and (max-width: 500px){
+    .video-box{
+    width: 90%;
+  }
+}
+
