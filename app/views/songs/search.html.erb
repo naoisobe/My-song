@@ -1,29 +1,28 @@
+<div class="search">
+  <%= render 'layouts/search' %>
+</div>
 <div class="container-fluid">
+  <a href="<%= songs_path %>" class="<%= "column-type" if current_page?(songs_path)%>">新着順</a>
+  <a href="<%= songs_rank_path %>" class="<%= "column-type" if current_page?(songs_rank_path)%>">ランキング</a>
   <div class="row">
-    <div class="col-1">
-    </div>
-    <div class="col-11">
-      <div class="row">
-        <% @songs.each do |song| %>
-          <%= link_to song_path(song) do %>
-            <div class="col-lg-3 col-md-3 col-sm-4">
-              <div class="song-card">
-                <%= image_tag song.thumbnail.to_s, class:"thumbnail" %>
-                <div class="card-body">
-                  <h5><%= song.title %></h5>
-                  <div class="user-card">
-                    <%= link_to user_path(song.user) do %>
-                      <%= image_tag song.user.profile_image.to_s, size:"35x35", class:"user-profile profile-image" %>
-                      <p class="user-name"><%= song.user.name %></p>
-                    <% end %>
-                  </div>
-                </div>
+    <% @songs.each do |song| %>
+      <%= link_to song_path(song) do %>
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+          <div class="song-card">
+            <%= image_tag song.thumbnail.to_s, class:"thumbnail" %>
+            <div class="card-body">
+              <h5><%= song.title %></h5>
+              <div class="user-card">
+                <%= link_to user_path(song.user) do %>
+                  <%= image_tag song.user.profile_image.to_s, size:"35x35", class:"post-profile" %>
+                  <p class="user-name"><%= song.user.name %></p>
+                <% end %>
               </div>
             </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
 

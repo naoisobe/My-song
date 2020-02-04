@@ -1,3 +1,6 @@
+<div class="search">
+<%= render 'layouts/search' %>
+</div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-9">
@@ -21,7 +24,7 @@
       <hr>
       <!--投稿したユーザー-->
       <%= render 'users/channel', user: @user %>
-      <div class="description"> <%= @song.description %></div>
+      <div class="post-description"> <%= @song.description %></div>
       <hr>
       <!--コメント欄-->
       <%= render 'comments/comments', song: @song, comment: @comment, comments: @comments, user: @user %>
@@ -36,7 +39,7 @@
               <h5><%= song.title %></h5>
               <div class="user-card">
                 <%= link_to user_path(song.user) do %>
-                  <%= image_tag song.user.profile_image.to_s, size:"35x35", class:"user-profile profile-image" %>
+                  <%= image_tag song.user.profile_image.to_s, class:"post-profile" %>
                   <p class="user-name"><%= song.user.name %></p>
                 <% end %>
               </div>

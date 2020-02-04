@@ -1,5 +1,11 @@
+<div class="search">
+<%= render 'layouts/search' %>
+</div>
 <div class="container-fluid">
-  <h1>ランキング</h1>
+  <div class="column-select-box">
+    <a href="<%= songs_path %>" class="<%= "column-type" if current_page?(songs_path)%>"><h4>新着順</h4></a>
+    <a href="<%= songs_rank_path %>" class="<%= "column-type" if current_page?(songs_rank_path)%>"><h4>ランキング</h4></a>
+  </div>
   <div class="row">
     <div class="col-1">
     </div>
@@ -15,7 +21,7 @@
                   <h5><%= song.title %></h5>
                   <div class="user-card">
                     <%= link_to user_path(song.user) do %>
-                      <%= image_tag song.user.profile_image.to_s, size:"35x35", class:"user-profile profile-image" %>
+                      <%= image_tag song.user.profile_image.to_s, class:"post-profile" %>
                       <p class="user-name"><%= song.user.name %></p>
                     <% end %>
                   </div>

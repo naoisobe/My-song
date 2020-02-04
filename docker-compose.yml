@@ -14,7 +14,7 @@ services:
     tty: true
     stdin_open: true 
     build: .
-    command: sh scripts/launch.sh
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/my_song
     ports:
@@ -37,4 +37,3 @@ volumes:
   tmp-data:
   log-data:
   db-data:
-  

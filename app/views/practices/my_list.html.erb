@@ -1,18 +1,19 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="offset-1 col-4">
+    <div class="col-md-4 side">
       <%= render "users/sidebar", user: @user %>
     </div>
-    <div class="col-7">
+    <div class="col-md-7">
       <%= render 'users/top-profile', user: @user %>
+      <%= render 'users/user_menu', user: @user %>
       <div class="row">
       <% @practices.each do |practice| %>
-        <div class="col-6">
+        <div class="col-md-6 offset-md-0 col-sm-8 offset-sm-2">
           <%= link_to practice_path(practice) do %>
-          <div class="practice-card">
+          <div class="song-card">
             <%= video_tag practice.video_url.to_s, style:"width:100%;" %>
-            <div class="practice-card-body">
-              <%= practice.title %>
+            <div class="card-body">
+              <p class="pra-title"><%= practice.title %></p>
             </div>
           </div>
           <% end %>

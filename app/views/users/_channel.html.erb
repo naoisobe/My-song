@@ -1,7 +1,7 @@
       <div class="channel">
       <div>
       <%= link_to user_path(user) do %>
-      <%= image_tag user.profile_image.to_s, size:"60x60", class:"user-profile profile-image" %>
+      <%= image_tag user.profile_image.to_s, class:"user-profile" %>
       <%= user.name %>
       <% end %>
       </div>

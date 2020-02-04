@@ -1,21 +1,22 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="offset-1 col-4">
+    <div class="col-md-4 side">
       <%= render "sidebar", user: @user %>
     </div>
-    <div class="col-7 text-center profile">
-      <%= image_tag @user.profile_image.to_s, size: "200x200", class:"profile-image" %>
+    <div class="col-md-7 text-center profile">
+      <%= image_tag @user.profile_image.to_s, class:"profile-image" %>
+      <p><%= link_to "プロフィール編集", edit_user_path(@user), class:"btn btn-primary" if @user == current_user %></p>
       <h3><%= @user.name %></h3>
       <div>
-        フォロー:<%= link_to "#{@user.relationships.count}", follows_path(@user) %>
-        フォロワー:<%= link_to "#{@user.followers.count}", followers_path(@user) %>
+        フォロー<%= link_to "#{@user.relationships.count}", follows_path(@user) %>
+        フォロワー<%= link_to "#{@user.followers.count}", followers_path(@user) %>
       </div>
       <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
       <% if @user = current_user%>
         <p>会員ステータス:<%= @user.member_status %></p>
       <% end %>
-      <p>自己紹介</p>
-      <%= @user.description %>
+      <p class="description"><%= @user.description %></p>
     </div>
+    <%= link_to "戻る", :back, class:"btn btn-light back-btn"%>
   </div>
 </div>
