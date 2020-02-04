@@ -15,7 +15,7 @@
       <% if @user = current_user%>
         <p>会員ステータス:<%= @user.member_status %></p>
       <% end %>
-      <%= @user.description %>
+      <p class="description"><%= @user.description %></p>
     </div>
     <%= link_to "戻る", :back, class:"btn btn-light back-btn"%>
   </div>

@@ -1,15 +1,13 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-6 video-box">
-      <%= video_tag @practice.video.to_s, controls: true, class:"video"%>
-      <h3><%= @practice.title %></h3>
-      <%= render 'users/channel', user: @user %>
-      <p><%= @practice.description %></p>
-      <hr>
-      <%= link_to "投稿を編集する", edit_practice_path(@practice), class:"btn btn-primary btn-block" %>
-    </div>
-    <div class="offset-1 col-5">
-      <%= render 'advise_chat/message', message: @message, messages: @messages, practice: @practice %>
-    </div>
-  </div>
+<div class="video-box">
+  <%= video_tag @practice.video.to_s, controls: true, class:"video" %>
+  <h3 class="pra-title"><%= @practice.title %></h3>
+  <hr>
+  <%= render 'users/channel', user: @user %>
+  <p class="post-description"><%= @practice.description %></p>
+  <hr>
+  <%= link_to "投稿を編集する", edit_practice_path(@practice), class:"btn btn-primary btn-block" %>
 </div>
+<div class="pra-comment-box">
+  <%= render 'advise_chat/message', message: @message, messages: @messages, practice: @practice %>
+</div>
+

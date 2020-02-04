@@ -4,8 +4,10 @@
 <%= f.submit "コメント", class:"btn comment-btn"  %>
 <% end %>
 <% comments.each do |comment| %>
-  <%= image_tag comment.user.profile_image.to_s, size: "30x30", class:"user-profile profile-image" %>
-  <p class="name"><%= comment.user.name %></p>
+  <%= link_to user_path(comment.user) do %>
+    <%= image_tag comment.user.profile_image.to_s, class:"header-profile" %>
+    <p class="name"><%= comment.user.name %></p>
+  <% end %>
   <div class="comment-text">
     <p><%= comment.content %></p>
     <% if current_user.my_comment?(comment) %>
