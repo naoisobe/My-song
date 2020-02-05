@@ -8,7 +8,7 @@
       <%= render 'users/user_menu', user: @user %>
       <div class="row">
       <% @song.each do |song| %>
-        <div class="col-lg-5 offset-lg-1 offset-md-0 col-md-6 col-sm-6 offset-sm-3 offset-2 col-8">
+        <div class="col-lg-5 offset-lg-1 offset-md-0 col-md-6 col-sm-6 offset-sm-3 col-8">
         <%= link_to song_path(song) do %>
           <div class="song-card">
               <%= image_tag song.thumbnail.to_s, class:"thumbnail" %>

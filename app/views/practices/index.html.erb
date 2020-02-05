@@ -2,17 +2,17 @@
   <div class="row">
     <% @practice.each do |practice| %>
       <%= link_to practice_path(practice) do %>
-        <div class="col-lg-4 offset-md-0 col-md-6 offset-sm-2 col-sm-8 offset-2 col-8">
+        <div class="col-lg-4 offset-md-0 col-md-6 offset-sm-2 col-sm-8 offset-1 col-10">
           <div class="song-card">
             <%= video_tag practice.video.to_s, class:"video" %>
-              <div class="card-body">
-                <h5 class="pra-title"><%= practice.title %></h5>
+            <div class="card-body">
+              <h5 class="pra-title"><%= practice.title %></h5>
+              <%= link_to user_path(practice.user) do %>
                 <div class="user-card">
-                  <%= link_to user_path(practice.user) do %>
                     <%= image_tag practice.user.profile_image.to_s, class:"post-profile" %>
-                    <p class="user-name"><%= practice.user.name %></p>
-                  <% end %>
-              </div>
+                    <p class="over-string user-name"><%= practice.user.name %></p>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

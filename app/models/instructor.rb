@@ -5,8 +5,10 @@ class Instructor < ApplicationRecord
          :recoverable, :rememberable, :validatable, authentication_keys: [:login_id]
 
   mount_uploader :profile_image, ProfileImageUploader
-  validates :login_id, presence: true
   has_many :advise_chats, dependent: :destroy
+
+  validates :login_id, presence: true
+
 
   def my_message?(message)
     advise_chats.exists?(id: message.id)

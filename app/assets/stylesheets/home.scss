@@ -57,11 +57,23 @@
   .home-profile{
     display: none;
   }
+  .home-card{
+    padding: 1rem;
+      & h5{
+        font-size: 13px;
+      }
+  }
   .home-nav{
     margin-left: 10px;
     & h2{
       font-size: 25px;
       line-height: 44px;
     }
+  }
+  .home-body{
+    height: initial !important;
+      & h5{
+        font-size: 13px;
+      }
   }
 }
