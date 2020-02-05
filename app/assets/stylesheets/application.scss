@@ -48,6 +48,9 @@ input{
 textarea{
   color: #000000;
 }
+ul{
+  list-style: none;
+}
 hr{
   border-top: 1px solid #252525;
 }
@@ -55,6 +58,14 @@ a{
   color: #ffffff;
     &:hover{
       color: #fafafafa;
+      cursor: pointer;
+    }
+}
+.devise-link a{
+  text-decoration: underline;
+  color: #007bff;
+    &:hover{
+      text-decoration: underline;
     }
 }
 header{
@@ -63,6 +74,16 @@ header{
 .over-string{
   text-overflow: ellipsis;
   overflow: hidden;
+}
+.error-message-box{
+  background: #FFBEDA;
+  border: 2px solid red;
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+.error-message{
+  color: red !important;
 }
 // プロフィール画像
 .profile-image{

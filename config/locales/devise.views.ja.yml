@@ -23,6 +23,8 @@ ja:
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
+            profile_image:
+              invalid: "適切な形式にしてください。"
         instructor:
           attributes:
             email:
@@ -44,26 +46,85 @@ ja:
               too_short: "は%{count}文字以上に設定して下さい。"
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
+            profile_image:
+              invalid: "は有効な形式ではありません。"
+        song:
+          attributes:
+            title:
+              blank: "が入力されていません。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+            voice:
+              blank: "が選択されていません。"
+              invalid: "はmp3形式にしてください。"
+            description:
+              too_long: "は%{count}文字以下に設定して下さい。"
+            thumbnail: 
+              invalid: "は適切な形式ではありません。"
+        advise_chat:
+          attributes:
+            message:
+              blank: "が入力されていません。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+        comment:
+          attributes:
+            content:
+              blank: "が入力されていません。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+        practice:
+          attributes:
+            title:
+              blank: "が入力されていません。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+            video:
+              blank: "が選択されていません。"
+              invalid: "はmp4形式にしてください。"
+            description:
+              too_long: "は%{count}文字以下に設定して下さい。"
     attributes:
       user:
         current_password: "現在のパスワード"
-        name: 名前
+        name: "名前"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
+        description: 自己紹介
+        profile_image: "プロフィール画像"
     attributes:
       instructor:
         current_password: "現在のパスワード"
-        name: 名前
-        login_id: ログインID
+        name: "名前"
+        login_id: "ログインID"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
+        description: "自己紹介"
+        profile_image: "プロフィール画像"
+      song:
+        title: タイトル
+        description: 説明文
+        voice: 音声ファイル
+        thumbnail: サムネイル
+      advise_chat:
+        message: メッセージ
+      comment:
+        content: コメント
+      practice:
+        title: タイトル
+        description: 説明文
+        video: 動画
     models:
       user: "ユーザ"
       instructor: "インストラクター"
+      song: "投稿"
+      practice: "トレーニング"
+      comment: "コメント"
+      advise_chat: "メッセージ"
   devise:
     confirmations:
       new:

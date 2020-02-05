@@ -2,6 +2,9 @@
   <div class="row">
     <div class="user-form card col-sm-6 col-md-5 col-lg-4 text-center">
       <h3>ログイン</h3>
+        <%= content_tag(:p, flash[:error], :id => "flash_error", :class => "error-message") if flash[:error] %>
+        <%= content_tag(:p, flash[:notice], :id => "flash_notice", :class => "error-message") if flash[:notice] %>
+        <%= content_tag(:p, flash[:alert], :id => "flash_alert", :class => "error-message") if flash[:alert] %>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
           <%= f.label :email, "Eメール" %><br />

@@ -9,4 +9,5 @@ class Song < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 20 }
   validates :description, length: { maximum: 300 }
+  validates :voice, presence: true
 end
