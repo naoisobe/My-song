@@ -27,9 +27,7 @@
       <div class="post-description"> <%= @song.description %></div>
       <hr>
       <!--コメント欄-->
-      <div id="comment_form">
       <%= render 'comments/form', song: @song, comment: @new_comment %>
-      </div>
       <div id="comment_index">
         <% @comments.each do |comment| %>
         <%= render 'comments/comments', comment: comment, song: @song %>
