@@ -6,11 +6,6 @@ class User < ApplicationRecord
 
   mount_uploader :profile_image, ProfileImageUploader
 
-  enum member_status: { 一般会員: 0, 有料会員: 1 }
-
-  validates :name, presence: true
-  validates :description, length: { maximum: 100 }
-
   has_many :songs, dependent: :destroy
   has_many :users, dependent: :destroy
   has_many :practices, dependent: :destroy
@@ -22,6 +17,11 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :user
   has_many :advise_chats, dependent: :destroy
+
+  enum member_status: { 一般会員: 0, 有料会員: 1 }
+
+  validates :name, presence: true, length: { maximum: 15 }
+  validates :description, length: { maximum: 100 }
 
   def my_comment?(comment)
     comments.exists?(id: comment.id)
