@@ -8,9 +8,8 @@ class Instructor < ApplicationRecord
   has_many :advise_chats, dependent: :destroy
 
   validates :login_id, presence: true
-  validates :name, presence: true, length: {maximum: 10}
-  validates :description, length: {maximum: 120}
-
+  validates :name, presence: true, length: { maximum: 10 }
+  validates :description, length: { maximum: 120 }
 
   def my_message?(message)
     advise_chats.exists?(id: message.id)
