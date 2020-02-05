@@ -3,23 +3,22 @@
     <div class="user-form card col-sm-6 col-md-5 col-lg-4 text-center">
       <h3>新規登録</h3>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="error-message">
+          <%= render "devise/shared/error_messages", resource: resource %>
+        </div>
 
         <div class="field">
-          <%= f.label :name, "ユーザー名" %><br />
+          <%= f.label :name, "ユーザー名" %>
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
 
         <div class="field">
-          <%= f.label :email, "Eメール" %><br />
+          <%= f.label :email, "Eメール" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
 
         <div class="field">
-          <%= f.label :password, "パスワード" %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> 文字以上)</em>
-          <% end %><br />
+          <%= f.label :password, "パスワード(6文字以上)" %>
           <%= f.password_field :password, autocomplete: "new-password" %>
         </div>
 

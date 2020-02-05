@@ -50,6 +50,7 @@ class SongsController < ApplicationController
     if @song.save
       redirect_to song_path(@song)
     else
+      @error = @song
       render new_song_path
     end
   end

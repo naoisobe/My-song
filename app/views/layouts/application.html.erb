@@ -11,8 +11,11 @@
   <body>
     <div class="<%= "background-image" if devise_controller? or current_page?(root_path) %>">
       <header>
-        <%= render "/layouts/header"%>
+        <%= render "/layouts/header" %>
       </header>
+      <% if @error %>
+      <%= render 'layouts/error_message', model: @error %>
+      <% end %>
       <%= yield %>
     </div>
   </body>
