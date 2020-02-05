@@ -4,7 +4,7 @@ class RelationshipsController < ApplicationController
     @follow_user = @user.followings
     @follow_user.each do |user|
       @relation = Relationship.where(user_id: current_user, follow_id: user.id)
-	  end
+    end
     @new_follow = Relationship.new
   end
 
