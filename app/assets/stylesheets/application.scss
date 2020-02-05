@@ -20,6 +20,7 @@
 @import "songs";
 @import "practices";
 @import "instructors";
+
 // 共通レイアウト
 *{
   margin: 0;
@@ -59,6 +60,10 @@ a{
 header{
   padding: 20px;
 }
+.over-string{
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 // プロフィール画像
 .profile-image{
   border-radius: 50%;
@@ -80,6 +85,7 @@ header{
   border-radius: 50%;
   width: 100px;
 }
+
 // 検索バー
 .search{
   margin-bottom: 30px;
@@ -90,6 +96,7 @@ header{
 }
 .search_form{
   width: 75%;
+  text-align: center;
   margin: 0 auto;
   border-radius: 10px;
 }
@@ -103,15 +110,15 @@ header{
 
 // 登録・ログインボタン
 .user-btn{
-  position:relative;
-  top: 40%;
-  left: 20%;
+  text-align: center;
+  margin-top: 100px;
     & > .btn{
-      display: block;
       margin-top: 20px;
-      max-width: 250px;
+      margin: 20px;
+      width: 250px;
       text-align: center;
       border: 2px solid #ffffff;
+      background: rgba(50, 50, 50, 0.6);
       font-size: 16px;
       color: #ffffff;
       text-decoration: none;
@@ -205,7 +212,6 @@ a:hover{
  
 .thumbnail{
    width:100%;
-   height:180px;
 }
 
 // プロフィールヘッダー(マイページ)
@@ -248,13 +254,23 @@ a:hover{
 .card-body{
   width: 100%;
   height: 120px;
-}
-.user-name{
-  display: inline-block;
-  color: dimgray;
+  position: relative;
 }
 .user-card{
-  text-align: right;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  padding-right: 10px;
+  white-space: nowrap;
+}
+.user-name{
+  color: dimgray;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0;
 }
 
 // icon
@@ -338,9 +354,6 @@ a:hover{
   padding: 0;
   border: 0;
 }
-.back-btn{
-  margin-right: 300px;
-}
 .column-select-box{
   margin-bottom: 10px;
   display: flex;
@@ -351,9 +364,14 @@ a:hover{
 .column-type{
   border-bottom: 3px solid dimgray;
 }
-
 .user-menu{
   display: none;
+}
+.post-form{
+  text-align: center;
+}
+.contents{
+  margin-top: 50px;
 }
 
 // レスポンシブ
@@ -364,12 +382,11 @@ a:hover{
     background-position: 60%;
   }
   .user-btn{
-    position: fixed;
-    width: 100%;
-    left: 0;
     text-align: center;
+    margin-top: 40px;
       & > .btn{
         margin: 20px auto;
+        display: block;
       }
   }
   .side{
@@ -377,7 +394,7 @@ a:hover{
   }
   .user-menu{
     display: flex;
-    width: 80%;
+    width: 100%;
     margin: 5px auto 30px auto;
     justify-content: center;
       & p{

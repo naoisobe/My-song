@@ -42,6 +42,20 @@
 }
 .description{
   word-break: break-all;
-  width: 40%;
+  width: 60%;
   text-align: left;
 }
+.back-btn{
+  display: none;
+}
+
+@media screen and (max-width: 768px){
+  .description{
+    width: 80%;
+  }
+  .back-btn{
+    display: inline-block;
+  }
+
+}
+
