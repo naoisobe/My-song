@@ -37,7 +37,7 @@ class PracticesController < ApplicationController
       redirect_to practice_path(@practice)
     else
       @error = @practice
-      render new_song_path
+      render new_practice_path
     end
   end
 
