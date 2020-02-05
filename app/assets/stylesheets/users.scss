@@ -26,8 +26,11 @@
       margin: 0;
     }
 }
-.profile > p{
-  margin: 20px auto;
+.profile{
+  text-align: center;
+    & > p{
+      margin: 20px auto;
+    }
 }
 .user-edit-box{
   width: 70%;

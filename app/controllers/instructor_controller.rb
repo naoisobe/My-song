@@ -22,9 +22,8 @@ class InstructorController < ApplicationController
   end
 
   private
-  
+
   def instructor_params
     params.require(:instructor).permit(:name, :description, :profile_image)
   end
 end
-

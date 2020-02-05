@@ -4,10 +4,12 @@ class AdviseChatController < ApplicationController
     @message.user_id = current_user.id if user_signed_in?
     @message.instructor_id = current_instructor.id if instructor_signed_in?
     @message.save
-    redirect_back(fallback_location: root_path)
+    @practice = Practice.find(params[:advise_chat][:practice_id])
   end
 
   def destroy
+    @message = AdviseChat.find(params[:id])
+    @message.destroy
   end
 
   private

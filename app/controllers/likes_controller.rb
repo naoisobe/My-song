@@ -13,7 +13,7 @@ class LikesController < ApplicationController
   def my_list
     @user = User.find(params[:id])
     @song = @user.liked_songs
-		@relation = Relationship.find_by(user_id: current_user,follow_id: @user.id)
-		@new_follow = Relationship.new
+    @relation = Relationship.find_by(user_id: current_user, follow_id: @user.id)
+    @new_follow = Relationship.new
   end
 end

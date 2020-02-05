@@ -52,6 +52,9 @@ Rails/InverseOf:
 
 Layout/Tab:
   Enabled: false
+
+Style/SafeNavigation:
+  Enabled: false
   
 Lint/SuppressedException:
   Enabled: false

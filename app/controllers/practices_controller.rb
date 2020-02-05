@@ -9,7 +9,7 @@ class PracticesController < ApplicationController
     @like = Like.new
     @comment = Comment.new
     @comments = Comment.where(song_id: params[:id])
-		@relation = Relationship.find_by(user_id: current_user,follow_id: @user.id)
+    @relation = Relationship.find_by(user_id: current_user, follow_id: @user.id)
     @new_follow = Relationship.new
     @message = AdviseChat.new
     @messages = AdviseChat.where(practice_id: params[:id])
@@ -22,8 +22,8 @@ class PracticesController < ApplicationController
   def my_list
     @practices = Practice.where(user_id: params[:id])
     @user = User.find(params[:id])
-		@relation = Relationship.find_by(user_id: current_user,follow_id: @user.id)
-		@new_follow = Relationship.new
+    @relation = Relationship.find_by(user_id: current_user, follow_id: @user.id)
+    @new_follow = Relationship.new
   end
 
   def new

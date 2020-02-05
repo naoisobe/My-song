@@ -1,5 +1,5 @@
 class Practice < ApplicationRecord
   mount_uploader :video, VideoUploader
   belongs_to :user
-  has_many :advise_chats
+  has_many :advise_chats, dependent: :destroy
 end

@@ -1,16 +1,12 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-4">
-      <%= render 'users/sidebar', user: @user %>
+    <div class="col-md-4 side">
+      <%= render "users/sidebar", user: @user %>
     </div>
-    <div class="col-8 text-center align-items-center">
+    <div class="col-8">
       <% @follower_user.each do |user| %>
-        <% image_tag user.profile_image.to_s, size:"50x50" %>
-        <%= user.name%>
-        フォロー数:<%= user.relationships.count %>
-        フォロワー数:<%= user.followers.count %> 
-        <%= render "follow_button", user: user, relation: @relation, follow: @new_follow %>
-        <%= link_to "Show", user, class: "user_#{user.id}" %>
+        <%= render 'follow_list', user: user %>
+        <hr>
       <% end %>
     </div>
   </div>

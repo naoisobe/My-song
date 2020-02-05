@@ -1,10 +1,5 @@
-<%= form_for message, url: advise_chat_index_path do |f| %>
-  <%= f.hidden_field :practice_id, :value => practice.id %>
-  <%= f.text_field :message, placeholder:"メッセージを入力", class:"comment-form" %>
-  <%= f.submit "送信", class:"btn comment-btn" %>
-<% end %>
-<% messages.each do |ms| %>
-  <% if ms.user %>
+<div id="message_list<%= ms.id %>">
+   <% if ms.user %>
   <%= image_tag ms.user.profile_image.to_s, class:"header-profile" %>
   <p class="name"><%= ms.user.name %></p>
   <% elsif ms.instructor %>
@@ -14,7 +9,10 @@
   <div class="comment-text">
     <p class="message"><%= ms.message %></p>
     <% if (user_signed_in? and current_user.my_message?(ms)) or (instructor_signed_in? and current_instructor.my_message?(ms)) %>
-      <%= button_to "削除", advise_chat_path(ms), method: :delete, class:"btn btn-danger" %>
+      <%= form_for ms, url: advise_chat_path(ms), method: :delete, remote: true do |f| %>
+        <%= f.hidden_field :practice_id, :value => practice.id %>
+        <%= f.submit "削除", class:"btn btn-danger"%>
+      <% end %>
     <% end %>
   </div>
-<% end %>
+</div>

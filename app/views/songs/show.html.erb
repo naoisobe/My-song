@@ -31,7 +31,9 @@
       <%= render 'comments/form', song: @song, comment: @new_comment %>
       </div>
       <div id="comment_index">
-        <%= render 'comments/comments', comments: @comments, song: @song %>
+        <% @comments.each do |comment| %>
+        <%= render 'comments/comments', comment: comment, song: @song %>
+        <% end %>
       </div>
     </div>
     <div class="col-3">

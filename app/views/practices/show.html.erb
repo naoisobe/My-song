@@ -8,6 +8,13 @@
   <%= link_to "投稿を編集する", edit_practice_path(@practice), class:"btn btn-primary btn-block" %>
 </div>
 <div class="pra-comment-box">
-  <%= render 'advise_chat/message', message: @message, messages: @messages, practice: @practice %>
+  <div id="advise_form">
+    <%= render 'advise_chat/form', message: @message, practice: @practice %>
+  </div>
+  <div id="advise_index">
+    <% @messages.each do |message| %>
+      <%= render 'advise_chat/message', ms: message, practice: @practice %>
+    <% end %>
+  </div>
 </div>
 
