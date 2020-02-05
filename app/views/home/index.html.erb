@@ -1,4 +1,31 @@
-  <div class="user-btn">
+<div class="user-btn">
   <%= link_to "新規登録", new_user_registration_path, class:"btn"%>
   <%= link_to "ログイン", new_user_session_path, class:"btn" %>
+</div>
+<div class="section is-paddingless-horizontal">
+  <div class="home-nav">
+    <h2 style="margin:0">人気な投稿</h2>
+    <%= link_to songs_path, class:"song-link" do %>
+      <h5>投稿一覧へ</h5>
+    <% end %>
   </div>
+  <ul class="song-scroll-list">
+    <% @song.each do |song| %>
+      <li class="song-scroll-item">
+        <div class="song-scroll-card song-card">
+          <%= link_to song_path(song) do %>
+            <%= image_tag song.thumbnail.to_s, class:"thumbnail" %>
+            <div class="card-body">
+              <h5 class="over-string"><%= song.title %></h5>
+              <div class="user-card home-card">
+                <%= link_to user_path(song.user) do %>
+                  <%= image_tag song.user.profile_image.to_s, class:"home-profile" %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

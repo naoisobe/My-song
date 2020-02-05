@@ -1,3 +1,67 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// 横スクロール
+.section{
+  width: 100%;
+  margin-top: 30px;
+}
+.song-scroll-list {
+  overflow-x: scroll;
+  white-space: nowrap;
+  -ms-overflow-style:none;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+.song-scroll-list::-webkit-scrollbar {
+  display: none;
+  -webkit-appearance: none;
+}
+.song-scroll-item {
+  display: inline-block;
+  margin-right: 0.1rem;
+  width: 20%;
+  margin: 20px;
+}
+.home-card{
+  width: initial !important;
+  padding-bottom: 10px;
+}
+.home-profile{
+  width: 50px;
+  border-radius: 50%;
+}
+.home-nav{
+  margin-left: 100px;
+  display: flex;
+    & h5{
+      margin-bottom: 0;
+      margin-left: 50px;
+      background: #000000;
+      padding: 10px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+  .song-scroll-item {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 768px){
+  .section{
+    bottom: 20%;
+  }
+  .song-scroll-item {
+    width: 40%;
+  }
+  .home-profile{
+    display: none;
+  }
+  .home-nav{
+    margin-left: 10px;
+    & h2{
+      font-size: 25px;
+      line-height: 44px;
+    }
+  }
+}
