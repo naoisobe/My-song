@@ -1,5 +1,5 @@
 <% unless current_user == user or instructor_signed_in?  %>
-  <% if current_user.following?(user) %>
+  <% if user_signed_in? and current_user.following?(user) %>
     <%= form_for follow, url:relationship_path(relation), method: :delete, remote: :true do |f| %>
       <%= f.hidden_field :follow_id, value: user.id %>
       <%= f.submit "Unfollow", class:"btn btn-danger fb" %>

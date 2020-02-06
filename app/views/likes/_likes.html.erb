@@ -1,5 +1,6 @@
 <div class="option-icon">
 <% if current_user.already_liked?(song) %>
+<% if user_signed_in? and current_user.already_liked?(song) %>
   <%= link_to song_likes_path(song), method: :delete, style: "border-style: none;", remote: true do %>
     <%= icon("fas", "heart") %>
   <% end %>
