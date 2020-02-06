@@ -3,7 +3,9 @@
     <div class="col-md-4 side">
       <%= render "users/sidebar", user: @user %>
     </div>
-    <div class="col-8">
+    <div class="col-md-8">
+      <%= render 'users/top-profile', user: @user %>
+      <%= render 'users/user_menu', user: @user %>
       <% @follow_user.each do |user| %>
         <%= render 'follow_list', user: user %>
         <hr>
