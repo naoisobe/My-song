@@ -1,5 +1,6 @@
 class PracticesController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :not_authenticate_user, only: %i{index}
+  before_action :authenticate_instructor, only: %i{index}
 
   def index
     @practice = Practice.all
