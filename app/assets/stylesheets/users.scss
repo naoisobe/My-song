@@ -48,6 +48,9 @@
 .back-btn{
   display: none;
 }
+.logout-btn{
+  display: none;
+}
 
 @media screen and (max-width: 768px){
   .description{
@@ -56,6 +59,8 @@
   .back-btn{
     display: inline-block;
   }
-
+  .logout-btn{
+  display: inline-block;
+  }
 }
 

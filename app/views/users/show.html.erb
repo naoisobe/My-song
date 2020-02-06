@@ -11,12 +11,15 @@
         フォロー<%= link_to "#{@user.relationships.count}", follows_path(@user) %>
         フォロワー<%= link_to "#{@user.followers.count}", followers_path(@user) %>
       </div>
-      <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
-      <% if @user = current_user%>
+      <div id="follow-status">
+        <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
+      </div>
+      <% if @user == current_user %>
         <p>会員ステータス:<%= @user.member_status %></p>
       <% end %>
       <p class="description"><%= @user.description %></p>
-      <%= link_to "戻る", :back, class:"btn btn-light back-btn"%>
+      <p><%= link_to "ログアウト", destroy_user_session_path, class:"btn btn-danger logout-btn" if @user == current_user%></p>
+      <p><%= link_to "戻る", :back, class:"btn btn-light back-btn"%></p>
     </div>
   </div>
 </div>
