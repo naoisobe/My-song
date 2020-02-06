@@ -1,5 +1,5 @@
 <%= form_for comment, url: comments_path, remote: true do |f| %>
 <%= f.hidden_field :song_id, :value => song.id %>
-<%= f.text_field :content, placeholder:"コメントを入力", class:"comment-form", id:"comment-content" %>
+<%= f.text_field :content, placeholder:"コメントを入力", class:"comment-form comment-content" %>
 <%= f.submit "コメント", class:"btn comment-btn"  %>
 <% end %>
