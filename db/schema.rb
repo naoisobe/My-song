@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_02_002642) do
+ActiveRecord::Schema.define(version: 2020_02_06_144154) do
 
   create_table "advise_chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "message"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2020_02_02_002642) do
     t.index ["instructor_id"], name: "index_advise_chats_on_instructor_id"
     t.index ["practice_id"], name: "index_advise_chats_on_practice_id"
     t.index ["user_id"], name: "index_advise_chats_on_user_id"
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "card_id"
+    t.string "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -109,6 +118,7 @@ ActiveRecord::Schema.define(version: 2020_02_02_002642) do
   add_foreign_key "advise_chats", "instructors"
   add_foreign_key "advise_chats", "practices"
   add_foreign_key "advise_chats", "users"
+  add_foreign_key "cards", "users"
   add_foreign_key "comments", "songs"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "songs"

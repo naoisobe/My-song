@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show edit update]
   resources :comments, only: %i[create destroy]
   resources :relationships, only: %i[create destroy]
+  resources :cards, only: %i{new create}
   get 'follows/:id' => 'relationships#follows', as: 'follows'
   get 'followers/:id' => 'relationships#followers', as: 'followers'
   get 'songs/search' => 'songs#search', as: 'songs_search'

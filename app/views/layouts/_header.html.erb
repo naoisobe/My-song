@@ -13,9 +13,15 @@
           <li class = "nav-item">
             <%= link_to "歌を投稿する", new_song_path, class:"nav-link"%>
           </li>
+          <% if current_user.member_status == "一般会員" %>
+          <li class = "nav-item">
+            <%= link_to "有料会員になる", new_card_path , class:"nav-link"%>
+          </li>
+          <% else %>
           <li class = "nav-item">
             <%= link_to "トレーニングする", new_practice_path, class:"nav-link"%>
           </li>
+          <% end %>
         </ul>
         <ul class="navbar-nav">
           <li class = "nav-item">
