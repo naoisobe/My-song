@@ -1,4 +1,6 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_user!, only: %i{create destroy}
+
   def follows
     @user = User.find(params[:id])
     @follow_user = @user.followings

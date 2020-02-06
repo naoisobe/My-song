@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     @song = Song.find(params[:song_id])
     @like = Like.create(song_id: params[:song_id], user_id: current_user.id)

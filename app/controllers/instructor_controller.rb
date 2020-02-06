@@ -1,4 +1,6 @@
 class InstructorController < ApplicationController
+  before_action :authenticate_instructor!, only: %I{edit ms_list}
+
   def edit
     @instructor = Instructor.find(params[:id])
   end
