@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def not_authenticate_user
-    redirect_to root_path if user_signed_in?
+    redirect_to songs_path if user_signed_in?
   end
 
   def search
