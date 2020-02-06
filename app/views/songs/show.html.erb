@@ -1,41 +1,59 @@
 <div class="search">
-<%= render 'layouts/search' %>
+  <%= render 'layouts/search' %>
 </div>
 <div class="container-fluid">
   <div class="row">
-    <div class="offset-md-1 col-md-7 col-col-sm-12 col-12">
+    <div class="offset-md-1 col-md-7 col-sm-12 col-12">
       <!--投稿された歌 -->
       <div class="blur-back" style="background-image: url('<%= @song.thumbnail.url %>');">
-      <% if @song.user == current_user %>
-        <%= link_to edit_song_path(@song) do %>
-          <p class="icon-edit"><%= icon("fas", "edit") %></p>
+        <% if @song.user == current_user %>
+          <%= link_to edit_song_path(@song) do %>
+            <p class="icon-edit"><%= icon("fas", "edit") %></p>
+          <% end %>
         <% end %>
-      <% end %>
         <div class="main">
-          <h3 class="title"><%= @song.title %></h3>
           <%= image_tag @song.thumbnail.to_s, style:"width:100%;"%>
         </div>
         <%= audio_tag @song.voice, class:"audio-bar" %>
         <!--いいね機能 -->
-        <div id="like_buttons">
-          <%= render 'likes/likes', song: @song %>
+        <div class="option">
+          <div id="like_buttons">
+            <%= render 'likes/likes', song: @song %>
+          </div>
+          <div class="option-icon">
+            <%= icon("fa", "comment-dots") %>
+            <p><%= @comments.count %></p>
+          </div>
         </div>
       </div>
-      <hr>
       <!--投稿したユーザー-->
-      <%= render 'users/channel', user: @user %>
-      <div class="post-description"> <%= @song.description %></div>
+      <h3 class="title"><%= @song.title %></h3>
       <hr>
-      <!--コメント欄-->
-      <%= render 'comments/form', song: @song, comment: @new_comment %>
-      <div id="comment_index">
-        <% @comments.each do |comment| %>
-        <%= render 'comments/comments', comment: comment, song: @song %>
-        <% end %>
+      <%= render 'users/channel', user: @user %>
+      <p class="post-description"><%= @song.description %></p>
+      <hr>
+      <div class="comment-box wide-comment-box">
+        <%= render 'comments/form', song: @song, comment: @new_comment %>
+        <div class="comment_index">
+          <% @comments.each do |comment| %>
+            <%= render 'comments/comments', comment: comment, song: @song %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="offset-md-1 col-md-3 offset-sm-2 col-sm-8 offset-1 col-10">
-      <%= render 'other_song', songs: @songs %>
+      <h3><%= @user.name %>さんの他の投稿</h3>
+      <%= render 'other_song', songs: @songs, user: @user %>
+    </div>
+    <hr>
+    <!--コメント欄-->
+    <div class="comment-box mini-comment-box">
+      <%= render 'comments/form', song: @song, comment: @new_comment %>
+      <div class="comment_index">
+        <% @comments.each do |comment| %>
+          <%= render 'comments/comments', comment: comment, song: @song %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

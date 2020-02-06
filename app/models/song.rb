@@ -7,7 +7,7 @@ class Song < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
-  validates :title, presence: true, length: { maximum: 20 }
+  validates :title, presence: true, length: { maximum: 30 }
   validates :description, length: { maximum: 300 }
   validates :voice, presence: true
 end

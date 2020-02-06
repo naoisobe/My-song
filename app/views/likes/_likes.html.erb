@@ -1,3 +1,4 @@
+<div class="option-icon">
 <% if current_user.already_liked?(song) %>
   <%= link_to song_likes_path(song), method: :delete, style: "border-style: none;", remote: true do %>
     <%= icon("fas", "heart") %>
@@ -7,4 +8,5 @@
     <%= icon("far", "heart") %>
   <% end %>
 <% end %>
-<%= song.likes.count %>
+<p><%= song.likes.count %></p>
+</div>

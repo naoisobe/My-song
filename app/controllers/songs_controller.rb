@@ -5,8 +5,8 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
-    @songs = Song.all
     @user = @song.user
+    @songs = Song.where(user_id: @user.id).limit(5).where.not(id: @song.id)
     @like = Like.new
     @new_comment = Comment.new
     @comments = Comment.where(song_id: params[:id])
