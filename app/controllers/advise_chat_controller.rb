@@ -6,8 +6,9 @@ class AdviseChatController < ApplicationController
     @message = AdviseChat.new(advise_params)
     @message.user_id = current_user.id if user_signed_in?
     @message.instructor_id = current_instructor.id if instructor_signed_in?
-    @message.save
-    @practice = Practice.find(params[:advise_chat][:practice_id])
+    if @message.save
+      @practice = Practice.find(params[:advise_chat][:practice_id])
+    end
   end
 
   def destroy

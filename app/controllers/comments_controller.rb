@@ -4,8 +4,9 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.save
-    @song = Song.find(params[:comment][:song_id])
+    if @comment.save
+      @song = Song.find(params[:comment][:song_id])
+    end
   end
 
   def destroy
