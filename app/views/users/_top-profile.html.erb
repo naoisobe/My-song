@@ -7,7 +7,7 @@
         <p>フォロワー <%= link_to "#{user.followers.count}", followers_path(user) %></p>
       </div>
     </div>
-    <div class="fl-btn">
+    <div class="fl-btn" id="follow-status">
       <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
     </div>
 </div>
