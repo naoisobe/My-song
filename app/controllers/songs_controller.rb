@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
   before_action :authenticate_user!, only: %i{edit new}
+  
   def index
     @song = Song.all.order(created_at: :desc)
   end
