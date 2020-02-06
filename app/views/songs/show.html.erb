@@ -3,7 +3,7 @@
 </div>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-9">
+    <div class="offset-md-1 col-md-7 col-col-sm-12 col-12">
       <!--投稿された歌 -->
       <div class="blur-back" style="background-image: url('<%= @song.thumbnail.url %>');">
       <% if @song.user == current_user %>
@@ -34,24 +34,8 @@
         <% end %>
       </div>
     </div>
-    <div class="col-3">
-    <h3>他の投稿</h3>
-      <% @songs.each do |song| %>
-        <%= link_to song_path(song) do %>
-          <div class="song-card">
-            <%= image_tag song.thumbnail.to_s, class:"thumbnail" %>
-            <div class="card-body">
-              <h5><%= song.title %></h5>
-              <div class="user-card">
-                <%= link_to user_path(song.user) do %>
-                  <%= image_tag song.user.profile_image.to_s, class:"post-profile" %>
-                  <p class="user-name"><%= song.user.name %></p>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+    <div class="offset-md-1 col-md-3 offset-sm-2 col-sm-8 offset-1 col-10">
+      <%= render 'other_song', songs: @songs %>
     </div>
   </div>
 </div>
