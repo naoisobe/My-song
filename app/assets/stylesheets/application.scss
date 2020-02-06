@@ -230,6 +230,13 @@ a:hover{
   margin-top: 13px;
   width: 20%;
 }
+.comment-box{
+  width: 100%;
+  padding: 0 5%;
+}
+.mini-comment-box{
+  display: none;
+}
  
 .thumbnail{
    width:100%;
@@ -300,12 +307,22 @@ a:hover{
   color: rgb(224, 36, 94);
   font-size: 25px;
 }
+.fa-comment-dots{
+  font-size: 25px;
+  margin-left: 10px;
+}
 .fa-edit{
   font-size: 20px;
 }
 .icon-edit{
   text-align: right;
   margin-right: 10%;
+}
+.option-icon{
+  display: flex;
+   & p{
+     margin-left: 5px;
+   }
 }
 
 #overlay {
@@ -417,6 +434,12 @@ a:hover{
     .fl-btn{
       margin: 0 auto;
     }
+    .top-profile{
+      text-align: center;
+      & > div{
+        margin-left: 0;
+      }
+    }
   }
 @media screen and (max-width: 768px){
 
@@ -460,6 +483,15 @@ a:hover{
   }
   .other-song{
     width: 120px;
+  }
+  .comment-btn{
+    width: initial;
+  }
+  .mini-comment-box{
+    display: initial;
+  }
+  .wide-comment-box{
+    display: none;
   }
 }
 // スマホサイズ

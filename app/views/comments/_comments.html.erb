@@ -1,4 +1,4 @@
-<div id="comment_list<%= comment.id %>">
+<div class="comment_list<%= comment.id %>">
   <%= link_to user_path(comment.user) do %>
       <%= image_tag comment.user.profile_image.to_s, class:"header-profile" %>
       <p class="name"><%= comment.user.name %></p>
