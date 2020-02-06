@@ -3,7 +3,7 @@
     <div class="post-form col-md-6 offset-md-3 col-sm-8 offset-sm-2">
       <%= form_for @practice do |f|%>
         <div class="form-group">
-          <%= f.text_field :title, placeholder:"タイトル", class:"form-control" %>
+          <%= f.text_field :title, placeholder:"タイトル",autocomplete: "off", class:"form-control" %>
         </div>
         <div class="form-group">
           <%= f.text_area :description, placeholder:"改善したいところ・実現したいことなど", class:"form-control form" %>
