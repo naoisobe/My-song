@@ -280,11 +280,12 @@ a:hover{
 .user-card{
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 100%;
   position: absolute;
   bottom: 5px;
-  right: 0;
-  padding-right: 10px;
+  left: 10px;
+  bottom: 10px;
+  padding-right: 20px;
   white-space: nowrap;
 }
 .user-name{
@@ -394,8 +395,29 @@ a:hover{
 .contents{
   margin-top: 50px;
 }
-
 // レスポンシブ
+
+@media screen and (max-width: 1000px){
+    .overstring{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space:nowrap;
+  }
+    .card-body h5{
+      @extend .overstring;
+      font-size: 1.5rem;
+    }
+    .top-profile{
+      flex-direction: column;
+        & h3{
+        @extend .overstring;
+        font-size: 20px;
+      }
+    }
+    .fl-btn{
+      margin: 0 auto;
+    }
+  }
 @media screen and (max-width: 768px){
 
   .background-image{
@@ -427,5 +449,30 @@ a:hover{
   }
   .user-profile{
     width: 40px;
+  }
+  .card-body{
+    & h5{
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space:nowrap;
+      font-size: 1.5rem;
+    }
+  }
+  .other-song{
+    width: 120px;
+  }
+}
+// スマホサイズ
+@media screen and (max-width: 400px){
+  .post-profile{
+    width: 50px;
+  }
+  .card-body{
+    & h5{
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space:nowrap;
+      font-size: 1.5rem;
+    }
   }
 }
