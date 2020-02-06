@@ -12,8 +12,10 @@ class InstructorController < ApplicationController
   def update
     @instructor = Instructor.find(params[:id])
     if @instructor.update(instructor_params)
+      flash[:notice] = "ユーザー情報が更新されました"
       redirect_to instructor_path(@instructor)
     else
+      @error = @instructor
       render 'edit'
     end
   end

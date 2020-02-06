@@ -23,8 +23,10 @@ class SongsController < ApplicationController
   def update
     @song = Song.find(params[:id])
     if @song.update(song_params)
+      flash[:notice] = "投稿を編集しました"
       redirect_to song_path(@song)
     else
+      @error = @song
       render 'edit'
     end
   end
@@ -43,6 +45,7 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
+    flash[:notice] = "投稿が削除されました"
     redirect_to songs_path
   end
 
@@ -50,6 +53,7 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     @song.user_id = current_user.id
     if @song.save
+      flash[:notice] = "投稿されました"
       redirect_to song_path(@song)
     else
       @error = @song

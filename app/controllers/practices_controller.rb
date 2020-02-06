@@ -1,4 +1,7 @@
 class PracticesController < ApplicationController
+  before_action :not_authenticate_user, only: %i{index}
+  before_action :authenticate_instructor, only: %i{index}
+
   def index
     @practice = Practice.all
   end
@@ -34,6 +37,7 @@ class PracticesController < ApplicationController
     @practice = Practice.new(practice_params)
     @practice.user_id = current_user.id
     if @practice.save
+      flash[:notice] = "投稿されました"
       redirect_to practice_path(@practice)
     else
       @error = @practice
@@ -44,12 +48,14 @@ class PracticesController < ApplicationController
   def destroy
     @practice = Practice.find(params[:id])
     @practice.destroy
+    flash[:notice] = "投稿が削除されました"
     redirect_to songs_path
   end
 
   def update
     @practice = Practice.find(params[:id])
     @practice.update(practice_params)
+    flash[:notice] = "投稿を編集しました"
     redirect_to practice_path(@practice)
   end
 

@@ -85,6 +85,11 @@ header{
 .error-message{
   color: red !important;
 }
+.notice {
+  background-color: green;
+  color: white;
+  text-align: center;
+}
 // プロフィール画像
 .profile-image{
   border-radius: 50%;

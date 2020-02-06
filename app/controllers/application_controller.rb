@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     redirect_to songs_path if user_signed_in?
   end
 
+  def authenticate_instructor
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
   def search
     @q = Song.ransack(params[:q])
     @songs = @q.result(distinct: true)

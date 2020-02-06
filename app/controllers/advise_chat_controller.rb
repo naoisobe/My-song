@@ -1,6 +1,4 @@
 class AdviseChatController < ApplicationController
-  before_action :authenticate_user!
-  before_action :authenticate_instructor!
   
   def create
     @message = AdviseChat.new(advise_params)
