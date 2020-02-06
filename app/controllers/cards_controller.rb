@@ -25,7 +25,7 @@ class CardsController < ApplicationController
       )
     end
 
-    current_user.member_status = 1
+    current_user.update(member_status: 1)
   end
 
 end
