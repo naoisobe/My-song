@@ -11,7 +11,9 @@
         フォロー<%= link_to "#{@user.relationships.count}", follows_path(@user) %>
         フォロワー<%= link_to "#{@user.followers.count}", followers_path(@user) %>
       </div>
-      <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
+      <div id="follow-status">
+        <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
+      </div>
       <% if @user = current_user%>
         <p>会員ステータス:<%= @user.member_status %></p>
       <% end %>
