@@ -1,5 +1,4 @@
 class AdviseChatController < ApplicationController
-
   def create
     @message = AdviseChat.new(advise_params)
     @message.user_id = current_user.id if user_signed_in?

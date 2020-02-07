@@ -67,6 +67,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'audiojs-rails'
+gem 'dropzonejs-rails'
 gem 'bootstrap'
 gem 'carrierwave'
 gem 'carrierwave-audio'
@@ -78,6 +79,5 @@ gem 'font-awesome-sass', '5.3.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'mini_magick'
-gem 'dropzonejs-rails'
 gem 'payjp'
 gem 'ransack'

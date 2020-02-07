@@ -18,11 +18,10 @@ class CardsController < ApplicationController
         redirect_to new_card_path
       end
       Payjp::Subscription.create(
-      customer: customer,
-      plan: 'pln_ab834b1d815833e30ca9dea71131'
+        customer: customer,
+        plan: 'pln_ab834b1d815833e30ca9dea71131'
       )
     end
     current_user.update(member_status: 1)
   end
-
 end
