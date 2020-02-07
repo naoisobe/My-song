@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: %i{edit}
-  before_action :set_user, only: %i{show edit update}
-  before_action :self_user, only: %I{edit update}
-
+  before_action :authenticate_user!, only: %i[edit]
+  before_action :set_user, only: %i[show edit update]
+  before_action :self_user, only: %i[edit update]
 
   def index
   end
@@ -17,7 +16,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "ユーザー情報が更新されました"
+      flash[:notice] = 'ユーザー情報が更新されました'
       redirect_to user_path(@user)
     else
       @error = @user

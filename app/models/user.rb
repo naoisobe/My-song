@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :user
   has_many :advise_chats, dependent: :destroy
-  has_many :cards
+  has_many :cards, dependent: :destroy
 
   enum member_status: { 一般会員: 0, 有料会員: 1 }
 

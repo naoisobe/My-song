@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
-  before_action :authenticate_user!, only: %i{create destroy}
-  before_action :set_user, only: %i{follows followers}
+  before_action :authenticate_user!, only: %i[create destroy]
+  before_action :set_user, only: %i[follows followers]
   before_action :set_new_follow
 
   def follows

@@ -1,9 +1,9 @@
 class SongsController < ApplicationController
-  before_action :authenticate_user!, only: %i{edit new}
-  before_action :set_song, only: %i{show edit update destroy}
-  before_action :set_new_follow, only: %i{show my_list}
-  before_action :self_song, only: %i{edit update destroy}
-  
+  before_action :authenticate_user!, only: %i[edit new]
+  before_action :set_song, only: %i[show edit update destroy]
+  before_action :set_new_follow, only: %i[show my_list]
+  before_action :self_song, only: %i[edit update destroy]
+
   def index
     @song = Song.all.order(created_at: :desc)
   end
@@ -22,7 +22,7 @@ class SongsController < ApplicationController
 
   def update
     if @song.update(song_params)
-      flash[:notice] = "投稿を編集しました"
+      flash[:notice] = '投稿を編集しました'
       redirect_to song_path(@song)
     else
       @error = @song
@@ -42,7 +42,7 @@ class SongsController < ApplicationController
 
   def destroy
     @song.destroy
-    flash[:notice] = "投稿が削除されました"
+    flash[:notice] = '投稿が削除されました'
     redirect_to songs_path
   end
 
@@ -50,7 +50,7 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     @song.user_id = current_user.id
     if @song.save
-      flash[:notice] = "投稿されました"
+      flash[:notice] = '投稿されました'
       redirect_to song_path(@song)
     else
       @error = @song
