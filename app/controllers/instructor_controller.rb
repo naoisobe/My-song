@@ -10,7 +10,7 @@ class InstructorController < ApplicationController
 
   def update
     if @instructor.update(instructor_params)
-      flash[:notice] = "ユーザー情報が更新されました"
+      flash[:notice] = 'ユーザー情報が更新されました'
       redirect_to instructor_path(@instructor)
     else
       @error = @instructor

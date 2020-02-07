@@ -37,7 +37,7 @@ class PracticesController < ApplicationController
     @practice = Practice.new(practice_params)
     @practice.user_id = current_user.id
     if @practice.save
-      flash[:notice] = "投稿されました"
+      flash[:notice] = '投稿されました'
       redirect_to practice_path(@practice)
     else
       @error = @practice
@@ -47,13 +47,13 @@ class PracticesController < ApplicationController
 
   def destroy
     @practice.destroy
-    flash[:notice] = "投稿が削除されました"
+    flash[:notice] = '投稿が削除されました'
     redirect_to songs_path
   end
 
   def update
     @practice.update(practice_params)
-    flash[:notice] = "投稿を編集しました"
+    flash[:notice] = '投稿を編集しました'
     redirect_to practice_path(@practice)
   end
 

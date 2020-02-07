@@ -1,11 +1,10 @@
 class CardsController < ApplicationController
-  require "payjp"
+  require 'payjp'
   def new
   end
 
   def create
     Payjp.api_key = 'sk_test_dadbfe665e6cc6dd9cad299f'
-
     if params['payjp-token'].blank?
       redirect_to new_card_path
     else
@@ -18,13 +17,11 @@ class CardsController < ApplicationController
       else
         redirect_to new_card_path
       end
-      
       Payjp::Subscription.create(
       customer: customer,
-      plan: "pln_ab834b1d815833e30ca9dea71131"
+      plan: 'pln_ab834b1d815833e30ca9dea71131'
       )
     end
-
     current_user.update(member_status: 1)
   end
 
