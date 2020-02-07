@@ -15,7 +15,7 @@
         <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
       </div>
       <% if @user == current_user %>
-        <p>会員ステータス:<%= @user.member_status %></p>
+        <p>会員ステータス: <%= @user.member_status %></p>
       <% end %>
       <p class="description"><%= @user.description %></p>
       <p><%= link_to "ログアウト", destroy_user_session_path,method: :delete, class:"btn btn-danger logout-btn" if @user == current_user%></p>

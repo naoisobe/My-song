@@ -1,4 +1,14 @@
-<%= form_tag action: :create, method: :post do %>
-<script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_bcfd3616e2055de5a3288035"></script>
-<% end %>
+<div class="premium">
+    <h3>プレミアム会員って？</h3><br>
+    <h5>プレミアム会員は月額９８０円でプロの講師に<br>歌に関する悩みなどを動画を通じて、アドバイスしてもらえます！！</h5><br>
+    <h5>自分の歌っている動画を見て、アドバイスをくれるから<br>個人に合わせた適切なアドバイス！！</h5><br>
+    <h5>投稿回数に制限がないから何回でもアドバイスがもらえる！！</h5><br>
+
+
+    <h1>プレミアム会員 月額９８０円</h1>
+      <%= form_tag action: :create, method: :post do %>
+        <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_bcfd3616e2055de5a3288035"></script>
+      <% end %>
+</div>
+
 
