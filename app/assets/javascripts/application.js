@@ -17,6 +17,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require audiojs
+//= require dropzone
 
 // < !--audiojsの初期化 -->
 audiojs.events.ready(function () {
@@ -38,3 +39,39 @@ document.addEventListener(
   },
   false
 );
+
+
+// プロフィール画像プレビュー
+$(function () {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#profile_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#file_upload").change(function () {
+    readURL(this);
+  });
+});
+
+
+//flashメッセージの表示時間
+$(function () {
+  setTimeout("$('.notice').fadeOut('slow')", 3000)
+})
+
+
+$(function () {
+  // disable auto discover
+  Dropzone.autoDiscover = false;
+
+  $(".dropzone").dropzone({
+    maxFilesize: 1,
+    addRemoveLinks: true
+  });
+});
+
+

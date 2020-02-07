@@ -12,11 +12,23 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_instructor
-    redirect_to new_user_session_path unless user_signed_in?
+    redirect_to new_user_session_path unless instructor_signed_in?
   end
 
   def search
     @q = Song.ransack(params[:q])
     @songs = @q.result(distinct: true)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def set_song
+    @song = Song.find(params[:id])
+  end
+
+  def set_new_follow
+    @new_follow = Relationship.new
   end
 end

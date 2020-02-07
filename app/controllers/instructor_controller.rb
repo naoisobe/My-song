@@ -1,18 +1,16 @@
 class InstructorController < ApplicationController
-  before_action :authenticate_instructor!, only: %I{edit ms_list}
+  before_action :authenticate_instructor!, only: %i[edit ms_list update]
+  before_action :set_instructor, only: %i[edit show update]
 
   def edit
-    @instructor = Instructor.find(params[:id])
   end
 
   def show
-    @instructor = Instructor.find(params[:id])
   end
 
   def update
-    @instructor = Instructor.find(params[:id])
     if @instructor.update(instructor_params)
-      flash[:notice] = "ユーザー情報が更新されました"
+      flash[:notice] = 'ユーザー情報が更新されました'
       redirect_to instructor_path(@instructor)
     else
       @error = @instructor
@@ -29,5 +27,9 @@ class InstructorController < ApplicationController
 
   def instructor_params
     params.require(:instructor).permit(:name, :description, :profile_image)
+  end
+
+  def set_instructor
+    @instructor = Instructor.find(params[:id])
   end
 end

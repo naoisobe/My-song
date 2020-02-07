@@ -55,6 +55,12 @@ Layout/Tab:
 
 Style/SafeNavigation:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
   
 Lint/SuppressedException:
   Enabled: false
