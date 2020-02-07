@@ -2,6 +2,7 @@ class SongsController < ApplicationController
   before_action :authenticate_user!, only: %i{edit new}
   before_action :set_song, only: %i{show edit update destroy}
   before_action :set_new_follow, only: %i{show my_list}
+  before_action :self_song, only: %i{edit update destroy}
   
   def index
     @song = Song.all.order(created_at: :desc)
@@ -65,5 +66,9 @@ class SongsController < ApplicationController
 
   def song_params
     params.require(:song).permit(:title, :description, :thumbnail, :voice)
+  end
+
+  def self_song
+    redirect_to unless @song.user == current_user
   end
 end

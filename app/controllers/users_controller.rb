@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i{edit}
   before_action :set_user, only: %i{show edit update}
+  before_action :self_user, only: %I{edit update}
 
 
   def index
@@ -28,5 +29,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :description, :profile_image)
+  end
+
+  def self_user
+    redirect_to songs_path unless current_user == @user
   end
 end

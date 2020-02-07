@@ -2,6 +2,7 @@ class PracticesController < ApplicationController
   before_action :not_authenticate_user, only: %i{index}
   before_action :authenticate_instructor, only: %i{index}
   before_action :set_practice, only: %i{show edit destroy update}
+  before_action :self_practice, only: %i{show edit update destroy} 
 
   def index
     @practice = Practice.all
@@ -64,5 +65,9 @@ class PracticesController < ApplicationController
 
   def set_practice
     @practice = Practice.find(params[:id])
+  end
+
+  def self_practice
+    redirec_to songs_path unless @practice.user == current_user or instructor_signed_in?
   end
 end

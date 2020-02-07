@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_instructor
-    redirect_to new_user_session_path unless user_signed_in?
+    redirect_to new_user_session_path unless instructor_signed_in?
   end
 
   def search
