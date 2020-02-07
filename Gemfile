@@ -67,8 +67,8 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'audiojs-rails'
-gem 'dropzonejs-rails'
 gem 'bootstrap'
+gem 'dropzonejs-rails'
 gem 'carrierwave'
 gem 'carrierwave-audio'
 gem 'devise'

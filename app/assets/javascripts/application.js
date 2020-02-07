@@ -39,6 +39,8 @@ document.addEventListener(
   },
   false
 );
+
+
 // プロフィール画像プレビュー
 $(function () {
   function readURL(input) {
@@ -54,6 +56,13 @@ $(function () {
     readURL(this);
   });
 });
+
+
+//flashメッセージの表示時間
+$(function () {
+  setTimeout("$('.notice').fadeOut('slow')", 3000)
+})
+
 
 $(function () {
   // disable auto discover
