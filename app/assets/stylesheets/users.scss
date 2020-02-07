@@ -5,18 +5,20 @@
   background: rgba(0,0,0,0.8);
   padding-top: 20px;
   margin: 5%;
-   input[type="text"] {
-    width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+    & input{
+    width: 80%;
     height: 35px;
+    margin: 0 auto;
    }
-   input[type="password"] {
-     width: 300px;
-    height: 35px;
-   }
-   input[type="email"] {
-    width: 300px;
-    height: 35px;
-   }
+  }
+.field{
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
 }
 .user-edit-btn{ 
   margin: 0 auto;
@@ -51,6 +53,21 @@
 .logout-btn{
   display: none;
 }
+.token-password{
+  text-align: left;
+  margin: 0 auto;
+  width: 80%;
+    & label{
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+}
+#user_remember_me{
+  display: inline-block;
+  width: 10px;
+  margin:0 10px 0 0;
+  vertical-align: middle;
+}
 
 @media screen and (max-width: 768px){
   .description{
@@ -61,5 +78,8 @@
   }
   .logout-btn{
   display: inline-block;
+  }
+  .user-form{
+    width: 100%;
   }
 }
