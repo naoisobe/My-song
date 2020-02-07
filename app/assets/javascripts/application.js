@@ -17,6 +17,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require audiojs
+//= require dropzone
 
 // < !--audiojsの初期化 -->
 audiojs.events.ready(function () {
@@ -53,3 +54,15 @@ $(function () {
     readURL(this);
   });
 });
+
+$(function () {
+  // disable auto discover
+  Dropzone.autoDiscover = false;
+
+  $(".dropzone").dropzone({
+    maxFilesize: 1,
+    addRemoveLinks: true
+  });
+});
+
+

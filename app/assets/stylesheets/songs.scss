@@ -12,16 +12,16 @@
   color: dimgray;
 }
 #file_upload{
-  display:none
+  display:none ; 
 }
 #file_image_upload{
-  display:none
+  display:none;
 }
 #edit_song_file_upload{
-  display:none
+  display:none;
 }
 #edit_song_image_upload{
-  display:none
+  display:none;
 }
 .edit-thumbnail{
   width: 80%;
@@ -116,6 +116,12 @@
 }
 .rank-thumbnail{
   width: 100%;
+}
+.voice-drop{
+  background: white;
+}
+.dropzone{
+  border: 1px dotted dimgray !important;
 }
 
 // editページ
