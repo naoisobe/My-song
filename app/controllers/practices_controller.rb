@@ -1,13 +1,13 @@
 class PracticesController < ApplicationController
   before_action :not_authenticate_user, only: %i{index}
   before_action :authenticate_instructor, only: %i{index}
+  before_action :set_practice, only: %i{show edit destroy update}
 
   def index
     @practice = Practice.all
   end
 
   def show
-    @practice = Practice.find(params[:id])
     @user = @practice.user
     @like = Like.new
     @comment = Comment.new
@@ -19,7 +19,6 @@ class PracticesController < ApplicationController
   end
 
   def edit
-    @practice = Practice.find(params[:id])
   end
 
   def my_list
@@ -46,14 +45,12 @@ class PracticesController < ApplicationController
   end
 
   def destroy
-    @practice = Practice.find(params[:id])
     @practice.destroy
     flash[:notice] = "投稿が削除されました"
     redirect_to songs_path
   end
 
   def update
-    @practice = Practice.find(params[:id])
     @practice.update(practice_params)
     flash[:notice] = "投稿を編集しました"
     redirect_to practice_path(@practice)
@@ -63,5 +60,9 @@ class PracticesController < ApplicationController
 
   def practice_params
     params.require(:practice).permit(:title, :description, :video)
+  end
+
+  def set_practice
+    @practice = Practice.find(params[:id])
   end
 end
