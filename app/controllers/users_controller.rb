@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       @error = @user
-      render edit_user_path(@user)
+      render 'edit'
     end
   end
 
