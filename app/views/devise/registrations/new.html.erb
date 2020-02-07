@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="user-form card col-sm-6 col-md-5 col-lg-4 text-center">
+    <div class="user-form card">
       <h3>新規登録</h3>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <div class="error-message">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, "パスワード確認"%><br />
+          <%= f.label :password_confirmation, "パスワード確認"%>
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 

@@ -1,24 +1,25 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="instructor-form card col-10 text-center">
+    <div class="user-form card">
       <h1>インストラクターログイン</h1>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field">
-          <%= f.label :login_id, "ログインID" %><br />
+          <%= f.label :login_id, "ログインID" %>
           <%= f.text_field :login_id, autofocus: true, autocomplete: "login_id" %>
         </div>
 
         <div class="field">
-          <%= f.label :password %><br />
+          <%= f.label :password %>
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
           <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
+            <div class="token-password">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
         <% end %>
 
         <div class="actions">
