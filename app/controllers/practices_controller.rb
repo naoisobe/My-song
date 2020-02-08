@@ -68,6 +68,6 @@ class PracticesController < ApplicationController
   end
 
   def self_practice
-    redirec_to songs_path unless @practice.user == current_user || instructor_signed_in?
+    redirect_to songs_path unless @practice.user == current_user || instructor_signed_in?
   end
 end

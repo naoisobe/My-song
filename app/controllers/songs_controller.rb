@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :authenticate_user!, only: %i[edit new]
+  before_action :authenticate_user!, only: %i[edit new destroy update create]
   before_action :set_song, only: %i[show edit update destroy]
   before_action :set_new_follow, only: %i[show my_list]
   before_action :self_song, only: %i[edit update destroy]

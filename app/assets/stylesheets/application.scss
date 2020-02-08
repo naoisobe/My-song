@@ -346,6 +346,7 @@ a:hover{
   width: 100%;
   text-align: left;
   margin-bottom: 0;
+  margin-left: 5px;
 }
 
 // icon
@@ -468,6 +469,9 @@ a:hover{
 .contents{
   margin-top: 50px;
 }
+.upload-days{
+  color: rgba(255,255,255,0.7)
+}
 // レスポンシブ
 
 @media screen and (max-width: 1000px){
@@ -559,6 +563,7 @@ a:hover{
 @media screen and (max-width: 400px){
   .post-profile{
     width: 50px;
+    height: 50px;
   }
   .card-body{
     & h5{
