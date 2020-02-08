@@ -14,7 +14,7 @@
         <div class="main">
           <%= image_tag @song.thumbnail.to_s, style:"width:100%;"%>
         </div>
-        <%= audio_tag @song.voice, class:"audio-bar" %>
+        <%= audio_tag @song.voice, autoplay: true, class:"audio-bar" %>
         <!--いいね機能 -->
         <div class="option">
           <div id="like_buttons">
@@ -33,6 +33,7 @@
       <p><%= @song.created_at.to_s(:datetime_jp) %></p>
       <p class="post-description"><%= @song.description %></p>
       <hr>
+      <!--大画面でのコメント欄-->
       <div class="comment-box wide-comment-box">
         <%= render 'comments/form', song: @song, comment: @new_comment %>
         <div class="comment_index">
@@ -58,5 +59,3 @@
     </div>
   </div>
 </div>
-
-

@@ -18,7 +18,7 @@
         <p>会員ステータス:<%= @user.member_status %></p>
       <% end %>
       <p class="description"><%= @user.description %></p>
-      <p><%= link_to "ログアウト", destroy_user_session_path,method: :delete, class:"btn btn-danger logout-btn" if @user == current_user%></p>
+      <p><%= link_to "ログアウト", destroy_user_session_path,method: :delete, class:"btn btn-danger logout-btn" if @user == current_user %></p>
       <p><%= link_to "戻る", :back, class:"btn btn-light back-btn"%></p>
     </div>
   </div>
