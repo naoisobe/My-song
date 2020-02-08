@@ -6,7 +6,6 @@ RSpec.describe PracticesController, type: :controller do
       before do
         @user = FactoryBot.create(:user)
       end
-    end
       it "レスポンスのステータスが[302（失敗)」になる" do
         sign_in @user
         get :index
@@ -18,6 +17,7 @@ RSpec.describe PracticesController, type: :controller do
         get :index
         expect(response).to redirect_to songs_path
       end
+    end
 
     context "未ログイン時" do
       it "レスポンスのステータスが[302（失敗)」になる" do
@@ -31,6 +31,48 @@ RSpec.describe PracticesController, type: :controller do
       end
     end
   end
+
+  describe "showアクション" do
+    context "ログイン時" do
+      before do
+        @user = FactoryBot.create(:user)
+        other_user = FactoryBot.create(:other_user)
+        @practice = FactoryBot.create(:practice, user: other_user)
+      end
+
+      it "レスポンスのステータスが[302（失敗)」になる" do
+        sign_in @user
+        expect{
+          get :show, params: { id: @practice.id }
+          (response).to have_http_status "302"
+        }
+      end
+
+      it "投稿一覧ページに遷移する" do
+        sign_in @user
+        expect{
+          get :show, params: { id: @practice.id }
+          (response).to redirect_to songs_path
+        }
+      end
+    end
+
+    context "未ログイン時" do
+      before do
+        @practice = FactoryBot.create(:practice)
+      end
+      it "レスポンスのステータスが[302（失敗)」になる" do
+        get :show, params: { id: @practice.id }
+        expect(response).to have_http_status "302"
+      end
+
+      it "サインインページに遷移する" do
+        get :show, params: { id: @practice.id }
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+  end
+
   describe "newアクション" do
     context "未ログイン時" do
 
@@ -48,7 +90,6 @@ RSpec.describe PracticesController, type: :controller do
 
   describe "createアクション" do
     context "未ログイン時" do
-
       it "レスポンスのステータスが[302（失敗)」になる" do
         practice_params = FactoryBot.attributes_for(:practice)
         post :create, params: { practice: practice_params }

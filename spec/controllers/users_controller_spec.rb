@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
 
-  describe "GET #index" do
+  describe "updateアクション" do
+    before do
+    end
+      
+    end
     it "returns http success" do
       user = FactoryBot.create(:correct_user)
       sign_in user
