@@ -1,9 +1,8 @@
 FactoryBot.define do
-  factory :song do
+  factory :song, class: Song do
     title { "MySong" }
     description { "MyText" }
     user_id { 1 }
-    thumbnail { "Mythumbnail" }
-    voice { "Myvoice" }
+    voice { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.mp3')) }
   end
 end

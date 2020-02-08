@@ -17,20 +17,24 @@ ja:
             email:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
             name:
-              taken: "は既に使用されています。"
               blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
+              invalid: "は有効でありません。"
+            description:
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
             password:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
             profile_image:
@@ -40,27 +44,32 @@ ja:
             email:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
             password:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
             login_id:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
             name:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
+              invalid: "は有効でありません。"
+            description:
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
             profile_image:
               invalid: "は有効な形式ではありません。"
@@ -68,39 +77,40 @@ ja:
           attributes:
             title:
               blank: "が入力されていません。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
             voice:
               blank: "が選択されていません。"
               invalid: "はmp3形式にしてください。"
-              extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
             description:
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_long: "は%{count}文字以下で入力してください。"
             thumbnail: 
               invalid: "は適切な形式ではありません。"
         advise_chat:
           attributes:
             message:
               blank: "が入力されていません。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
         comment:
           attributes:
             content:
               blank: "が入力されていません。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
         practice:
           attributes:
             title:
               blank: "が入力されていません。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
             video:
               blank: "が選択されていません。"
               invalid: "はmp4形式にしてください。"
             description:
-              too_long: "は%{count}文字以下に設定して下さい。"
+              blank: "が入力されていません。"
+              too_long: "は%{count}文字以下で入力してください。"
+
     attributes:
       user:
         current_password: "現在のパスワード"
@@ -109,7 +119,7 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
-        description: 自己紹介
+        description: 自己紹介文
         profile_image: "プロフィール画像"
     attributes:
       instructor:

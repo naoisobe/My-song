@@ -7,7 +7,7 @@ class Instructor < ApplicationRecord
   mount_uploader :profile_image, ProfileImageUploader
   has_many :advise_chats, dependent: :destroy
 
-  validates :login_id, presence: true
+  validates :login_id, presence: true, length: { minimum: 10 }
   validates :name, presence: true, length: { maximum: 10 }
   validates :description, length: { maximum: 120 }
 
