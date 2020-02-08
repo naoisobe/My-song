@@ -12,7 +12,7 @@
   color: dimgray;
 }
 #file_upload{
-  display:none ; 
+  display: none;
 }
 #file_image_upload{
   display:none;
@@ -117,11 +117,23 @@
 .rank-thumbnail{
   width: 100%;
 }
-.voice-drop{
-  background: white;
+.modal-box{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.new-song-btn{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+    & p{
+      width: 40%;
+    }
+  
 }
 .dropzone{
   border: 1px dotted dimgray !important;
+  text-align: center;
 }
 
 // editページ
@@ -129,6 +141,17 @@
   margin-top: 30px;
   text-align: center;
 }
+.responsive-voice{
+  display: none;
+}
 @media screen and (max-width: 500px){
-
+  #song-modal{
+    width: 250px !important;
+  }
+  .responsive-voice{
+    display: initial
+  }
+  #back{
+    display: none !important;
+  }
 }

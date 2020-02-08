@@ -67,6 +67,7 @@ $(function () {
 $(function () {
   // disable auto discover
   Dropzone.autoDiscover = false;
+  autoProcessQueue = false;
 
   $(".dropzone").dropzone({
     maxFilesize: 1,
