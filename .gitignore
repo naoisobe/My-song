@@ -16,10 +16,10 @@
 # Ignore docker db
 /docker/db/data
 
-
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
+/public/uploads/tmp
 
 /node_modules
 /yarn-error.log
