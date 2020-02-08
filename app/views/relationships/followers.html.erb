@@ -4,7 +4,7 @@
       <%= render "users/sidebar", user: @user %>
     </div>
     <div class="col-md-8">
-      <%= render 'users/top-profile', user: @user %>
+      <%= render 'follow_top-profile', user: @user %>
       <%= render 'users/user_menu', user: @user %>
       <% @follower_user.each do |user| %>
         <%= render 'follow_list', user: user %>
