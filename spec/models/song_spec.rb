@@ -5,7 +5,7 @@ RSpec.describe Song, type: :model do
   describe 'Songモデルのバリデーションテスト'do
 
     it 'すべてのカラムに情報が入力されている状態で保存' do
-      song = create(:song)
+      song = build(:song)
       expect(song).to be_valid
     end
 
