@@ -3,6 +3,6 @@ FactoryBot.define do
     title { "MyString" }
     description { "MyText" }
     video { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.mp4')) }
-    user_id { 1 }
+    user
   end
 end
