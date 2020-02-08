@@ -1,0 +1,11 @@
+<div class="top-profile">
+  <%= image_tag user.profile_image.to_s, class:"top-profile-image" %>
+    <div>
+      <h3><%= user.name %></h3>
+      <div class="fl">
+        <p>フォロー <%= link_to "#{user.relationships.count}", follows_path(user) %></p>
+        <p>フォロワー <%= link_to "#{user.followers.count}", followers_path(user) %></p>
+      </div>
+    </div>
+</div>
+<hr>
