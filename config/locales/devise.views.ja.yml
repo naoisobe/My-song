@@ -66,6 +66,11 @@ ja:
               too_short: "は%{count}文字以上で入力してください。"
               too_long: "は%{count}文字以下で入力してください。"
               invalid: "は有効でありません。"
+            description:
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
+              invalid: "は有効でありません。"
             profile_image:
               invalid: "は有効な形式ではありません。"
         song:
@@ -103,7 +108,9 @@ ja:
               blank: "が選択されていません。"
               invalid: "はmp4形式にしてください。"
             description:
+              blank: "が入力されていません。"
               too_long: "は%{count}文字以下で入力してください。"
+
     attributes:
       user:
         current_password: "現在のパスワード"

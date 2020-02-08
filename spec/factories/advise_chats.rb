@@ -1,8 +1,8 @@
 FactoryBot.define do
-  factory :advise_chat do
+  factory :advise_chat, class: AdviseChat do
     message { "MyString" }
-    instructor { nil }
-    user { nil }
-    practice { nil }
+    instructor_id { 1 }
+    user_id { nil }
+    practice_id { 1 }
   end
 end
