@@ -8,14 +8,32 @@
         <div class="form-group">
           <%= f.text_area :description, placeholder:"改善したいところ・実現したいことなど", class:"form-control form" %>
         </div>
-        <div class="form-group">
+        <div class="form-group responsive-voice">
           <label for="file_pra_upload" class="btn form-btn" >
             <p class="form-p">ファイルを選択(mp4)</p>
             <%= f.file_field :video, id:"file_pra_upload" %>
           </label>
         </div>
-        <%= f.submit "アップロード", class:"btn btn-primary" %>
+        <div id="back">
+            <div class="form-group voice-drop modal-box" id="song-modal">
+              <%= f.label :video,"mp4ファイルを選択もしくはドラッグアンドドロップしてください", class:"btn btn-form" %>
+              <%= f.file_field :video, class:"dropzone btn", id:"upload-dropzone"%>
+              <div class="new-song-btn">
+                <p><%= link_to "キャンセル", songs_path, class:"btn btn-danger btn-block" %></p>
+                <p id="next" class="btn btn-primary">次へ進む</p>
+              </div>
+            </div>
+          </div>
+        <p><%= f.submit "アップロード", class:"btn btn-primary" %></p>
       <% end %>
     </div>
   </div>
 </div>
+<script>
+  window.onload = function () {
+    $('#back').fadeIn();
+    document.getElementById('next').onclick = function () {
+        $('#back').fadeOut();
+        }
+    };
+</script>
