@@ -1,21 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe HomeController, type: :controller do
+  describe "indexアクション" do
+    context "ログイン状態" do
+      before do
+        @user = FactoryBot.create(:user)
+      end
+      it "レスポンスのステータスが[302（失敗)」になる" do
+        sign_in @user
+        get :index
+        expect(response).to have_http_status "302"
+      end
 
-  describe "GET #index" do
-    it "ログイン状態でrootパスにアクセスすると投稿一覧にリダレクトする" do
-      user = FactoryBot.create(:correct_user)
-      sign_in user
-      get :index
-      expect(response).to redirect_to ('songs/index')
+      it "rootパスにアクセスすると投稿一覧にリダレクトする" do
+        sign_in @user
+        get :index
+        expect(response).to redirect_to songs_path
+      end
     end
   end
-
-  describe "GET #about" do
-    it "returns http success" do
-      get :about
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end
