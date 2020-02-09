@@ -62,27 +62,58 @@ jobs:
           name: Rspec
           command: bundle exec rspec
 
-orbs:
-  aws-ecr: circleci/aws-ecr@6.7.0
-  aws-ecs: circleci/aws-ecs@0.0.8
+  deploy:
+    docker:
+      - image: circleci/python
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: install aws
+          command: |
+            sudo pip install awscli
+            aws --version
+      - run:
+          name: Install ecs-deploy
+          command: |
+            curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a /usr/bin/ecs-deploy
+            sudo chmod +x /usr/bin/ecs-deploy
+      - run:
+          name: Install jq
+          command: sudo apt-get install -y jq
+      - run:
+          name: "Log in to AWS ECR"
+          command: eval $(aws ecr get-login --no-include-email --region ap-northeast-1)
+      - run:
+          name: "Build & Push Docker Image"
+          command: |
+            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/your-alias/mysong:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/your-alias/mysong:$CIRCLE_SHA1 .
+            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/your-alias/mysong:$CIRCLE_SHA1
+
+      - run:
+          name: "DB Migrate"
+          command: |
+            aws ecs run-task \
+              --region ap-northeast-1 \
+              --cluster mysong-cluster \
+              --task-definition ecr-task \
+              --overrides file://ecs/run_task_db_migrate.json
+      - run:
+          name: "Sevice deploy"
+          environment:
+          command: |
+            ecs-deploy --cluster mysong-cluster --service_name mysong-service \
+              --region ap-northeast-1 --timeout 240 \
+              --image $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/your-alias/mysong:$CIRCLE_SHA1
 
 workflows:
   version: 2
-  rubocop_rspec:
+  build_and_test_and_deploy:
     jobs:
       - rubocop
       - rspec:
           requires:
             - rubocop
-      - aws-ecr/build-and-push-image:
-        region: AWS_REGION
-        account-url: AWS_ECR_ACCOUNT_URL
-        repo: 'mysong'
-        tag: "${CIRCLE_SHA1}"
-      - aws-ecs/deploy-service-update:
-        requires:
-      - aws-ecr/build-and-push-image:
-          family: 'ecr-task'
-          cluster-name: 'mysong-cluster'
-          service-name: 'mysong-service'
-          container-image-name-updates: 'container=ecs-mysong,tag=${CIRCLE_SHA1}'
+      - deploy:
+          requires:
+            - rubocop
