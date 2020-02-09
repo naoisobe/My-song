@@ -43,10 +43,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-rails'
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -76,8 +72,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'audiojs-rails'
 gem 'bootstrap'
-gem 'dropzonejs-rails'
 gem 'carrierwave'
+gem 'dropzonejs-rails'
 gem 'carrierwave-audio'
 gem 'devise'
 gem 'devise-i18n'
