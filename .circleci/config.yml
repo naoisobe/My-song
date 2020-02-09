@@ -82,8 +82,7 @@ workflows:
           container-image-name-updates: 'container=ecs-mysong,tag=${CIRCLE_SHA1}'
 
 workflows:
-  version: 2
-  rubocop_rspec:
+  test:
     jobs:
       - rubocop
       - rspec:
