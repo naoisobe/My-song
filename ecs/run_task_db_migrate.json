@@ -1,7 +1,7 @@
 {
   "containerOverrides": [
     {
-      "name": "mysong",
+      "name": "ecs-mysong",
       "command": [
         "bundle",
         "exec",
