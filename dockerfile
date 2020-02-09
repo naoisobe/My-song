@@ -5,6 +5,7 @@ RUN apt-get update -qq && \
     sox \ 
     libsox-fmt-mp3 \ 
     libpq-dev \        
+    vim \        
     nodejs 
 
 RUN mkdir /my_song
