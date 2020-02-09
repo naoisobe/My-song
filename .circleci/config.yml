@@ -79,7 +79,7 @@ workflows:
           family: 'ecr-task'
           cluster-name: 'mysong-cluster'
           service-name: 'mysong-service'
-            container-image-name-updates: 'container=ecs-mysong,tag=${CIRCLE_SHA1}'
+          container-image-name-updates: 'container=ecs-mysong,tag=${CIRCLE_SHA1}'
 
 workflows:
   version: 2
