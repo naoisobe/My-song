@@ -1,0 +1,13 @@
+{
+  "containerOverrides": [
+    {
+      "name": "ecs-mysong",
+      "command": [
+        "bundle",
+        "exec",
+        "rails",
+        "db:migrate"
+      ]
+    }
+  ]
+}

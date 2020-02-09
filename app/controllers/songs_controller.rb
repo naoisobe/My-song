@@ -5,7 +5,7 @@ class SongsController < ApplicationController
   before_action :self_song, only: %i[edit update destroy]
 
   def index
-    @song = Song.all.order(created_at: :desc)
+    @song = Song.page(params[:page]).per(16).order(created_at: :desc)
   end
 
   def show

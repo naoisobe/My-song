@@ -62,11 +62,59 @@ jobs:
           name: Rspec
           command: bundle exec rspec
 
+  deploy:
+    docker:
+      - image: circleci/python
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: install aws
+          command: |
+            sudo pip install awscli
+            aws --version
+      - run:
+          name: Install ecs-deploy
+          command: |
+            curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a /usr/bin/ecs-deploy
+            sudo chmod +x /usr/bin/ecs-deploy
+      - run:
+          name: Install jq
+          command: sudo apt-get install -y jq
+      - run:
+          name: "Log in to AWS ECR"
+          command: eval $(aws ecr get-login --no-include-email --region ap-northeast-1)
+      - run:
+          name: "Build & Push Docker Image"
+          command: |
+            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/your-alias/mysong:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/your-alias/mysong:$CIRCLE_SHA1 .
+            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/your-alias/mysong:$CIRCLE_SHA1
+
+      - run:
+          name: "DB Migrate"
+          command: |
+            aws ecs run-task \
+              --region ap-northeast-1 \
+              --cluster mysong-cluster \
+              --task-definition ecr-task \
+              --overrides file://ecs/run_task_db_migrate.json
+      - run:
+          name: "Update Task"
+          command: |
+              aws ecs register-task-definition --family ecr-task --cli-input-json --region ap-northeast-1 "$(aws ecs describe-task-definition --task-definition ecr-task --region ap-northeast-1 | sed -e "s#$AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/your-alias/mysong:.*\",#$AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/your-alias/mysong:$CIRCLE_SHA1\",#g" | jq '.taskDefinition | { containerDefinitions: .containerDefinitions }')"
+      - run:
+          name: "Update Service"
+          command: |
+              aws ecs update-service --cluster p-claster --service p-service --task-definition ecr-task --region ap-northeast-1.ap-northeast-1.amazonaws.com/your-alias/mysong:$CIRCLE_SHA1
+
 workflows:
   version: 2
-  rubocop_rspec:
+  build_and_test_and_deploy:
     jobs:
       - rubocop
       - rspec:
           requires:
             - rubocop
+      - deploy:
+          requires:
+            - rspec
