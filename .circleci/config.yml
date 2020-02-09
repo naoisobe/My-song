@@ -62,9 +62,9 @@ jobs:
           name: Rspec
           command: bundle exec rspec
 
-  orbs:
-    aws-ecr: circleci/aws-ecr@6.7.0
-    aws-ecs: circleci/aws-ecs@0.0.8
+orbs:
+  aws-ecr: circleci/aws-ecr@6.7.0
+  aws-ecs: circleci/aws-ecs@0.0.8
 workflows:
   build_and_push_image:
     jobs:
