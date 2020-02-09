@@ -65,9 +65,13 @@ jobs:
 orbs:
   aws-ecr: circleci/aws-ecr@6.7.0
   aws-ecs: circleci/aws-ecs@0.0.8
+
 workflows:
-  build_and_push_image:
+  version: 2
+  rubocop_rspec:
     jobs:
+      - rubocop
+      - rspec:
       - aws-ecr/build-and-push-image:
         region: AWS_REGION
         account-url: AWS_ECR_ACCOUNT_URL
@@ -80,12 +84,5 @@ workflows:
           cluster-name: 'mysong-cluster'
           service-name: 'mysong-service'
           container-image-name-updates: 'container=ecs-mysong,tag=${CIRCLE_SHA1}'
-
-workflows:
-  version: 2
-  rubocop_rspec:
-    jobs:
-      - rubocop
-      - rspec:
           requires:
             - rubocop
