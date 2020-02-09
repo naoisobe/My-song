@@ -62,15 +62,6 @@ jobs:
           name: Rspec
           command: bundle exec rspec
 
-workflows:
-  version: 2
-  rubocop_rspec:
-    jobs:
-      - rubocop
-      - rspec:
-          requires:
-            - rubocop
-
 orbs:
   aws-ecr: circleci/aws-ecr@6.7.0
   aws-ecs: circleci/aws-ecs@0.0.8
