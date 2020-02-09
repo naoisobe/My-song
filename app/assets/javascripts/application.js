@@ -64,7 +64,7 @@ $(function () {
   setTimeout("$('.notice').fadeOut('slow')", 3000)
 })
 
-
+// ドロップゾーン
 $(function () {
   // disable auto discover
   Dropzone.autoDiscover = false;
@@ -74,6 +74,18 @@ $(function () {
     maxFilesize: 1,
     addRemoveLinks: true
   });
+});
+
+// 無限スクロール
+$(window).on('scroll', function () {
+  scrollHeight = $(document).height();
+  scrollPosition = $(window).height() + $(window).scrollTop();
+  if ((scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
+    $('.jscroll').jscroll({
+      contentSelector: '.skill-list',
+      nextSelector: 'span.next:last a'
+    });
+  }
 });
 
 new Vue({

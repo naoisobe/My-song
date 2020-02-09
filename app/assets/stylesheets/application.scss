@@ -472,6 +472,17 @@ a:hover{
 .upload-days{
   color: rgba(255,255,255,0.7)
 }
+.pagination {
+  justify-content: center;
+}
+.page-item.active .page-link{
+  background: orange !important;
+  border-color: #fff;
+}
+.page-link{
+  background: dimgray !important;
+  color: #fff !important;
+}
 // レスポンシブ
 
 @media screen and (max-width: 1000px){
