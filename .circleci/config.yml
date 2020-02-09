@@ -61,11 +61,10 @@ jobs:
       - run:
           name: Rspec
           command: bundle exec rspec
-          
-version: 2.1
-orbs:
-  aws-ecr: circleci/aws-ecr@6.7.0
-  aws-ecs: circleci/aws-ecs@0.0.8
+
+  orbs:
+    aws-ecr: circleci/aws-ecr@6.7.0
+    aws-ecs: circleci/aws-ecs@0.0.8
 workflows:
   build_and_push_image:
     jobs:
@@ -82,11 +81,11 @@ workflows:
           service-name: 'mysong-service'
           container-image-name-updates: 'container=ecs-mysong,tag=${CIRCLE_SHA1}'
 
-  workflows:
-    version: 2
-    rubocop_rspec:
-      jobs:
-        - rubocop
-        - rspec:
-            requires:
-              - rubocop
+workflows:
+  version: 2
+  rubocop_rspec:
+    jobs:
+      - rubocop
+      - rspec:
+          requires:
+            - rubocop
