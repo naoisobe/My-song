@@ -6,9 +6,11 @@
 
 
     <h1>プレミアム会員 月額９８０円</h1>
+    
       <%= form_tag action: :create, method: :post do %>
         <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_bcfd3616e2055de5a3288035"></script>
       <% end %>
+      <p>テスト用カード番号(4242 4242 4242 4242)で決済できます</p>
 </div>
 
 
