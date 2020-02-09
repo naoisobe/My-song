@@ -41,7 +41,6 @@ document.addEventListener(
   false
 );
 
-
 // プロフィール画像プレビュー
 $(function () {
   function readURL(input) {
