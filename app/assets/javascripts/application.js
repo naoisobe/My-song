@@ -18,7 +18,6 @@
 //= require bootstrap-sprockets
 //= require audiojs
 //= require dropzone
-//= require jquery.jscroll.min.js
 
 // < !--audiojsの初期化 -->
 audiojs.events.ready(function () {
