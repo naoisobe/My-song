@@ -5,7 +5,7 @@ class PracticesController < ApplicationController
   before_action :self_practice, only: %i[show edit update destroy]
 
   def index
-    @practice = Practice.all
+    @practice = Practice.page(params[:page]).per(16).order(created_at: :desc)
   end
 
   def show
