@@ -9,7 +9,7 @@
           <%= f.text_area :description, placeholder:"改善したいところ・実現したいことなど", class:"form-control form" %>
         </div>
         <div class="form-group responsive-voice">
-          <label for="file_pra_upload" class="btn form-btn" >
+          <label for="file_pra_upload" class="btn form-btn movie-group" >
             <p class="form-p">ファイルを選択(mp4)</p>
             <%= f.file_field :video, id:"file_pra_upload" %>
           </label>
@@ -36,4 +36,5 @@
         $('#back').fadeOut();
         }
     };
+
 </script>

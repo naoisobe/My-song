@@ -8,7 +8,9 @@
     <% if user_signed_in? and current_user.my_comment?(comment) %>
       <%= form_for comment, url: comment_path(comment), method: :delete, remote: true do |f| %>
         <%= f.hidden_field :song_id, :value => song.id %>
-        <%= f.submit "削除", class:"btn btn-danger" %>
+        <%= button_tag type="submit", class:"btn" do %>
+          <%= icon("fas", "trash") %>
+        <% end %>
       <% end %>
     <% end %>
   </div>

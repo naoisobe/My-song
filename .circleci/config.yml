@@ -105,16 +105,11 @@ jobs:
       - run:
           name: "Update Service"
           command: |
-              aws ecs update-service --cluster p-claster --service p-service --task-definition ecr-task --region ap-northeast-1.ap-northeast-1.amazonaws.com/your-alias/mysong:$CIRCLE_SHA1
+              aws ecs update-service --cluster mysong-cluster --service mysong-service --task-definition ecr-task --region ap-northeast-1
 
 workflows:
   version: 2
   build_and_test_and_deploy:
     jobs:
-      - rubocop
-      - rspec:
-          requires:
-            - rubocop
-      - deploy:
-          requires:
-            - rspec
+      - deploy
+

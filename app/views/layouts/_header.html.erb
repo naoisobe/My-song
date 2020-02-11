@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark">
-  <a class="navbar-brand h1" href="<%= songs_path if user_signed_in? %><%= practices_path if instructor_signed_in? %><%= root_path unless user_signed_in? %>" style="font-size:150%;">My Song</a>
+  <a class="navbar-brand h1" href="<%= songs_path if user_signed_in? %><%= practices_path if instructor_signed_in? %><%= root_path unless user_signed_in? && instructor_signed_in? %>" style="font-size:150%;">My Song</a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
     <span class="navbar-toggler-icon"></span>
   </button>
