@@ -11,7 +11,9 @@
     <% if (user_signed_in? and current_user.my_message?(ms)) or (instructor_signed_in? and current_instructor.my_message?(ms)) %>
       <%= form_for ms, url: advise_chat_path(ms), method: :delete, remote: true do |f| %>
         <%= f.hidden_field :practice_id, :value => practice.id %>
-        <%= f.submit "削除", class:"btn btn-danger"%>
+        <%= button_tag type="submit", class:"btn" do %>
+          <%= icon("fas", "trash") %>
+        <% end %>
       <% end %>
     <% end %>
   </div>

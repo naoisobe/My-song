@@ -56,6 +56,48 @@ $(function () {
   });
 });
 
+$(document).on('turbolinks:load', function () {
+  $fileField = $('#audio_upload')
+
+  $($fileField).on('change', $fileField, function (e) {
+
+    file = e.target.files[0]
+    reader = new FileReader(),
+      $preview = $("#audio-group");
+
+    reader.onload = (function (file) {
+      return function (e) {
+        $preview.empty();
+        $preview.append($('<audio>').attr({
+          src: e.target.result,
+          width: "45%",
+          height: "110px",
+          class: "preview-image",
+          autoplay: "autoplay",
+          loop: "loop",
+          playsinline: "true",
+          title: file.name
+        }));
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  });
+});
+// サムネイル変更
+$(function () {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#prev-thumb').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#file_image_upload").change(function () {
+    readURL(this);
+  });
+});
 
 //flashメッセージの表示時間
 $(function () {
@@ -73,3 +115,4 @@ $(function () {
     addRemoveLinks: true
   });
 });
+

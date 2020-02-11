@@ -1,4 +1,10 @@
 <div class="container-fluid">
+      <div class="blur-back" style="background-image: url('<%= @song.thumbnail.to_s %>'); display: none;">
+        <div class="main">
+          <%= image_tag @song.thumbnail.to_s, style:"width:100%;", id:"prev-thumb"%>
+        </div>
+        <%= audio_tag @song.voice, autoplay: true, class:"audio-bar", id:"audio-group"%>
+        </div>
   <div class="row">
     <div class="post-form col-md-6 offset-md-3 col-sm-8 offset-sm-2">
       <%= form_for @song do |f|%> 
@@ -18,7 +24,7 @@
         <div id="back">
             <div class="form-group voice-drop modal-box" id="song-modal">
               <%= f.label :voice,"mp3ファイルを選択もしくはドラッグアンドドロップしてください", class:"btn btn-form" %>
-              <%= f.file_field :voice, class:"dropzone btn", id:"upload-dropzone"%>
+              <%= f.file_field :voice, class:"dropzone btn", id:"upload-dropzone audio_upload" %>
               <div class="new-song-btn">
                 <p><%= link_to "キャンセル", songs_path, class:"btn btn-danger btn-block" %></p>
                 <p id="next" class="btn btn-primary">次へ進む</p>
@@ -43,4 +49,9 @@
         $('#back').fadeOut();
         }
     };
+
+    $('#next').on('click', function () {
+      $('.blur-back').show();
+    });
+    
 </script>
