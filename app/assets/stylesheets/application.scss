@@ -372,6 +372,14 @@ a:hover{
      margin-left: 5px;
    }
 }
+.subsc-cancel{
+  margin-left: 5px;
+  color: #007bff;
+    &:hover{
+      color: #0056b3;
+      text-decoration: underline;
+    }
+}
 
 #overlay, #back{
 //モーダルウィンドウの背景を設定

@@ -14,9 +14,8 @@
       <div id="follow-status">
         <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
       </div>
-      <% if @user == current_user %>
-        <p>会員ステータス: <%= @user.member_status %></p>
-      <% end %>
+      <%= "会員ステータス: #{@user.member_status}" if @user == current_user %>
+      <%= link_to "解約する" , card_path(current_user.cards), class:"subsc-cancel", method: :delete if current_user.member_status == "有料会員" %>
       <p class="description"><%= @user.description %></p>
       <p><%= link_to "ログアウト", destroy_user_session_path,method: :delete, class:"btn btn-danger logout-btn" if @user == current_user %></p>
       <p><%= link_to "戻る", :back, class:"btn btn-light back-btn"%></p>
