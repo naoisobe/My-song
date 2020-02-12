@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.email = "test@example.com"
+    if @user.email == "test@example.com"
       flash[:notice] = "テストユーザーのため編集できません"
       render 'edit'
     else
