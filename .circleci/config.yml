@@ -113,13 +113,13 @@ workflows:
     jobs:
       - rubocop
       - rspec:
-          require:
-           - rubobop
+          requires:
+            - rubobop
       - deploy:
-          require:
+          requires:
             - rspec
-        filters:
-          branches:
-            only: master
+          filters:
+            branches:
+              only: master
 
 
