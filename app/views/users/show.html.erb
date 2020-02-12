@@ -17,7 +17,6 @@
       <%= "会員ステータス: #{@user.member_status}" if @user == current_user %>
       <% if current_user.member_status == "有料会員" %>
         <p class="subsc-cancel" id="modal-open-btn">解約する</p>
-      <% end %>
         <%= link_to "", card_path(current_user.cards), method: :delete,id: "song-delete-btn" %> 
         <div id="overlay">
           <div id="modalWindow">
@@ -31,7 +30,8 @@
             </div>
           </div>
         </div>
-      <p class="description"><%= @user.description %></p>
+      <% end %>
+      <div class="description"><p><%= simple_format(@user.description) %></p></div>
       <p><%= link_to "ログアウト", destroy_user_session_path,method: :delete, class:"btn btn-danger logout-btn" if @user == current_user %></p>
       <p><%= link_to "戻る", :back, class:"btn btn-light back-btn"%></p>
     </div>

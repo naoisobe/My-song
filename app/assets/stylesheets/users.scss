@@ -25,8 +25,11 @@
 }
 .description{
   word-break: break-all;
-  width: 60%;
-  text-align: left;
+  width: 40%;
+  margin: 0 auto;
+    & p{
+      text-align: left;
+    }
 }
 .back-btn{
   display: none;

@@ -31,7 +31,7 @@
       <hr>
       <%= render 'users/channel', user: @user %>
       <p class="upload-days">アップロード日 <%= @song.created_at.to_s(:datetime_jp) %></p>
-      <p class="post-description"><%= @song.description %></p>
+      <p class="post-description"><%= simple_format(@song.description) %></p>
       <hr>
       <!--大画面でのコメント欄-->
       <div class="comment-box wide-comment-box">
