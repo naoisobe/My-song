@@ -1,9 +1,9 @@
 <div class="container-fluid">
-      <div class="blur-back" style="background-image: url('<%= @song.thumbnail.to_s %>'); display: none;">
+      <div class="blur-back show-back" style="background-image: url('<%= @song.thumbnail.to_s %>'); display: none;">
         <div class="main">
           <%= image_tag @song.thumbnail.to_s, style:"width:100%;", id:"prev-thumb"%>
         </div>
-        <%= audio_tag @song.voice, autoplay: true, class:"audio-bar", id:"audio-group"%>
+        <%= audio_tag "",class:"audio-group" %>
         </div>
   <div class="row">
     <div class="post-form col-md-6 offset-md-3 col-sm-8 offset-sm-2">
@@ -24,7 +24,7 @@
         <div id="back">
             <div class="form-group voice-drop modal-box" id="song-modal">
               <%= f.label :voice,"mp3ファイルを選択もしくはドラッグアンドドロップしてください", class:"btn btn-form" %>
-              <%= f.file_field :voice, class:"dropzone btn", id:"upload-dropzone audio_upload" %>
+              <%= f.file_field :voice, class:"dropzone btn upload-audio", id:"upload-dropzone" %>
               <div class="new-song-btn">
                 <p><%= link_to "キャンセル", songs_path, class:"btn btn-danger btn-block" %></p>
                 <p id="next" class="btn btn-primary">次へ進む</p>
@@ -42,16 +42,10 @@
     </div>
   </div>
 </div>
-<script>
-  window.onload = function () {
-    $('#back').fadeIn();
-    document.getElementById('next').onclick = function () {
-        $('#back').fadeOut();
-        }
-    };
+<%= javascript_include_tag 'thumbnail-change.js'%>
+<%= javascript_include_tag 'modal-new.js'%>
+<%= javascript_include_tag 'dropzone.js'%>
 
-    $('#next').on('click', function () {
-      $('.blur-back').show();
-    });
+
+
     
-</script>
