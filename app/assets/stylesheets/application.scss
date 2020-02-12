@@ -375,9 +375,11 @@ a:hover{
 .subsc-cancel{
   margin-left: 5px;
   color: #007bff;
+  display: inline-block;
     &:hover{
       color: #0056b3;
       text-decoration: underline;
+      cursor: pointer;
     }
 }
 
