@@ -69,6 +69,6 @@ class SongsController < ApplicationController
   end
 
   def self_song
-    redirect_to unless @song.user == current_user
+    redirect_to songs_path unless @song.user == current_user
   end
 end

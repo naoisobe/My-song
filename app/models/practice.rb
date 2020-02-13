@@ -4,6 +4,6 @@ class Practice < ApplicationRecord
   has_many :advise_chats
 
   validates :title, presence: true, length: { maximum: 30 }
-  validates :description, presence: true
+  validates :description, presence: true, length: { maximum: 1000 }
   validates :video, presence: true
 end

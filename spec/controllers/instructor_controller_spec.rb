@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe InstructorController, type: :controller do
   describe "updateアクション" do
-    context "userがinstructorを編集しようとした場合(ログイン時)"
+    context "userがinstructorを編集しようとした場合(ログイン時)" do
 
     before do
       @instructor = FactoryBot.create(:instructor)
@@ -24,22 +24,23 @@ RSpec.describe InstructorController, type: :controller do
     end
   end
 
-  context "未ログイン時" do
+    context "未ログイン時" do
 
-    before do
-      @instructor = FactoryBot.create(:instructor)
-    end
+      before do
+        @instructor = FactoryBot.create(:instructor)
+      end
 
-    it "レスポンスのステータスが[302（失敗)」になる" do
-      instructor_params = FactoryBot.attributes_for(:instructor)
-      patch :update, params: { id: @instructor.id, instructor: instructor_params }
-      expect(response).to have_http_status "302"
-    end
+      it "レスポンスのステータスが[302（失敗)」になる" do
+        instructor_params = FactoryBot.attributes_for(:instructor)
+        patch :update, params: { id: @instructor.id, instructor: instructor_params }
+        expect(response).to have_http_status "302"
+      end
 
-    it "サインイン画面にリダイレクトする" do
-      instructor_params = FactoryBot.attributes_for(:instructor)
-      patch :update, params: { id: @instructor.id, instructor: instructor_params }
-      expect(response).to redirect_to new_user_session_path
+      it "サインイン画面にリダイレクトする" do
+        instructor_params = FactoryBot.attributes_for(:instructor)
+        patch :update, params: { id: @instructor.id, instructor: instructor_params }
+        expect(response).to redirect_to new_user_session_path
+      end
     end
   end
 end

@@ -24,9 +24,9 @@ RSpec.describe Practice, type: :model do
 
       context 'descriptionカラムのテスト' do
 
-        it 'descriprionが５０１文字以上の場合無効' do
+        it 'descriprionが１００１文字以上の場合無効' do
           practice = build(:practice, description: 'a'*501)
-          expect(practice.errors[:description]).to include('は500文字以下で入力してください。')
+          expect(practice.errors[:description]).to include('は1000文字以下で入力してください。')
       end
 
         it 'descriprionが空場合無効' do
