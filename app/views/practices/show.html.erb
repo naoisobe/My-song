@@ -3,7 +3,7 @@
   <h3 class="pra-title"><%= @practice.title %></h3>
   <hr>
   <%= render 'users/channel', user: @user %>
-  <p class="post-description"><%= @practice.description %></p>
+  <p class="post-description"><%= simple_format(@practice.description) %></p>
   <hr>
   <%= link_to "投稿を編集する", edit_practice_path(@practice), class:"btn btn-primary btn-block" %>
 </div>
