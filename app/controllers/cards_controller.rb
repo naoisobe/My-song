@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = 
+    Payjp.api_key = 'sk_test_dadbfe665e6cc6dd9cad299f'
     if params['payjp-token'].blank?
       redirect_to new_card_path
     else
@@ -40,10 +40,10 @@ class CardsController < ApplicationController
   private
 
   def authenticate_premium_member
-    redirect_to songs_path if current_user.member_status == "有料会員"
+    redirect_to songs_path if current_user.member_status == '有料会員'
   end
 
   def authenticate_general_member
-    redirect_to songs_path if current_user.member_status == "一般会員"
+    redirect_to songs_path if current_user.member_status == '一般会員'
   end
 end
