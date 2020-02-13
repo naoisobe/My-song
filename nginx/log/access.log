@@ -5257,3 +5257,4 @@
 172.18.0.1 - - [13/Feb/2020:08:59:17 +0000] "GET / HTTP/1.1" 302 99 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
 172.18.0.1 - - [13/Feb/2020:08:59:18 +0000] "GET /songs HTTP/1.1" 200 9662 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
 172.18.0.1 - - [13/Feb/2020:09:01:10 +0000] "GET /songs HTTP/1.1" 200 9662 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+172.18.0.1 - - [13/Feb/2020:11:17:26 +0000] "GET / HTTP/1.1" 500 147078 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"

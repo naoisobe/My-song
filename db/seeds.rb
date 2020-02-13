@@ -7,17 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(
-  email: "test@example.com",
-  password: "testpass",
-  name: "ゲスト"
+  email: 'test@example.com',
+  password: 'testpass',
+  name: 'ゲスト'
 )
 
 User.create!
-20.times do |n|
+20.times do
   User.create!(
-  name: Faker::Name.name,
-  email: Faker::Internet.email,
-  password: "password"
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: 'password'
   )
 end
 

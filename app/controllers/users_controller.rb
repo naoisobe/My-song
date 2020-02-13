@@ -19,11 +19,11 @@ class UsersController < ApplicationController
       flash[:notice] = 'テストユーザーのため編集できません'
       render 'edit'
     elsif @user.update(user_params)
-        flash[:notice] = 'ユーザー情報が更新されました'
-        redirect_to user_path(@user)
+      flash[:notice] = 'ユーザー情報が更新されました'
+      redirect_to user_path(@user)
     else
-        @error = @user
-        render 'edit'
+      @error = @user
+      render 'edit'
     end
   end
 
