@@ -15,17 +15,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.email == "test@example.com"
-      flash[:notice] = "テストユーザーのため編集できません"
+    if @user.email == 'test@example.com'
+      flash[:notice] = 'テストユーザーのため編集できません'
       render 'edit'
-    else
-      if @user.update(user_params)
+    elsif @user.update(user_params)
         flash[:notice] = 'ユーザー情報が更新されました'
         redirect_to user_path(@user)
-      else
+    else
         @error = @user
         render 'edit'
-      end
     end
   end
 
