@@ -47,10 +47,11 @@ end
     user_id: 1,
     follow_id: i + 2
   )
-
+end
 10.times do |i|
   Relationship.create!(
     user_id: i + 2,
     follow_id: 1
   )
+end
 
