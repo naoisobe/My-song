@@ -13,7 +13,7 @@ User.create!(
 )
 
 User.create!
-20.times do |n|
+20.times do
   User.create!(
   name: Faker::Name.name,
   email: Faker::Internet.email,
@@ -44,13 +44,13 @@ end
 
 10.times do |i|
   Relationship.create!(
-    user_id: 1
+    user_id: 1,
     follow_id: i + 2
   )
 
 10.times do |i|
   Relationship.create!(
-    user_id: i + 2
+    user_id: i + 2,
     follow_id: 1
   )
 
