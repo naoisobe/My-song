@@ -11,7 +11,10 @@
             <%= link_to "使い方","", class:"nav-link"%>
           </li>
           <li class = "nav-item">
-            <%= link_to "歌を投稿する", new_song_path, class:"nav-link", id:"modal-song-new" %>
+            <%= link_to "投稿一覧","", class:"nav-link"%>
+          </li>
+          <li class = "nav-item">
+            <%= link_to "歌を投稿する", songs_path, class:"nav-link"%>
           </li>
           <% if current_user.member_status == "一般会員" %>
           <li class = "nav-item">
