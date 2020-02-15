@@ -14,12 +14,12 @@
             <%= image_tag song.thumbnail.to_s, class:"thumbnail" %>
             <div class="card-body">
               <h5><%= song.title %></h5>
-                <%= link_to user_path(song.user) do %>
-                  <div class="user-card">
-                    <div><%= image_tag song.user.profile_image.to_s, class:"post-profile" %></div>
-                    <p class="user-name over-string"><%= song.user.name %></p>
-                  </div>
-                <% end %>
+              <%= link_to song_my_list_path(song.user) do %>
+                <div class="user-card">
+                  <div><%= image_tag song.user.profile_image.to_s, class:"post-profile" %></div>
+                  <p class="user-name over-string"><%= song.user.name %></p>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
