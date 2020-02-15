@@ -17,23 +17,7 @@
           <p>説明文</p>
           <%= f.text_area :description, class:"form-control form" %>
         </div>
-        <div class="btn-group">
-          <%= f.submit "更新", class:"btn btn-primary mr-3"%>
-          <button type="button" class="btn btn-danger ml-3" id="modal-open-btn">削除</button>
-          <%= link_to "", practice_path(@practice), method: :delete,id: "song-delete-btn" %> 
-          <div id="overlay">
-            <div id="modalWindow">
-              <div class="modal-message-box">
-                <p>確認</p>
-                <p>本当に削除しますか？</p>
-                <div class="choice-box">
-                  <button type="button" id="delete-comformation-btn" class="btn btn-danger">削除する</button>
-                  <button type="button" id="modal-close-btn" class="btn cancel-btn">キャンセル</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <%= render 'delete-confirm', f:f, practice: @practice %>
       <% end %>
     </div>
   </div>

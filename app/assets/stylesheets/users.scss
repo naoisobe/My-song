@@ -25,7 +25,7 @@
 }
 .description{
   word-break: break-all;
-  width: 40%;
+  width: 60%;
   margin: 0 auto;
     & p{
       text-align: left;
@@ -40,7 +40,7 @@
 
 @media screen and (max-width: 768px){
   .description{
-    width: 80%;
+    width: 60%;
   }
   .back-btn{
     display: inline-block;

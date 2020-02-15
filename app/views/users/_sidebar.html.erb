@@ -17,7 +17,7 @@
       </div>
     <% end %>
 
-  <% if user.member_status == 1 %>
+  <% if user.member_status == "有料会員" %>
     <%= link_to practice_my_list_path(user) do %>
       <div class="list-group-item list-group-item-action list-color <%= "visit-page" if current_page?(practice_my_list_path) %>">
         <p>トレーニング投稿</p>
