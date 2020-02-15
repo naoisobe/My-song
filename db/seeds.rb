@@ -6,14 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(
-  email: "test@example.com",
-  password: "testpass",
-  name: "ゲスト"
-)
+# User.create!(
+#   email: "test@example.com",
+#   password: "testpass",
+#   name: "ゲスト"
+# )
 
-User.create!
-20.times do
+30.times do
   User.create!(
   name: Faker::Name.name,
   email: Faker::Internet.email,
@@ -23,7 +22,7 @@ end
 
 15.times do |i|
   Like.create!(
-    song_id: 1,
+    song_id: 4,
     user_id: i + 1
   )
 end

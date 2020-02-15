@@ -22,6 +22,7 @@ class CardsController < ApplicationController
 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, subscription_id: subscription.id, card_id: customer.default_card)
       @card.save
+      flash[:notice] = '有料会員に変更されました'
       redirect_to songs_path
     end
     current_user.update(member_status: 1)
@@ -33,6 +34,7 @@ class CardsController < ApplicationController
       subscription = Payjp::Subscription.retrieve(card.subscription_id)
       subscription.cancel
       current_user.update(member_status: 0)
+      flash[:notice] = '定期課金を解約しました'
       redirect_to songs_path
     end
   end

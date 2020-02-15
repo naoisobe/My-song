@@ -1,0 +1,21 @@
+<div class="btn-group">
+  <%= f.submit "更新", class:"btn btn-primary mr-3"%>
+  <button type="button" class="btn btn-danger ml-3" id="modal-open-btn">削除</button>
+  <% if current_page?(edit_song_path) %>
+    <%= link_to "", song_path(song), method: :delete,id: "song-delete-btn" %>
+  <% else %>
+    <%= link_to "", practice_path(practice), method: :delete,id: "song-delete-btn" %>
+  <% end %>
+  <div id="overlay">
+    <div id="modalWindow">
+      <div class="modal-message-box">
+        <p>確認</p>
+        <p>本当に削除しますか？</p>
+        <div class="choice-box">
+          <button type="button" id="delete-comformation-btn" class="btn btn-danger">削除する</button>
+          <button type="button" id="modal-close-btn" class="btn cancel-btn">キャンセル</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
