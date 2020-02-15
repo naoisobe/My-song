@@ -1,7 +1,7 @@
 <h1>My Song</h1>
 <p>自分が投稿した歌に対しインストラクターの方がアドバイスをしてくれる歌投稿サイトです。
 <h3>リンク</h3>
-http://mysong.work/
+<p>http://mysong.work/</p>
 <img width="1415" alt="スクリーンショット 2020-02-15 19 00 21" src="https://user-images.githubusercontent.com/56349921/74586237-f8204600-5028-11ea-8bb6-419353bdd142.png">
 
 <ul>
