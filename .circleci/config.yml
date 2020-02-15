@@ -112,7 +112,9 @@ workflows:
   build_and_test_and_deploy:
     jobs:
       - rubocop
-      - rspec
+      - rspec:
+          requires:
+            - rubocop
 
 
 
