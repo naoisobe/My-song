@@ -14,9 +14,9 @@
 
 30.times do
   User.create!(
-  name: Faker::Name.name,
-  email: Faker::Internet.email,
-  password: "password"
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: 'password'
   )
 end
 
@@ -47,10 +47,17 @@ end
     follow_id: i + 2
   )
 end
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 10.times do |i|
   Relationship.create!(
     user_id: i + 2,
     follow_id: 1
   )
 end
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
