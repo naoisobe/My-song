@@ -32,7 +32,7 @@ class CardsController < ApplicationController
     Payjp.api_key = 'sk_test_dadbfe665e6cc6dd9cad299f'
     if card = Card.find_by(user_id: current_user.id)
       subscription = Payjp::Subscription.retrieve(card.subscription_id)
-      subscription.cancel 
+      subscription.cancel
       current_user.update(member_status: 0)
       flash[:notice] = '定期課金を解約しました'
       redirect_to songs_path
