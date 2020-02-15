@@ -2,5 +2,44 @@
 <p>自分が投稿した歌に対しインストラクターの方がアドバイスをしてくれる歌投稿サイトです。
 <h3>リンク</h3>
 http://mysong.work/
-![Uploading スクリーンショット 2020-02-15 19.00.21.png…]()
+<img width="1415" alt="スクリーンショット 2020-02-15 19 00 21" src="https://user-images.githubusercontent.com/56349921/74586237-f8204600-5028-11ea-8bb6-419353bdd142.png">
 
+<ul>
+  <li>新規登録ページにゲストログインボタンが用意してありますので、ご自由にお使いください</li>
+  <li>ゲストログインした場合ユーザー情報の編集はできませんので、ご了承ください ※有料会員へのアップグレードは可</li>
+  <li>ゲストユーザーでログインした場合すでに会員ステータスが有料会員になっている可能性がございます。
+    その場合、決済機能の検証には新規登録でユーザーを登録してご利用ください。</li>
+</ul>
+
+<h2>使用技術</h2>
+<h4>バックエンド</h4>
+<ul>
+  <li>Ruby2.6.3<li>
+  <li>Rails5.2.2</li>
+  <li>Docker</li>
+  <li>Nginx</li>
+  <li>Rspec</li>
+  <li>CircleCI</li>
+  <li>AWS(EC2、RDS for MySQL, S3, VPC, Route53)
+</ul>
+<h4>フロント</h4>
+<ul>
+  <li>scss<li>
+  <li>bootstrap</li>
+  <li>jquery</li>
+</ul>
+
+<h2>機能一覧</h2>
+<ul>
+  <li>CircleCIを用いたCI機能</li>
+  <li>Rspecによる自動テスト</li>
+  <li>Rubocopによる自動コード解析</li>
+  <li>ユーザー登録・ユーザーログイン機能（devise）</li>
+  <li>音声・動画・画像各種投稿機能（CarrierWave）</li>
+  <li>いいね機能（非同期）</li>
+  <li>フォロー機能（非同期）</li>
+  <li>コメント機能（非同期）</li>
+  <li>ページネーション機能（Kaminari）</li>
+  <li>検索機能</li>
+  <li>定期課金機能(PAY.JP API)
+</ul>
