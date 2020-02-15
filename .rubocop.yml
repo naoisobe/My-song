@@ -61,6 +61,9 @@ Metrics/BlockLength:
 
 Metrics/MethodLength:
   Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
   
 Lint/SuppressedException:
   Enabled: false
