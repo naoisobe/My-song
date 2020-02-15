@@ -14,17 +14,17 @@ http://mysong.work/
 <h2>使用技術</h2>
 <h4>バックエンド</h4>
 <ul>
-  <li>Ruby2.6.3<li>
+  <li>Ruby2.6.3</li>
   <li>Rails5.2.2</li>
   <li>Docker</li>
   <li>Nginx</li>
   <li>Rspec</li>
   <li>CircleCI</li>
-  <li>AWS(EC2、RDS for MySQL, S3, VPC, Route53)
+  <li>AWS(EC2、RDS for MySQL, S3, VPC, Route53)</li>
 </ul>
 <h4>フロント</h4>
 <ul>
-  <li>scss<li>
+  <li>scss</li>
   <li>bootstrap</li>
   <li>jquery</li>
 </ul>
@@ -41,5 +41,5 @@ http://mysong.work/
   <li>コメント機能（非同期）</li>
   <li>ページネーション機能（Kaminari）</li>
   <li>検索機能</li>
-  <li>定期課金機能(PAY.JP API)
+  <li>定期課金機能(PAY.JP API)</li>
 </ul>
