@@ -6,7 +6,7 @@
   <div class="home-nav">
     <h2 style="margin:0">人気な投稿</h2>
     <%= link_to songs_path, class:"song-link" do %>
-      <h5>投稿一覧へ</h5>
+      <h5 class="nav-songs">投稿一覧へ</h5>
     <% end %>
   </div>
   <ul class="song-scroll-list">
@@ -14,7 +14,7 @@
       <li class="song-scroll-item">
         <div class="song-scroll-card song-card">
           <%= link_to song_path(song) do %>
-            <%= image_tag song.thumbnail.to_s, class:"thumbnail" %>
+            <%= image_tag song.thumbnail.to_s, class:"home-thumb" %>
             <div class="card-body home-body">
               <h5 class="over-string"><%= song.title %></h5>
               <div class="user-card home-card">
