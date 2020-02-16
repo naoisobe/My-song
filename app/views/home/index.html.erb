@@ -18,7 +18,7 @@
             <div class="card-body home-body">
               <h5 class="over-string"><%= song.title %></h5>
               <div class="user-card home-card">
-                <%= link_to user_path(song.user) do %>
+                <%= link_to song_my_list_path(song.user) do %>
                   <%= image_tag song.user.profile_image.to_s, class:"home-profile" %>
                 <% end %>
               </div>

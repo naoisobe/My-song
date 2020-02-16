@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[create destroy]
 
   def create
     @song = Song.find(params[:song_id])

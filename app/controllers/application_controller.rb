@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[email login_id]) # 新規登録時(sign_up時)にnameというキーのパラメーターを追加で許可する
   end
 
+  def after_sign_in_path_for(resource)
+    songs_path
+  end
+  
   def not_authenticate_user
     redirect_to songs_path if user_signed_in?
   end
