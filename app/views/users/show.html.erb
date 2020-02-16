@@ -15,22 +15,22 @@
         <%= render 'relationships/follow_button', user: @user, relation: @relation, follow: @new_follow %>
       </div>
       <%= "会員ステータス: #{@user.member_status}" if @user == current_user %>
-      <% if current_user.member_status == "有料会員" %>
-        <p class="subsc-cancel" id="modal-open-btn">解約する</p>
-      <% end %>
-      <%= link_to "", card_path(current_user.cards), method: :delete,id: "song-delete-btn" %> 
-      <div id="overlay">
-        <div id="modalWindow">
-          <div class="modal-message-box">
-            <p>確認</p>
-            <p>本当に解約しますか？</p>
-            <div class="choice-box">
-              <button type="button" id="delete-comformation-btn" class="btn btn-danger">解約する</button>
-              <button type="button" id="modal-close-btn" class="btn cancel-btn">キャンセル</button>
+      <% if user_signed_in? && current_user.member_status == "有料会員"  %>
+          <p class="subsc-cancel" id="modal-open-btn">解約する</p>
+        <%= link_to "", card_path(current_user.cards), method: :delete,id: "song-delete-btn" %> 
+        <div id="overlay">
+          <div id="modalWindow">
+            <div class="modal-message-box">
+              <p>確認</p>
+              <p>本当に解約しますか？</p>
+              <div class="choice-box">
+                <button type="button" id="delete-comformation-btn" class="btn btn-danger">解約する</button>
+                <button type="button" id="modal-close-btn" class="btn cancel-btn">キャンセル</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
       <div class="description"><%= simple_format(@user.description) %></div>
       <p><%= link_to "ログアウト", destroy_user_session_path,method: :delete, class:"btn btn-danger logout-btn" if @user == current_user %></p>
       <p><%= link_to "戻る", :back, class:"btn btn-light back-btn"%></p>
