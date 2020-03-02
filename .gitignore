@@ -16,6 +16,9 @@
 # Ignore docker db
 /docker/db/data
 
+#Ignore nginx log
+/nginx/log
+
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
