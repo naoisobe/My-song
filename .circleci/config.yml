@@ -115,7 +115,7 @@ workflows:
       - rspec:
           requires:
             - rubocop
-      - deploy
+      - deploy:
           requires:
             - rubocop
           filters:
