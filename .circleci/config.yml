@@ -85,16 +85,15 @@ jobs:
           name: "Log in to AWS ECR"
           command: eval $(aws ecr get-login --no-include-email --region ap-northeast-1)
       - run:
-          name: "rails push"
-          command: |
-            docker build -f ./asd/Dockerfile -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1 .
-            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1
-      - run:
           name: "nginx push"
           command: |
             docker build -f ./containers/nginx/Dockerfile -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_server:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_server:$CIRCLE_SHA1 .
-            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_server:$CIRCLE_SHA1
-
+            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northea      
+      - run:
+          name: "rails push"
+          command: |
+            docker build -f ./Dockerfile -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1 .
+            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1st-1.amazonaws.com/mysong_server:$CIRCLE_SHA1
       - run:
           name: "DB Migrate"
           command: |
