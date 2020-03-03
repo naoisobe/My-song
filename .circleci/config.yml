@@ -87,7 +87,7 @@ jobs:
       - run:
           name: "rails push"
           command: |
-            docker build -f ./Dockerfile -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1 .
+            docker build -f Dockerfile -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1 .
             docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1
       - run:
           name: "nginx push"
