@@ -87,12 +87,14 @@ jobs:
       - run:
           name: "rails push"
           command: |
-            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1 .
+            docker build .
+            docker tag mysong_web:latest 133584236660.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:latest $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1 .
             docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1
       - run:
           name: "nginx push"
           command: |
-            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_server:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_server:$CIRCLE_SHA1 .
+            docker build .
+            docker tag mysong_server:latest 133584236660.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_server:latest $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_server:$CIRCLE_SHA1 .
             docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_server:$CIRCLE_SHA1
 
       - run:
