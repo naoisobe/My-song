@@ -2,7 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
-version: 2
+version: 2.1
 jobs:
   rubocop:
     docker:
@@ -62,7 +62,6 @@ jobs:
           name: Rspec
           command: bundle exec rspec
 
-version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@6.7.0
   aws-ecs: circleci/aws-ecs@1.1.0
