@@ -1,7 +1,7 @@
 {
   "containerOverrides": [
     {
-      "name": "pf-ecs",
+      "name": "web",
       "command": [
         "bundle",
         "exec",
