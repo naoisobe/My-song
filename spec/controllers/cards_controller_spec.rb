@@ -63,7 +63,7 @@ RSpec.describe CardsController, type: :controller do
       end
 
       it "サインインページに遷移する" do
-        delete: destroy
+        delete :destroy
         expect(response).to redirect_to new_user_session_path
       end
     end
