@@ -1,7 +1,7 @@
 {
   "containerOverrides": [
     {
-      "name": "pf-task",
+      "name": "web",
       "command": [
         "bundle",
         "exec",
