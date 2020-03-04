@@ -1,7 +1,7 @@
 {
   "containerOverrides": [
     {
-      "name": "pf-ecs",
+      "name": "pf-task",
       "command": [
         "bundle",
         "exec",
