@@ -2,7 +2,7 @@ class PracticesController < ApplicationController
   before_action :not_login_user, only: [:index]
   before_action :not_authenticate_user, only: [:index]
   before_action :set_practice, only: %i[show edit destroy update]
-  before_action :self_practice, only: %i[show edit update destroy]
+  before_action :self_practice, only: %i[show edit update destroy new]
 
   def index
     @practice = Practice.page(params[:page]).per(16).order(created_at: :desc)
@@ -68,6 +68,12 @@ class PracticesController < ApplicationController
   end
 
   def self_practice
-    redirect_to songs_path unless @practice.user == current_user || instructor_signed_in?
+    unless @practice.user == current_user || instructor_signed_in?
+      if user_signed_in?
+        redirect_to songs_path
+      else
+        redirect_to new_user_session_path
+      end
+    end
   end
 end
