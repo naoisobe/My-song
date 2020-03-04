@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     @songs = @q.result(distinct: true)
   end
 
+  def not_login_user
+    redirect_to new_user_session_path unless instructor_signed_in? || user_signed_in?
+  end
+
   def set_user
     @user = User.find(params[:id])
   end

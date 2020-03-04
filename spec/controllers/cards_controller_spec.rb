@@ -39,7 +39,7 @@ RSpec.describe CardsController, type: :controller do
     context "有料会員がログインしていた場合" do
 
       before do
-        @user = FactoryBot.create(:user, member_status: 1 )
+        @user = FactoryBot.create(:user, member_status: 0 )
       end
 
       it "レスポンスのステータスが[302（失敗)」になる" do
@@ -70,7 +70,7 @@ RSpec.describe CardsController, type: :controller do
   end
 
   describe "destroyアクション" do
-    context "一般会員していた場合" do
+    context "一般会員の場合" do
 
       before do
         @user = FactoryBot.create(:user)

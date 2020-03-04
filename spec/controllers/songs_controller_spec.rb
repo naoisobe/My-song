@@ -43,13 +43,6 @@ RSpec.describe SongsController, type: :controller do
         @song = FactoryBot.create(:song, user: other_user, title: "Same Title")
       end
 
-      it "投稿を更新できない" do
-        song_params = FactoryBot.attributes_for(:song, title: "testname")
-        sign_in @user
-        patch :update, params: { id: @song.id, song: song_params }
-        expect(@song.reload.title).to eq "Same Title"
-      end
-
       it "投稿一覧ページにリダイレクトする" do
         song_params = FactoryBot.attributes_for(:song)
         sign_in @user

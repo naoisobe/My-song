@@ -1,5 +1,6 @@
 class PracticesController < ApplicationController
-  before_action :authenticate_instructor!, only: %i[index]
+  before_action :not_login_user, only: %i[index]
+  before_action :not_authenticate_user, only: %i[:index]
   before_action :set_practice, only: %i[show edit destroy update]
   before_action :self_practice, only: %i[show edit update destroy]
 
@@ -70,7 +71,4 @@ class PracticesController < ApplicationController
     redirect_to songs_path unless @practice.user == current_user || instructor_signed_in?
   end
 
-  def authenticate_instructor
-    redirect_to new_user_session_path unless instructor_signed_in? || user_signed_in?
-  end
 end
