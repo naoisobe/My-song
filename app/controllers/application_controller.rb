@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[email login_id]) # 新規登録時(sign_up時)にnameというキーのパラメーターを追加で許可する
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     songs_path
   end
-  
+
   def not_authenticate_user
     redirect_to songs_path if user_signed_in?
   end
@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
   def search
     @q = Song.ransack(params[:q])
     @songs = @q.result(distinct: true)
+  end
+
+  def not_login_user
+    redirect_to new_user_session_path unless instructor_signed_in? || user_signed_in?
   end
 
   def set_user
