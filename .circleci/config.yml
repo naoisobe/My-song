@@ -51,7 +51,6 @@ jobs:
             - v1-dependencies-
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - run: yarn install
-      - run: brew install sox
       - save_cache:
           paths:
             - ./vendor/bundle
