@@ -30,7 +30,8 @@ class CardsController < ApplicationController
 
   def destroy
     Payjp.api_key = 'sk_test_dadbfe665e6cc6dd9cad299f'
-    if card = Card.find_by(user_id: current_user.id)
+    if Card.find_by(user_id: current_user.id)
+      card = Card.find_by(user_id: current_user.id)
       subscription = Payjp::Subscription.retrieve(card.subscription_id)
       subscription.cancel
       current_user.update(member_status: 0)
