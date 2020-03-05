@@ -47,7 +47,7 @@ jobs:
     working_directory: ~/My-song
     steps:
       - checkout
-      - run: apt-get update && apt-get install -y sox
+      - run: sudo apt-get update && apt-get install -y sox
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
