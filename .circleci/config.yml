@@ -69,14 +69,12 @@ jobs:
 
 workflows:
   version: 2.1
-  test:
+  test-and-deploy:
     jobs:
       - rubocop
       - rspec:
           requires:
             - rubocop
-  deploy:
-    jobs:
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           region: AWS_REGION
