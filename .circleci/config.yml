@@ -1,32 +1,79 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
 version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@6.7.0
   aws-ecs: circleci/aws-ecs@1.1.0
+jobs:
+  rubocop:
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers-legacy
+        environment:
+          RAILS_ENV: test
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: root
+    working_directory: ~/My-song
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: yarn install
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      # Rubocop
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+
+  rspec:
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers-legacy
+        environment:
+          RAILS_ENV: test
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: root
+    working_directory: ~/My-song
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: yarn install
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+      # Rspec
+      - run:
+          name: Rspec
+          command: bundle exec rspec
+
 workflows:
-  # Nginxのデプロイ
-  nginx-deploy:
+  version: 2.1
+  test:
     jobs:
-      - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
-          region: AWS_REGION
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          create-repo: true
-          dockerfile: ./containers/nginx/Dockerfile
-          repo: mysong_server
-          tag: "${CIRCLE_SHA1}"
-          filters:
-            branches:
-              only: test
-      - aws-ecs/deploy-service-update:
+      - rubocop
+      - rspec:
           requires:
-            - aws-ecr/build-and-push-image
-          family: 'pf-task' # ECSのタスク定義名
-          cluster-name: 'pf-cluster'  #ECSのクラスターのARN
-          service-name: 'pf-service'  #サービス名
-          container-image-name-updates: "container=server,tag=${CIRCLE_SHA1}"
-  # Railsのデプロイ
-  rails-deploy:
+            - rubocop
+  deploy:
     jobs:
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
@@ -47,3 +94,6 @@ workflows:
           cluster-name: 'pf-cluster' #ECSのクラスターのARN
           service-name: 'pf-service' #サービス名
           container-image-name-updates: "container=web,tag=${CIRCLE_SHA1}"
+
+
+
