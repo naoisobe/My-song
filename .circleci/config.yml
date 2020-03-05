@@ -13,7 +13,7 @@ workflows:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: true
           dockerfile: ./containers/nginx/Dockerfile
-          repo: server
+          repo: mysong_server
           tag: "${CIRCLE_SHA1}"
           filters:
             branches:
@@ -35,7 +35,7 @@ workflows:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: true
           dockerfile: ./rails/Dockerfile
-          repo: web
+          repo: mysong_web
           tag: "${CIRCLE_SHA1}"
           filters:
             branches:
