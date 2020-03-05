@@ -12,14 +12,6 @@
 #   name: "ゲスト"
 # )
 
-30.times do
-  User.create!(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: 'password'
-  )
-end
-
 15.times do |i|
   Like.create!(
     song_id: 4,
