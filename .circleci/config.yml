@@ -54,6 +54,8 @@ jobs:
             - v1-dependencies-
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - run: yarn install
+      - run: apt-get update
+      - run: apt-get install sox
       - save_cache:
           paths:
             - ./vendor/bundle
@@ -84,6 +86,8 @@ workflows:
           dockerfile: ./rails/Dockerfile
           repo: mysong_web
           tag: "${CIRCLE_SHA1}"
+          requires:
+            - rspec
           filters:
             branches:
               only: test
