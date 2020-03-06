@@ -48,7 +48,7 @@ jobs:
     steps:
       - checkout
 
-      - run: sudo apt-get update -qq && sudo apt-get install -y sox
+      - run: sudo apt-get update -qq && sudo apt-get install -y sox libsox-fmt-mp3
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
