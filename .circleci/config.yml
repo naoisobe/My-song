@@ -72,20 +72,17 @@ workflows:
   test-and-deploy:
     jobs:
       - rubocop
-      - rspec:
-          requires:
-            - rubocop
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           region: AWS_REGION
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: true
-          dockerfile: ./rails/Dockerfile
+          dockerfile: Mysong/Dockerfile
           repo: mysong_web
           tag: "${CIRCLE_SHA1}"
           requires:
-            - rspec
+            - rubocop
           filters:
             branches:
               only: test
@@ -96,6 +93,3 @@ workflows:
           cluster-name: 'pf-cluster' #ECSのクラスターのARN
           service-name: 'pf-service' #サービス名
           container-image-name-updates: "container=web,tag=${CIRCLE_SHA1}"
-
-
-
