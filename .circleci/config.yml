@@ -85,7 +85,7 @@ workflows:
           repo: mysong_web
           tag: "${CIRCLE_SHA1}"
           requires:
-            - rubocop
+            - rspec
           filters:
             branches:
               only: master
