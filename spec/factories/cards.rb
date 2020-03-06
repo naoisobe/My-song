@@ -1,7 +1,5 @@
 FactoryBot.define do
-  factory :card do
-    user { nil }
-    card_id { "MyString" }
-    customer_id { "MyString" }
+  factory :card, class: Card do
+    user
   end
 end

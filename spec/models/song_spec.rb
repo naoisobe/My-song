@@ -27,6 +27,7 @@ RSpec.describe Song, type: :model do
 
         it 'descriprionが３０１文字以上の場合無効' do
           song = build(:song, description: 'a'*301)
+          song.valid?
           expect(song.errors[:description]).to include('は300文字以下で入力してください。')
       end
     end
@@ -34,6 +35,7 @@ RSpec.describe Song, type: :model do
     context 'voiceカラムのテスト' do
       it 'voiceが選択されていない場合無効' do
         song = build(:song, voice: nil) 
+        song.valid?
         expect(song.errors[:voice]).to include('が選択されていません。')
       end
     end
