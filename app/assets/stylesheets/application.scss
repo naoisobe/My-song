@@ -397,10 +397,14 @@ a:hover{
   z-index: 1;
 }
 
+#song-modal{
+  height: initial !important;
+}
+
 #modalWindow, #song-modal{
 // モーダルウィンドウの画面を設定(高さ・幅は調整ください)
   width: 500px;
-  height: 250px;
+  height: 200px;
   position: absolute;
 //トップからの場所を指定（topをいじれば高さが調整できます）
   top: 50%;

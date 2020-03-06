@@ -26,18 +26,21 @@ RSpec.describe Practice, type: :model do
 
         it 'descriprionが１００１文字以上の場合無効' do
           practice = build(:practice, description: 'a'*1001)
+          practice.valid?
           expect(practice.errors[:description]).to include('は1000文字以下で入力してください。')
       end
 
         it 'descriprionが空場合無効' do
           practice = build(:practice, description: nil)
+          practice.valid?
           expect(practice.errors[:description]).to include('が入力されていません。')
       end
     end
 
     context 'videoカラムのテスト' do
-      it 'voiceが選択されていない場合無効' do
+      it 'videoが選択されていない場合無効' do
         practice = build(:practice, video: nil) 
+        practice.valid?
         expect(practice.errors[:video]).to include('が選択されていません。')
       end
     end
