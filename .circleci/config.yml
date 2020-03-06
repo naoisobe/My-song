@@ -2,7 +2,10 @@
 #
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
-version: 2
+version: 2.1
+orbs:
+  aws-ecr: circleci/aws-ecr@6.7.0
+  aws-ecs: circleci/aws-ecs@1.1.0
 jobs:
   rubocop:
     docker:
@@ -44,6 +47,8 @@ jobs:
     working_directory: ~/My-song
     steps:
       - checkout
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y sox libsox-fmt-mp3
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
@@ -62,66 +67,32 @@ jobs:
           name: Rspec
           command: bundle exec rspec
 
-  deploy:
-    docker:
-      - image: circleci/python
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: install aws
-          command: |
-            sudo pip install awscli
-            aws --version
-      - run:
-          name: Install ecs-deploy
-          command: |
-            curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a /usr/bin/ecs-deploy
-            sudo chmod +x /usr/bin/ecs-deploy
-      - run:
-          name: Install jq
-          command: sudo apt-get install -y jq
-      - run:
-          name: "Log in to AWS ECR"
-          command: eval $(aws ecr get-login --no-include-email --region ap-northeast-1)
-      - run:
-          name: "Build & Push Docker Image"
-          command: |
-            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:latest -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1 .
-            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1
-
-      - run:
-          name: "DB Migrate"
-          command: |
-            aws ecs run-task \
-              --region ap-northeast-1 \
-              --cluster pf-cluster \
-              --task-definition pf-task \
-              --overrides file://ecs/run_task_db_migrate.json
-      - run:
-          name: "Update Task"
-          command: |
-              aws ecs register-task-definition --family pf-task --cli-input-json --region ap-northeast-1 "$(aws ecs describe-task-definition --task-definition pf-task --region ap-northeast-1 | sed -e "s#$AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:.*\",#$AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/mysong_web:$CIRCLE_SHA1\",#g" | jq '.taskDefinition | { containerDefinitions: .containerDefinitions }')"
-      - run:
-          name: "Update Service"
-          command: |
-              aws ecs update-service --cluster pf-cluster --service pf-service --task-definition pf-task --region ap-northeast-1
-
 workflows:
-  version: 2
-  build_and_test_and_deploy:
+  version: 2.1
+  test-and-deploy:
     jobs:
       - rubocop
       - rspec:
+        requires:
+          - rubocop
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          region: AWS_REGION
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          create-repo: true
+          dockerfile: /Dockerfile
+          repo: mysong_web
+          tag: "${CIRCLE_SHA1}"
           requires:
-            - rubocop
-      - deploy:
-          requires:
-            - rubocop
+            - rspec
           filters:
             branches:
               only: master
-
-
-
-
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build-and-push-image
+          family: 'pf-task' # ECSのタスク定義名
+          cluster-name: 'pf-cluster' #ECSのクラスターのARN
+          service-name: 'pf-service' #サービス名
+          container-image-name-updates: "container=web,tag=${CIRCLE_SHA1}"

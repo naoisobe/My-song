@@ -70,7 +70,7 @@ RSpec.describe CardsController, type: :controller do
   end
 
   describe "destroyアクション" do
-    context "一般会員していた場合" do
+    context "一般会員がログインしていた場合" do
 
       before do
         @user = FactoryBot.create(:user)
