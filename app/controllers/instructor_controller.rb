@@ -1,5 +1,6 @@
 class InstructorController < ApplicationController
-  before_action :authenticate_instructor!, only: %i[edit ms_list update]
+  before_action :not_authenticate_user, only: %i[edit ms_list update]
+  before_action :not_login_user, only: %i[edit ms_list update]
   before_action :set_instructor, only: %i[edit show update]
 
   def edit
