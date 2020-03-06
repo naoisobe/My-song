@@ -73,8 +73,8 @@ workflows:
     jobs:
       - rubocop
       - rspec:
-        requires:
-          - rubocop
+          requires:
+            - rubocop
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           region: AWS_REGION
@@ -85,10 +85,10 @@ workflows:
           repo: mysong_web
           tag: "${CIRCLE_SHA1}"
           requires:
-            - rspec
+            - rubocop
           filters:
             branches:
-              only: test
+              only: master
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
