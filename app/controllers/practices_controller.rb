@@ -79,8 +79,8 @@ class PracticesController < ApplicationController
   end
 
   def  new_separate
-    if user_signed_in? 
-      redirect_to songs_path if current_user.member_status == "一般会員"
+    if user_signed_in?
+      redirect_to songs_path if current_user.member_status == '一般会員'
     else
       redirect_to new_user_session_path
     end
