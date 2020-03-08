@@ -55,3 +55,5 @@
   <li>検索機能</li>
   <li>定期課金機能(PAY.JP API)</li>
 </ul>
+<h2>アーキテクチャ図</h2>
+<img src="https://user-images.githubusercontent.com/56349921/76155836-37781900-6135-11ea-824b-f4d84f4a9854.png">
