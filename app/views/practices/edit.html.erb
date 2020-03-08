@@ -2,7 +2,7 @@
   <div class="row">
     <div class="offset-1 col-10 song-form">
       <%= form_for @practice do |f| %>
-        <%= video_tag @practice.video.to_s, style:"width:100%;"  %>
+        <%= video_tag @practice.video.to_s, style:"width:100%;height:400px;"  %>
         <div class="form-group">
           <label for="file_pra_upload" class="btn form-btn" >
             <p class="form-p">ファイルを選択(mp4)</p>

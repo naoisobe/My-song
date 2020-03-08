@@ -7,7 +7,6 @@ class User < ApplicationRecord
   mount_uploader :profile_image, ProfileImageUploader
 
   has_many :songs, dependent: :destroy
-  has_many :users, dependent: :destroy
   has_many :practices, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy

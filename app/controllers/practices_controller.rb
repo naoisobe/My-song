@@ -3,7 +3,7 @@ class PracticesController < ApplicationController
   before_action :not_authenticate_user, only: [:index]
   before_action :set_practice, only: %i[show edit destroy update]
   before_action :self_practice, only: %i[show edit update destroy]
-  before_action :new_separate, only: %i[new]
+  before_action :new_separate, only: [:new]
   def index
     @practice = Practice.page(params[:page]).per(16).order(created_at: :desc)
   end
@@ -80,7 +80,7 @@ class PracticesController < ApplicationController
 
   def  new_separate
     if user_signed_in?
-      redirect_to songs_path
+      redirect_to songs_path if current_user.member_status == '一般会員'
     else
       redirect_to new_user_session_path
     end
