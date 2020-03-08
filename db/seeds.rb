@@ -9,7 +9,9 @@
 # User.create!(
 #   email: "test@example.com",
 #   password: "testpass",
-#   name: "ゲスト"
+#   name: "ゲスト",
+#   description: "はじめまして、気ままに投稿していきます！フォローお願いします！",
+#   profile_image:File.open("./public/images/guest.jpg")
 # )
 
 15.times do |i|

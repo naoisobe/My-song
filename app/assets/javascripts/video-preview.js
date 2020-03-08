@@ -12,6 +12,7 @@ $(function () {
         $preview.append($('<video>').attr({
           src: e.target.result,
           width: "100%",
+          height: "400px",
           playsinline: "true",
           title: file.name
         }));

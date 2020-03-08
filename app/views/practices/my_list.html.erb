@@ -8,14 +8,13 @@
       <%= render 'users/user_menu', user: @user %>
       <div class="row">
         <% @practices.each do |practice| %>
-          <div class="col-md-6 offset-md-0 col-10 offset-1">
+          <div class="col-md-6 offset-md-0 col-10 offset-1 practice-box">
             <%= link_to practice_path(practice) do %>
             <div class="song-card">
-              <%= video_tag practice.video_url.to_s, style:"width:100%;" %>
+              <%= video_tag practice.video_url.to_s, class:"video-list" %>
               <div class="card-body">
                 <p class="pra-title"><%= practice.title %></p>
               </div>
-            </div>
             <% end %>
           </div>
         <% end %>
