@@ -1,2 +1,4 @@
+<% unless @comment.content == "" %>
 $(".comment_index").append("<%= j(render 'comments/comments', comment: @comment, song: @song) %>")
+<% end %>
 $(".comment-content").val("")

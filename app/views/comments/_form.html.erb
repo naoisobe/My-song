@@ -1,5 +1,9 @@
 <%= form_for comment, url: comments_path, remote: true do |f| %>
 <%= f.hidden_field :song_id, :value => song.id %>
+<% if user_signed_in? %>
 <%= f.text_field :content, placeholder:"コメントを入力", class:"comment-form comment-content" %>
 <%= f.submit "コメント", class:"btn comment-btn"  %>
+<% else %>
+<p class="comment-form comment-content" style="color:dimgray;">コメント機能を利用する場合はログイン必要です</p>
+<% end %>
 <% end %>

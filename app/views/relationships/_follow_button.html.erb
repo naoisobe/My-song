@@ -1,14 +1,15 @@
-<% unless current_user == user or instructor_signed_in?  %>
-  <% if user_signed_in? and current_user.following?(user) %>
-    <%= form_for follow, url:relationship_path(relation), method: :delete, remote: :true do |f| %>
-      <%= f.hidden_field :follow_id, value: user.id %>
-      <%= f.submit "フォローを外す", class:"btn btn-danger fb" %>
-    <% end %>
-  <% else %>
-    <%= form_for follow, url:relationships_path, remote: :true do |f| %>
-      <%= f.hidden_field :follow_id, :value => user.id %>
-      <%= f.submit "フォローする", class: "btn btn-primary fb" %>
+<% if user_signed_in? %>
+  <% unless current_user == user or instructor_signed_in?  %>
+    <% if current_user.following?(user) %>
+      <%= form_for follow, url:relationship_path(relation), method: :delete, remote: :true do |f| %>
+        <%= f.hidden_field :follow_id, value: user.id %>
+        <%= f.submit "フォローを外す", class:"btn btn-danger fb" %>
+      <% end %>
+    <% else %>
+      <%= form_for follow, url:relationships_path, remote: :true do |f| %>
+        <%= f.hidden_field :follow_id, :value => user.id %>
+        <%= f.submit "フォローする", class: "btn btn-primary fb" %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
-

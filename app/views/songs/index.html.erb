@@ -1,7 +1,7 @@
 <div class="search">
   <%= render 'layouts/search' %>
 </div>
-<div class="container-fluid">
+<div class="container">
   <div class="column-select-box">
     <a href="<%= songs_path %>" class="<%= "column-type" if current_page?(songs_path)%>"><h4>新着順</h4></a>
     <a href="<%= songs_rank_path %>" class="<%= "column-type" if current_page?(songs_rank_path)%>"><h4>ランキング</h4></a>
@@ -9,7 +9,7 @@
   <div class="row contents">
     <% @song.each do |song| %>
       <%= link_to song_path(song) do %>
-        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+        <div class="col-lg-4 col-md-6 offset-md-0 offset-1 col-10">
           <div class="song-card">
             <%= image_tag song.thumbnail.to_s, class:"thumbnail" %>
             <div class="card-body">

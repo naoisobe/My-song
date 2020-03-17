@@ -118,14 +118,24 @@ header{
   width: 100px;
   height: 100px;
 }
-
+.container{
+  margin: 0 auto;
+}
+.container-fluid{
+  max-width: 1280px;
+}
 // 検索バー
 .search{
   margin-bottom: 30px;
 }
 .search-bar{
-  height: 50px;
-  width: 600px;
+  max-width: 800px;
+  width: 80%;
+  height: 40px;
+  border-radius: 20px;
+}
+.search-bar:placeholder-shown{
+  padding-left: 10px;
 }
 .search_form{
   width: 75%;
@@ -134,11 +144,15 @@ header{
   border-radius: 10px;
 }
 .search-btn{
-  height: 35px;
+  height: 25px;
   width: 35px;
   padding: 0;
+  margin-left: 10px;
+  line-height: 55px;
   vertical-align: top;
-  background: dimgray;
+}
+.fa-search{
+  color: #3879D9 !important;
 }
 
 // 登録・ログインボタン
@@ -280,6 +294,7 @@ a:hover{
 .comment-box{
   width: 100%;
   padding: 0 5%;
+  margin-bottom: 50px;
 }
 .mini-comment-box{
   display: none;
@@ -572,13 +587,8 @@ a:hover{
     width: 120px;
   }
   .comment-btn{
-    width: initial;
-  }
-  .mini-comment-box{
-    display: initial;
-  }
-  .wide-comment-box{
-    display: none;
+    width: 30%;
+    margin-left: 70%;
   }
   .user-form{
     width: 100%;
@@ -602,5 +612,13 @@ a:hover{
       white-space:nowrap;
       font-size: 1.5rem;
     }
+  }
+}
+@media screen and (max-width: 992px){
+  .mini-comment-box{
+    display: initial;
+  }
+  .wide-comment-box{
+    display: none;
   }
 }
