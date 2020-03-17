@@ -13,7 +13,6 @@
   -webkit-overflow-scrolling: touch;
   width: 100%;
   margin-bottom: 0;
-  height: 340px;
 }
 .song-scroll-item {
   display: inline-block;
@@ -50,6 +49,9 @@
   width: 100%;
   height: 150px;
 }
+.home-body{
+  height: 80px !important;
+}
 @media screen and (max-width: 1000px){
   .song-scroll-item {
     width: 30%;
@@ -58,9 +60,6 @@
 @media screen and (max-width: 768px){
   .section{
     bottom: 20%;
-  }
-  .song-scroll-item {
-    width: 40%;
   }
   .home-profile{
     display: none;
@@ -84,7 +83,14 @@
         font-size: 13px;
       }
   }
-  .home-thumb{
-    height: 110px;
+}
+@media screen and (max-width: 668px){
+  .song-scroll-item {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 460px){
+  .song-scroll-item {
+    width: 60%;
   }
 }
